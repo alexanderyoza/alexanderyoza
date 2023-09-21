@@ -1,7 +1,9 @@
 import Link from 'next/link';
+import { Inter } from '@next/font/google'
 import '../styles/globals.css';
-import styles from '../styles/layout.module.css';
+import Navigate from '../components/Navigate';
 
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
     title: 'Alex Yoza Portfolio',
@@ -9,21 +11,12 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
     return (
         <html lang="en">
             <body>
-                <main>
-                    <nav>
-                        <Link href="/">
-                            About Me
-                        </Link>
-                        <Link href="/projects">
-                            Projects
-                        </Link>
-                        <Link href="/contact">
-                            Contact
-                        </Link>
-                    </nav>
+                <main className={inter.className}>
+                    <Navigate />
                     {children}
                 </main>
             </body>
