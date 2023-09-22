@@ -1,4 +1,13 @@
-.introduction {
+.introductionContainer {
+  width: 100%;
+  height: 88vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sectionContent {
   width: 90%;
   height: 50vh;
   display: flex;
@@ -17,10 +26,29 @@
 .introText h1 {
   font-size: 2rem;
   font-weight: normal;
+  margin-bottom: 20px;
 }
 
 .introText h2 {
   font-size: 1.7rem;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.schoolText h1 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.schoolText h2 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.schoolText h3 {
+  font-size: 1rem;
   font-weight: normal;
 }
 
@@ -35,7 +63,6 @@
 .skills {
   margin-top: 2vh;
   width: 90%;
-  height: 20vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,16 +76,88 @@
 }
 
 .scroll {
-  height: 14vh;
   font-weight: 900;
   font-size: max(min(100px, 10vw), 50px);
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
+  margin-bottom: 10px;
+
+  animation-iteration-count: infinite;
+  -webkit-animation-name: bounce; 
+  animation-name: bounce; 
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s; 
+  -webkit-animation-fill-mode: both; 
+  animation-fill-mode: both; 
+}
+
+@-webkit-keyframes bounce { 
+  0%, 100% {-webkit-transform: translateY(0);}  
+  50% {-webkit-transform: translateY(-5px);} 
+} 
+
+@keyframes bounce { 
+  0%, 100% {transform: translateY(0);} 
+  50% {transform: translateY(-5px);} 
+}
+
+.schoolContainer {
+  width: 100%;
+  height: 88vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.relevantCourses {
+  width: 90%;
+  overflow: hidden;
+  display: flex;
+
+}
+
+.relevantCourses span {
+  font-size: 1.2rem;
+  flex: 0 0 auto;
+  margin-right: 50px;
+}
+
+.tickerContainer1 {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker1 20s linear infinite;
+  animation-delay: -20s;
+}
+
+.tickerContainer2 {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker2 20s linear infinite;
+  animation-delay: -10s;
+}
+
+@keyframes ticker1 {
+  0% {
+      transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
+@keyframes ticker2 {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-200%);
+  }
 }
 
 @media (max-width: 800px) {
-  .introduction {
+  .sectionContent {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -81,8 +180,27 @@
     text-align: center;
   }
 
+  .schoolText h1 {
+    font-size: 0.7rem;
+    font-weight: normal;
+    text-align: center;
+  }
+  
+  .schoolText h2 {
+    font-size: 0.5rem;
+    font-weight: normal;
+    text-align: center;
+  }
+  
+  .schoolText h3 {
+    font-size: 0.5rem;
+    font-weight: normal;
+    text-align: center;
+  }
+
   .introImage {
     height: 50%;
+    box-shadow: 5px 5px 3px rgb(0, 0, 0, 0.25);
   }
 
   .skills {
@@ -94,5 +212,16 @@
   .skillImage {
     width: 10%;
     margin: 5px 2.5%;
+  }
+
+  .relevantCourses {
+    border-top: 2px solid var(--secondary);
+    border-bottom: 2px solid var(--secondary);
+  }
+
+  .relevantCourses span {
+    margin: 4px 25px;
+    font-size: 0.5rem;
+    text-align: center;
   }
 }

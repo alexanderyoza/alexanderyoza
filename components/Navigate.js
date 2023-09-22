@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import styles from '../styles/navigate.module.css';
 import { usePathname } from 'next/navigation';
@@ -9,10 +9,6 @@ import Image from 'next/image';
 function Navigate() {
 
     const pathname = usePathname();
-    
-    useEffect(() => {
-        console.log(pathname);
-    }, [])
 
     return (
         <nav className={styles.navigation}>
