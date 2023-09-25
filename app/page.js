@@ -101,6 +101,69 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            <section className={styles.workContainer}>
+                <h2>
+                    Work Experience
+                </h2>
+                <div className={styles.jobs}>
+                    <div className={styles.workCard}>
+                        <div className={styles.workImage}>
+                            <Image src='/logo.png' alt='freelance web development' fill={true} sizes="(max-width: 200px) 200px"/>
+                        </div>
+                        <h3>
+                            Freelance Web Development
+                        </h3>
+                        <div className={styles.workDate}>
+                            June 2023 - Present
+                        </div>
+                        <div className={styles.learnMore}>
+                            Learn More
+                        </div>
+                    </div>
+                    <div className={styles.workCard}>
+                        <div className={styles.workImage}>
+                            <Image src='/logo.png' alt='freelance web development' fill={true} sizes="(max-width: 200px) 200px"/>
+                        </div>
+                        <h3>
+                            Project Destined
+                        </h3>
+                        <div className={styles.workDate}>
+                            September 2022 - December 2022
+                        </div>
+                        <div className={styles.learnMore}>
+                            Learn More
+                        </div>
+                    </div>
+                    <div className={styles.workCard}>
+                        <div className={styles.workImage}>
+                            <Image src='/logo.png' alt='freelance web development' fill={true} sizes="(max-width: 200px) 200px"/>
+                        </div>
+                        <h3>
+                            Bank of Hawaii
+                        </h3>
+                        <div className={styles.workDate}>
+                            June 2022 - August 2022
+                        </div>
+                        <div className={styles.learnMore}>
+                            Learn More
+                        </div>
+                    </div>
+                    <div className={styles.workCard}>
+                        <div className={styles.workImage}>
+                            <Image src='/logo.png' alt='freelance web development' fill={true} sizes="(max-width: 200px) 200px"/>
+                        </div>
+                        <h3>
+                            Private Event Coordinator
+                        </h3>
+                        <div className={styles.workDate}>
+                            February 2021 - May 2021
+                        </div>
+                        <div className={styles.learnMore}>
+                            Learn More
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     )
 }

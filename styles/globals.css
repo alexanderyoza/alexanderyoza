@@ -35,7 +35,13 @@
   margin: 0;
 }
 
-html,
+html {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 body {
   width: 100vw;
   max-width: 2500px;
@@ -43,9 +49,6 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-
-body {
   color: var(--primary);
   background-color: var(--background);
 }

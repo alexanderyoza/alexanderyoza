@@ -11,18 +11,18 @@ function Navigate() {
     const pathname = usePathname();
 
     return (
-        <nav className={styles.navigation}>
+        <header className={styles.navigation}>
             <div className={styles.container} >
                 <div className={styles.logo}>
                     <Image src='/logo.png' fill={true} sizes="(max-width: 200px) 10vh"/>
                 </div>
-                <div className={styles.navOptions}>
+                <nav className={styles.navOptions}>
                     <Link href='/' className={styles.link}><div className={pathname === '/' ? styles.active : styles.inactive}>About</div></Link>
                     <Link href='/projects' className={styles.link}><div  className={pathname === '/projects' ? styles.active : styles.inactive}>Projects</div></Link>
                     <Link href='/contact' className={styles.link}><div className={pathname === '/contact' ? styles.active : styles.inactive}>Contact</div></Link>
-                </div>
+                </nav>
             </div>
-        </nav>
+        </header>
     );
 }
 
