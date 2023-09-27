@@ -1,0 +1,137 @@
+.top {
+  width: 95%;
+  height: 12vh;
+  margin-bottom: 5vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.workImageContainer {
+  position: relative;
+  height: 100%;
+}
+
+.workImageContainer > div {
+  position: unset !important;
+}
+
+.workImage {
+  object-fit: contain;
+  height: 100% !important;
+  position: relative !important;
+  width: unset !important;
+}
+  
+.date {
+  font-size: 1rem;
+}
+
+.experienceImageContainer {
+  font-size: 0;
+  position: relative;
+  height: 50vh;
+  border: max(2px, min(4px, 1vw)) solid var(--secondary);
+  box-shadow: 10px 10px 5px rgb(0, 0, 0, 0.25);
+  margin-bottom: 5vh;
+}
+
+.experienceImageContainer > div {
+  position: unset !important;
+}
+
+.experienceImage {
+  object-fit: contain;
+  height: 100% !important;
+  position: relative !important;
+  width: unset !important;
+}
+
+.content {
+  width: 95%;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5vh;
+}
+
+.company, .location {
+  font-size: 1.2rem;
+}
+
+.position {
+  font-size: 1rem;
+}
+
+
+.description {
+  margin-bottom: 20vh;
+}
+
+.description div {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 800px) {
+  .top {
+    height: fit-content;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .workImageContainer {
+    height: 10vh;
+    margin-bottom: 10px;
+  }
+    
+  .date {
+    font-size: 0.9rem;
+  }
+  
+  .experienceImageContainer {
+    position: relative;
+    height: fit-content;
+    width: 95%;
+  }
+
+
+  .experienceImage {
+    width: 100% !important;
+    height: unset !important;
+  }
+  
+  .title {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 5vh;
+  }
+  
+  .company {
+    font-weight: normal;
+    font-size: 1rem;
+  }
+
+  .position {
+    font-size: 0.8rem;
+  }
+
+  .location {
+    font-size: 0.7em;
+  }
+  
+  .description {
+    margin-bottom: 20vh;
+  }
+  
+  .description div {
+    font-size: 0.7rem;
+    margin-bottom: 20px;
+  }
+}

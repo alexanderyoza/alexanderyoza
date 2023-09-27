@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import styles from '../styles/navigate.module.css';
+import styles from '../styles/components/navigate.module.css';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 

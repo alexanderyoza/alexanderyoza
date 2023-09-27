@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../styles/page.module.css'
 import '../styles/globals.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
 
@@ -22,41 +23,101 @@ export default function Home() {
                     </div>
                 </div>
                 <div className={styles.skills}>
-                    <div className={styles.skillImage}>
-                        <Image src='/skills/java.png' alt='java' fill={true} sizes="(max-width: 100px) 100px"/>
+                    <div className={styles.popupContainer}>
+                        <div className={styles.popup}>
+                            Java
+                        </div>
+                        <div className={styles.skillImageContainer}>
+                            <Image src='/skills/java.png' alt='java' fill={true} sizes="(max-width: 100px) 100px" className={styles.skillImage}/>
+                        </div>
                     </div>
-                    <div className={styles.skillImage}>
-                        <Image src='/skills/cpp.png' alt='cpp' fill={true} sizes="(max-width: 100px) 100px"/>
+                    <div className={styles.popupContainer}>
+                        <div className={styles.popup}>
+                            C++
+                        </div>
+                        <div className={styles.skillImageContainer}>
+                            <Image src='/skills/cpp.png' alt='cpp' fill={true} sizes="(max-width: 100px) 100px" className={styles.skillImage}/>
+                        </div>
                     </div>
-                    <div className={styles.skillImage}>
-                        <Image src='/skills/c.png' alt='c' fill={true} sizes="(max-width: 100px) 100px"/>
+                    <div className={styles.popupContainer}>
+                        <div className={styles.popup}>
+                            C
+                        </div>
+                        <div className={styles.skillImageContainer}>
+                            <Image src='/skills/c.png' alt='c' fill={true} sizes="(max-width: 100px) 100px" className={styles.skillImage}/>
+                        </div>
                     </div>
-                    <div className={styles.skillImage}>
-                        <Image src='/skills/python.png' alt='python' fill={true} sizes="(max-width: 100px) 100px"/>
+                    <div className={styles.popupContainer}>
+                        <div className={styles.popup}>
+                            Python
+                        </div>
+                        <div className={styles.skillImageContainer}>
+                            <Image src='/skills/python.png' alt='python' fill={true} sizes="(max-width: 100px) 100px" className={styles.skillImage}/>
+                        </div>
                     </div>
-                    <div className={styles.skillImage}>
-                        <Image src='/skills/javascript.png' alt='javscript' fill={true} sizes="(max-width: 100px) 100px"/>
+                    <div className={styles.popupContainer}>
+                        <div className={styles.popup}>
+                            Javascript
+                        </div>
+                        <div className={styles.skillImageContainer}>
+                            <Image src='/skills/javascript.png' alt='javascript' fill={true} sizes="(max-width: 100px) 100px" className={styles.skillImage}/>
+                        </div>
                     </div>
-                    <div className={styles.skillImage}>
-                        <Image src='/skills/react.png' alt='react' fill={true} sizes="(max-width: 100px) 100px"/>
+                    <div className={styles.popupContainer}>
+                        <div className={styles.popup}>
+                            React.js
+                        </div>
+                        <div className={styles.skillImageContainer}>
+                            <Image src='/skills/react.png' alt='react' fill={true} sizes="(max-width: 100px) 100px" className={styles.skillImage}/>
+                        </div>
                     </div>
-                    <div className={styles.skillImage}>
-                        <Image src='/skills/next.png' alt='next' fill={true} sizes="(max-width: 100px) 100px"/>
+                    <div className={styles.popupContainer}>
+                        <div className={styles.popup}>
+                            Next.js
+                        </div>
+                        <div className={styles.skillImageContainer}>
+                            <Image src='/skills/next.png' alt='nextjs' fill={true} sizes="(max-width: 100px) 100px" className={styles.skillImage}/>
+                        </div>
                     </div>
-                    <div className={styles.skillImage}>
-                        <Image src='/skills/firebase.png' alt='firebase' fill={true} sizes="(max-width: 100px) 100px"/>
+                    <div className={styles.popupContainer}>
+                        <div className={styles.popup}>
+                            Firebase
+                        </div>
+                        <div className={styles.skillImageContainer}>
+                            <Image src='/skills/firebase.png' alt='firebase' fill={true} sizes="(max-width: 100px) 100px" className={styles.skillImage}/>
+                        </div>
                     </div>
-                    <div className={styles.skillImage}>
-                        <Image src='/skills/node.png' alt='node' fill={true} sizes="(max-width: 100px) 100px"/>
+                    <div className={styles.popupContainer}>
+                        <div className={styles.popup}>
+                            Node.js
+                        </div>
+                        <div className={styles.skillImageContainer}>
+                            <Image src='/skills/node.png' alt='node' fill={true} sizes="(max-width: 100px) 100px" className={styles.skillImage}/>
+                        </div>
                     </div>
-                    <div className={styles.skillImage}>
-                        <Image src='/skills/mongo.png' alt='mongo' fill={true} sizes="(max-width: 100px) 100px"/>
+                    <div className={styles.popupContainer}>
+                        <div className={styles.popup}>
+                            MongoDB
+                        </div>
+                        <div className={styles.skillImageContainer}>
+                            <Image src='/skills/mongo.png' alt='mongo' fill={true} sizes="(max-width: 100px) 100px" className={styles.skillImage}/>
+                        </div>
                     </div>
-                    <div className={styles.skillImage}>
-                        <Image src='/skills/git.png' alt='git' fill={true} sizes="(max-width: 100px) 100px"/>
+                    <div className={styles.popupContainer}>
+                        <div className={styles.popup}>
+                            git
+                        </div>
+                        <div className={styles.skillImageContainer}>
+                            <Image src='/skills/git.png' alt='git' fill={true} sizes="(max-width: 100px) 100px" className={styles.skillImage}/>
+                        </div>
                     </div>
-                    <div className={styles.skillImage}>
-                        <Image src='/skills/github.png' alt='github' fill={true} sizes="(max-width: 100px) 100px"/>
+                    <div className={styles.popupContainer}>
+                        <div className={styles.popup}>
+                            GitHub
+                        </div>
+                        <div className={styles.skillImageContainer}>
+                            <Image src='/skills/github.png' alt='github' fill={true} sizes="(max-width: 100px) 100px" className={styles.skillImage}/>
+                        </div>
                     </div>
                 </div>
                 <div className={styles.scroll}>
@@ -107,60 +168,64 @@ export default function Home() {
                 </h2>
                 <div className={styles.jobs}>
                     <div className={styles.workCard}>
-                        <div className={styles.workImage}>
-                            <Image src='/logo.png' alt='freelance web development' fill={true} sizes="(max-width: 200px) 200px"/>
+                        <div className={styles.workImageContainer}>
+                            <Image src='/logo.png' alt='freelance web development' fill={true} sizes="(max-width: 300px) 300px" className={styles.workImage} />
                         </div>
                         <h3>
-                            Freelance Web Development
+                            AGY LLC
                         </h3>
+                        <h4>
+                            Freelance Web Developer
+                        </h4>
                         <div className={styles.workDate}>
                             June 2023 - Present
                         </div>
-                        <div className={styles.learnMore}>
-                            Learn More
-                        </div>
+                        <Link href='/work/freelance' className={styles.learnMore}>Learn More</Link>
                     </div>
                     <div className={styles.workCard}>
-                        <div className={styles.workImage}>
-                            <Image src='/logo.png' alt='freelance web development' fill={true} sizes="(max-width: 200px) 200px"/>
+                        <div className={styles.workImageContainer}>
+                            <Image src='/work/project-destined.png' alt='project destined' fill={true} sizes="(max-width: 300px) 300px" className={styles.workImage}/>
                         </div>
                         <h3>
                             Project Destined
                         </h3>
+                        <h4>
+                            Commercial Real Estate Intern
+                        </h4>
                         <div className={styles.workDate}>
                             September 2022 - December 2022
                         </div>
-                        <div className={styles.learnMore}>
-                            Learn More
-                        </div>
+                        <Link href='/work/projectdestined' className={styles.learnMore}>Learn More</Link>
                     </div>
                     <div className={styles.workCard}>
-                        <div className={styles.workImage}>
-                            <Image src='/logo.png' alt='freelance web development' fill={true} sizes="(max-width: 200px) 200px"/>
+                        <div className={styles.workImageContainer}>
+                            <Image src='/work/boh.png' alt='bank of hawaii' fill={true} sizes="(max-width: 300px) 300px" className={styles.workImage}/>
                         </div>
                         <h3>
                             Bank of Hawaii
                         </h3>
+                        <h4>
+                            eSolutions Development Intern
+                        </h4>
                         <div className={styles.workDate}>
                             June 2022 - August 2022
                         </div>
-                        <div className={styles.learnMore}>
-                            Learn More
-                        </div>
+                        <Link href='/work/boh' className={styles.learnMore}>Learn More</Link>
                     </div>
                     <div className={styles.workCard}>
-                        <div className={styles.workImage}>
-                            <Image src='/logo.png' alt='freelance web development' fill={true} sizes="(max-width: 200px) 200px"/>
+                        <div className={styles.workImageContainer}>
+                            <Image src='/work/xxi.JPG' alt='private event coordinator' fill={true} sizes="(max-width: 300px) 300px" className={styles.workImage}/>
                         </div>
                         <h3>
-                            Private Event Coordinator
+                            Prom XXI
                         </h3>
+                        <h4>
+                            Private Event Coordinator
+                        </h4>
                         <div className={styles.workDate}>
                             February 2021 - May 2021
                         </div>
-                        <div className={styles.learnMore}>
-                            Learn More
-                        </div>
+                        <Link href='/work/xxi' className={styles.learnMore}>Learn More</Link>
                     </div>
                 </div>
             </section>

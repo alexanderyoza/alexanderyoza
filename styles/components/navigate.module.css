@@ -1,0 +1,57 @@
+.navigation {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 2500px;
+    height: 10vh;
+    background-color: var(--background);
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.container {
+    width: 95%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 60%;
+    aspect-ratio: 1;
+    position: relative;
+}
+
+.navOptions {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.link {
+    margin-left: 20%;
+    font-size: max(14px, min(calc(8px + 1vw), 36px));
+    text-decoration: underline transparent;
+    text-align: right;
+}
+
+.active {
+    text-decoration: underline var(--secondary);
+    color: var(--primary);
+    transition: 0.2s;
+}
+
+.inactive {
+    text-decoration: underline transparent;
+    transition: 0.2s;
+}
+
+
+.active:hover, .inactive:hover {
+    text-decoration: underline var(--tertiary);
+}
