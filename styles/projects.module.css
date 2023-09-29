@@ -1,0 +1,157 @@
+.project {
+    position: relative;
+    display: inline-block;
+    width: 95%;
+    height: 38vw;
+    background-color: transparent;
+    margin-bottom: 10vh;
+}
+
+.projectBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0;
+    width: 100%;
+    border: 4px solid var(--secondary);
+}
+  
+.projectBackground > div {
+    position: unset !important;
+}
+
+.projectImage {
+    object-fit: contain;
+    height: 100% !important;
+    position: relative !important;
+}
+
+.projectContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: 38vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+    background-color: rgb(0, 0, 0, 0.5);
+    border: 4px solid var(--secondary);
+    font-size: 0;
+}
+
+.projectInfo {
+    height: 80%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.projectInfo h2 {
+    font-weight: normal;
+    font-size: 1.5rem;
+    color: white;
+    -webkit-filter: drop-shadow(5px 5px 3px #222);
+    filter: drop-shadow(5px 5px 3px #222);
+}
+
+.projectLine {
+    width: 100%;
+    height: 8px;
+    margin: 20px 0;
+    background-color: var(--tertiary);
+    box-shadow: 10px 10px 5px rgb(0, 0, 0, 0.25);
+}
+
+.projectSkills5 {
+    margin-top: 10px;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imageContainer5 {
+    width: 15%;
+}
+
+.projectSkills4 {
+    margin-top: 10px;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imageContainer4 {
+    width: 18%;
+}
+
+.imageContainer> div {
+    position: unset !important;
+}
+
+.skillImage {
+    object-fit: contain;
+    height: 100% !important;
+    position: relative !important;
+    -webkit-filter: drop-shadow(5px 5px 3px #222);
+    filter: drop-shadow(5px 5px 3px #222);
+}
+
+.learnMore {
+    font-size: 1rem;
+    position: absolute;
+    bottom: 20px;
+    color: var(--background);
+    text-decoration: underline solid var(--background);
+}
+
+.learnMore:hover {
+
+    color: var(--background);
+    text-decoration: underline solid var(--background);
+}
+
+
+@media (max-width: 800px) {
+    
+    .projectBackground {
+        border: 2px solid var(--secondary);
+    }
+
+    
+    .projectContent {
+        border: 2px solid var(--secondary);
+    }
+    
+    .projectInfo h2 {
+        font-weight: normal;
+        font-size: 0.8rem;
+    }
+    
+    .projectLine {
+        height: 2px;
+        margin: 5px 0;
+    }
+    
+    .projectSkills5 {
+        margin-top: 0;
+        width: 40%;
+    }
+
+    .projectSkills4 {
+        margin-top: 0;
+        width: 40%;
+    }
+    
+    .learnMore {
+        font-size: 0.5rem;
+        bottom: 5px;
+    }
+    
+}

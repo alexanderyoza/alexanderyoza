@@ -1,6 +1,7 @@
 .navigation {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     max-width: 2500px;
     height: 10vh;
@@ -54,4 +55,38 @@
 
 .active:hover, .inactive:hover {
     text-decoration: underline var(--tertiary);
+}
+
+@media (max-width: 800px) {
+    .navigation {
+        height: 20vh;
+    }
+    
+    .container {
+        width: 95%;
+        height: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .logo {
+        height: 40%;
+        aspect-ratio: 1;
+        position: relative;
+    }
+    
+    .navOptions {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .link {
+        margin: 0;
+        width: 33.3%;
+        text-align: center;
+    }
 }

@@ -43,6 +43,10 @@
 }
 
 @media (max-width: 800px) {
+    .container {
+        padding-top: 18vh;
+    }
+
     .contact h1 {
         font-size: 1rem;
     }
