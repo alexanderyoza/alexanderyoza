@@ -16,7 +16,7 @@ export default function Projects() {
                             Union Hills Family Dentistry
                         </h2>
                         <div className={styles.projectLine}></div>
-                        <div className={styles.projectSkills5}>
+                        <div className={styles.projectSkills}>
                             <div className={styles.imageContainer5}>
                                 <Image src='/skills/react.png' alt='react' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
@@ -49,7 +49,7 @@ export default function Projects() {
                             Flashcard Mobile App
                         </h2>
                         <div className={styles.projectLine}></div>
-                        <div className={styles.projectSkills5}>
+                        <div className={styles.projectSkills}>
                             <div className={styles.imageContainer5}>
                                 <Image src='/skills/react.png' alt='react' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
@@ -82,7 +82,7 @@ export default function Projects() {
                             GSF LLC
                         </h2>
                         <div className={styles.projectLine}></div>
-                        <div className={styles.projectSkills4}>
+                        <div className={styles.projectSkills}>
                             <div className={styles.imageContainer4}>
                                 <Image src='/skills/react.png' alt='react' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
@@ -102,10 +102,70 @@ export default function Projects() {
                     </div>
                 </div>
             </section>
+            <section className={styles.project}>
+                <div className={styles.projectBackground}>
+                    <Image src='/projects/racctracc/cover.png' alt='racctracc' fill={true} sizes="(max-width: 300px) 300px" className={styles.projectImage}/>
+                </div>
+                <div className={styles.projectContent}>
+                    <div className={styles.projectInfo}>
+                        <h2>
+                            RaccTracc
+                        </h2>
+                        <div className={styles.projectLine}></div>
+                        <div className={styles.projectSkills}>
+                            <div className={styles.imageContainer6}>
+                                <Image src='/skills/react.png' alt='react' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
+                            </div>
+                            <div className={styles.imageContainer6}>
+                                <Image src='/skills/javascript.png' alt='javascript' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
+                            </div>
+                            <div className={styles.imageContainer6}>
+                                <Image src='/skills/node.png' alt='node' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
+                            </div>
+                            <div className={styles.imageContainer6}>
+                                <Image src='/skills/mongo.png' alt='mongodb' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
+                            </div>
+                            <div className={styles.imageContainer6}>
+                                <Image src='/skills/github.png' alt='github' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
+                            </div>
+                            <div className={styles.imageContainer6}>
+                                <Image src='/skills/git.png' alt='git' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
+                            </div>
+                        </div>
+                        <div className={styles.learnMore}>
+                            Learn More
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section className={styles.project}>
+                <div className={styles.projectBackground}>
+                    <Image src='/projects/stockapi/stockapi-cover.png' alt='stock market api analysis' fill={true} sizes="(max-width: 300px) 300px" className={styles.projectImage}/>
+                </div>
+                <div className={styles.projectContentLight}>
+                    <div className={styles.projectInfo}>
+                        <h2>
+                            Stock Market Analysis
+                        </h2>
+                        <div className={styles.projectLine}></div>
+                        <div className={styles.projectSkills}>
+                            <div className={styles.imageContainer3}>
+                                <Image src='/skills/python.png' alt='python' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
+                            </div>
+                            <div className={styles.imageContainer3}>
+                                <Image src='/skills/github.png' alt='github' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
+                            </div>
+                            <div className={styles.imageContainer3}>
+                                <Image src='/skills/git.png' alt='git' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
+                            </div>
+                        </div>
+                        <div className={styles.learnMore}>
+                            Learn More
+                        </div>
+                    </div>
+                </div>
+            </section>
             
         </main>
     )
 }
-
-//             Stock market api data
-//             Air hockey game
