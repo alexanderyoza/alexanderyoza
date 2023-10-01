@@ -73,9 +73,9 @@
 .projectInfo h2 {
     font-weight: normal;
     font-size: 1.5rem;
-    color: white;
-    -webkit-filter: drop-shadow(5px 5px 3px #222);
-    filter: drop-shadow(5px 5px 3px #222);
+    color: var(--background);
+    -webkit-filter: drop-shadow(2px 2px 1px rgb(0, 0, 0, 0.25));
+    filter: drop-shadow(2px 2px 1px rgb(0, 0, 0, 0.25));
 }
 
 .projectLine {
@@ -83,7 +83,7 @@
     height: 8px;
     margin: 20px 0;
     background-color: var(--tertiary);
-    box-shadow: 10px 10px 5px rgb(0, 0, 0, 0.25);
+    box-shadow: 5px 5px 2px rgb(0, 0, 0, 0.25);
 }
 
 .projectSkills {
@@ -129,8 +129,8 @@
     object-fit: contain;
     height: 100% !important;
     position: relative !important;
-    -webkit-filter: drop-shadow(5px 5px 3px #222);
-    filter: drop-shadow(5px 5px 3px #222);
+    -webkit-filter: drop-shadow(2px 2px 1px rgb(0, 0, 0, 0.25));
+    filter: drop-shadow(2px 2px 1px rgb(0, 0, 0, 0.25));
 }
 
 .learnMore {
@@ -139,12 +139,13 @@
     bottom: 20px;
     color: var(--background);
     text-decoration: underline solid var(--background);
+    transition: 0.2s;
 }
 
 .learnMore:hover {
 
-    color: var(--background);
-    text-decoration: underline solid var(--background);
+    color: var(--tertiary);
+    text-decoration: underline solid var(--tertiary);
 }
 
 
@@ -155,10 +156,10 @@
     }
 
     
-    .projectContent {
+    .projectContent, .projectContentLight {
         border: 2px solid var(--secondary);
     }
-    
+
     .projectInfo h2 {
         font-weight: normal;
         font-size: 0.8rem;

@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../../styles/projects.module.css';
 import '../../styles/globals.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Projects() {
     return (
@@ -33,9 +34,9 @@ export default function Projects() {
                                 <Image src='/skills/git.png' alt='git' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
                         </div>
-                        <div className={styles.learnMore}>
+                        <Link href='/projects/uhfd' className={styles.learnMore}>
                             Learn More
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -46,7 +47,7 @@ export default function Projects() {
                 <div className={styles.projectContent}>
                     <div className={styles.projectInfo}>
                         <h2>
-                            Flashcard Mobile App
+                            Flashcard React Native Mobile App
                         </h2>
                         <div className={styles.projectLine}></div>
                         <div className={styles.projectSkills}>
@@ -66,9 +67,9 @@ export default function Projects() {
                                 <Image src='/skills/git.png' alt='git' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
                         </div>
-                        <div className={styles.learnMore}>
+                        <Link href='/projects/language-app' className={styles.learnMore}>
                             Learn More
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -96,9 +97,9 @@ export default function Projects() {
                                 <Image src='/skills/git.png' alt='git' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
                         </div>
-                        <div className={styles.learnMore}>
+                        <Link href='/projects/gsfhi' className={styles.learnMore}>
                             Learn More
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -132,9 +133,9 @@ export default function Projects() {
                                 <Image src='/skills/git.png' alt='git' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
                         </div>
-                        <div className={styles.learnMore}>
+                        <Link href='/projects/racctracc' className={styles.learnMore}>
                             Learn More
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -159,9 +160,9 @@ export default function Projects() {
                                 <Image src='/skills/git.png' alt='git' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
                         </div>
-                        <div className={styles.learnMore}>
+                        <Link href='/projects/stock-analysis' className={styles.learnMore}>
                             Learn More
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </section>
