@@ -73,7 +73,7 @@
 .projectInfo h2 {
     font-weight: normal;
     font-size: 1.5rem;
-    color: var(--background);
+    color: #F5F5F5;
     -webkit-filter: drop-shadow(2px 2px 1px rgb(0, 0, 0, 0.25));
     filter: drop-shadow(2px 2px 1px rgb(0, 0, 0, 0.25));
 }
@@ -137,8 +137,8 @@
     font-size: 1rem;
     position: absolute;
     bottom: 20px;
-    color: var(--background);
-    text-decoration: underline solid var(--background);
+    color: #F5F5F5;
+    text-decoration: underline solid #F5F5F5;
     transition: 0.2s;
 }
 
