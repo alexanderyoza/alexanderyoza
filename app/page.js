@@ -175,12 +175,12 @@ export default function Home() {
                             AGY LLC
                         </h3>
                         <h4>
-                            Freelance Web Developer
+                            Web Developer and Consultant
                         </h4>
                         <div className={styles.workDate}>
                             June 2023 - Present
                         </div>
-                        <Link href='/work/freelance' className={styles.learnMore}>Learn More</Link>
+                        <Link href='/work/agyllc' className={styles.learnMore}>Learn More</Link>
                     </div>
                     <div className={styles.workCard}>
                         <div className={styles.workImageContainer}>

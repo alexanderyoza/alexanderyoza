@@ -24,7 +24,7 @@ export default function Freelance() {
                             AGY LLC
                         </div>
                         <div className={styles.position}>
-                            Freelance Web Developer
+                            Web Developer and Consultant (Self-Employed)
                         </div>
                     </div>
                     <div className={styles.location}>
