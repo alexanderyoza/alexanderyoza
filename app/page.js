@@ -162,11 +162,44 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            <section className={styles.schoolContainer}>
+                <div className={styles.sectionContent}>
+                    <div className={styles.schoolText}>
+                        <h1>
+                            International Christian University
+                        </h1>
+                        <h2>
+                            Tokyo, Japan
+                        </h2>
+                        <h3>
+                            August 2024 - November 2024 (One-Term Exchange Program)
+                        </h3>
+                    </div>
+                    <div className={styles.introImage}>
+                        <Image src='/icu.png' alt='portrait' fill={true} sizes="(max-width: 800px) 800px"/>
+                    </div>
+                </div>
+            </section>
             <section className={styles.workContainer}>
                 <h2>
                     Work Experience
                 </h2>
                 <div className={styles.jobs}>
+                    <div className={styles.workCard}>
+                        <div className={styles.workImageContainer}>
+                            <Image src='/work/sdsc.jpeg' alt='sdsc' fill={true} sizes="(max-width: 300px) 300px" className={styles.workImage}/>
+                        </div>
+                        <h3>
+                            San Diego Supercomputer Center
+                        </h3>
+                        <h4>
+                            SDSC Developer Intern
+                        </h4>
+                        <div className={styles.workDate}>
+                            June 2024 - August 2024
+                        </div>
+                        <Link href='/work/sdsc' className={styles.learnMore}>Learn More</Link>
+                    </div>
                     <div className={styles.workCard}>
                         <div className={styles.workImageContainer}>
                             <Image src='/logo.png' alt='freelance web development' fill={true} sizes="(max-width: 300px) 300px" className={styles.workImage} />
@@ -181,21 +214,6 @@ export default function Home() {
                             June 2023 - Present
                         </div>
                         <Link href='/work/agyllc' className={styles.learnMore}>Learn More</Link>
-                    </div>
-                    <div className={styles.workCard}>
-                        <div className={styles.workImageContainer}>
-                            <Image src='/work/project-destined.png' alt='project destined' fill={true} sizes="(max-width: 300px) 300px" className={styles.workImage}/>
-                        </div>
-                        <h3>
-                            Project Destined
-                        </h3>
-                        <h4>
-                            Commercial Real Estate Intern
-                        </h4>
-                        <div className={styles.workDate}>
-                            September 2022 - December 2022
-                        </div>
-                        <Link href='/work/projectdestined' className={styles.learnMore}>Learn More</Link>
                     </div>
                     <div className={styles.workCard}>
                         <div className={styles.workImageContainer}>

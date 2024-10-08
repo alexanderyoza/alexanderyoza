@@ -3,7 +3,7 @@ import '../styles/globals.css';
 import Navigate from '../components/Navigate';
 import Footer from '../components/Footer';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ variable: '--font-inter',subsets: ['latin'] })
 
 export const metadata = {
     title: 'Alex Yoza Portfolio',
