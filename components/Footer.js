@@ -35,7 +35,7 @@ function Footer() {
                 </div>
             </div>
             <div className={styles.copyright}>
-                © 2023 Alex Yoza. All Rights Reserved.
+                © 2025 Alex Yoza. All Rights Reserved.
             </div>
         </footer>
     )
