@@ -90,39 +90,12 @@
     margin-top: 10px;
     width: 30%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 15px;
 }
 
-.imageContainer6 {
-    width: 12%;
-}
-
-.imageContainer5 {
+.imageContainer {
     width: 15%;
-}
-
-.imageContainer4 {
-    width: 18%;
-}
-
-.imageContainer3 {
-    width: 24%;
-}
-
-.imageContainer6> div {
-    position: unset !important;
-}
-
-.imageContainer5> div {
-    position: unset !important;
-}
-
-.imageContainer4> div {
-    position: unset !important;
-}
-
-.imageContainer3> div {
-    position: unset !important;
 }
 
 .skillImage {

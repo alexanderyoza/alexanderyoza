@@ -18,56 +18,17 @@ export default function Projects() {
                         </h2>
                         <div className={styles.projectLine}></div>
                         <div className={styles.projectSkills}>
-                            <div className={styles.imageContainer5}>
+                            <div className={styles.imageContainer}>
                                 <Image src='/skills/react.png' alt='react' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
-                            <div className={styles.imageContainer5}>
-                                <Image src='/skills/javascript.png' alt='javascript' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
+                            <div className={styles.imageContainer}>
+                                <Image src='/skills/firebase.png' alt='firebase' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
-                            <div className={styles.imageContainer5}>
+                            <div className={styles.imageContainer}>
                                 <Image src='/skills/node.png' alt='node' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                            </div>
-                            <div className={styles.imageContainer5}>
-                                <Image src='/skills/github.png' alt='github' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                            </div>
-                            <div className={styles.imageContainer5}>
-                                <Image src='/skills/git.png' alt='git' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
                         </div>
                         <Link href='/projects/uhfd' className={styles.learnMore}>
-                            Learn More
-                        </Link>
-                    </div>
-                </div>
-            </section>
-            <section className={styles.project}>
-                <div className={styles.projectBackground}>
-                    <Image src='/projects/language-app/display.png' alt='language app' fill={true} sizes="(max-width: 300px) 300px" className={styles.projectImage}/>
-                </div>
-                <div className={styles.projectContent}>
-                    <div className={styles.projectInfo}>
-                        <h2>
-                            Flashcard React Native Mobile App
-                        </h2>
-                        <div className={styles.projectLine}></div>
-                        <div className={styles.projectSkills}>
-                            <div className={styles.imageContainer5}>
-                                <Image src='/skills/react.png' alt='react' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                            </div>
-                            <div className={styles.imageContainer5}>
-                                <Image src='/skills/javascript.png' alt='javascript' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                            </div>
-                            <div className={styles.imageContainer5}>
-                                <Image src='/skills/firebase.png' alt='firebase' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                            </div>
-                            <div className={styles.imageContainer5}>
-                                <Image src='/skills/github.png' alt='github' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                            </div>
-                            <div className={styles.imageContainer5}>
-                                <Image src='/skills/git.png' alt='git' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                            </div>
-                        </div>
-                        <Link href='/projects/language-app' className={styles.learnMore}>
                             Learn More
                         </Link>
                     </div>
@@ -84,17 +45,8 @@ export default function Projects() {
                         </h2>
                         <div className={styles.projectLine}></div>
                         <div className={styles.projectSkills}>
-                            <div className={styles.imageContainer4}>
-                                <Image src='/skills/react.png' alt='react' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                            </div>
-                            <div className={styles.imageContainer4}>
-                                <Image src='/skills/javascript.png' alt='javascript' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                            </div>
-                            <div className={styles.imageContainer4}>
-                                <Image src='/skills/github.png' alt='github' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                            </div>
-                            <div className={styles.imageContainer4}>
-                                <Image src='/skills/git.png' alt='git' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
+                            <div className={styles.imageContainer}>
+                                <Image src='/skills/svelte.png' alt='svelte' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
                         </div>
                         <Link href='/projects/gsfhi' className={styles.learnMore}>
@@ -114,26 +66,41 @@ export default function Projects() {
                         </h2>
                         <div className={styles.projectLine}></div>
                         <div className={styles.projectSkills}>
-                            <div className={styles.imageContainer6}>
+                            <div className={styles.imageContainer}>
                                 <Image src='/skills/react.png' alt='react' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
-                            <div className={styles.imageContainer6}>
-                                <Image src='/skills/javascript.png' alt='javascript' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                            </div>
-                            <div className={styles.imageContainer6}>
+                            <div className={styles.imageContainer}>
                                 <Image src='/skills/node.png' alt='node' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
-                            <div className={styles.imageContainer6}>
+                            <div className={styles.imageContainer}>
                                 <Image src='/skills/mongo.png' alt='mongodb' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                            </div>
-                            <div className={styles.imageContainer6}>
-                                <Image src='/skills/github.png' alt='github' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                            </div>
-                            <div className={styles.imageContainer6}>
-                                <Image src='/skills/git.png' alt='git' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
                         </div>
                         <Link href='/projects/racctracc' className={styles.learnMore}>
+                            Learn More
+                        </Link>
+                    </div>
+                </div>
+            </section>
+            <section className={styles.project}>
+                <div className={styles.projectBackground}>
+                    <Image src='/projects/language-app/display.png' alt='language app' fill={true} sizes="(max-width: 300px) 300px" className={styles.projectImage}/>
+                </div>
+                <div className={styles.projectContent}>
+                    <div className={styles.projectInfo}>
+                        <h2>
+                            Flashcard React Native Mobile App
+                        </h2>
+                        <div className={styles.projectLine}></div>
+                        <div className={styles.projectSkills}>
+                            <div className={styles.imageContainer}>
+                                <Image src='/skills/react.png' alt='react' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
+                            </div>
+                            <div className={styles.imageContainer}>
+                                <Image src='/skills/firebase.png' alt='firebase' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
+                            </div>
+                        </div>
+                        <Link href='/projects/language-app' className={styles.learnMore}>
                             Learn More
                         </Link>
                     </div>
@@ -150,14 +117,8 @@ export default function Projects() {
                         </h2>
                         <div className={styles.projectLine}></div>
                         <div className={styles.projectSkills}>
-                            <div className={styles.imageContainer3}>
+                            <div className={styles.imageContainer}>
                                 <Image src='/skills/python.png' alt='python' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                            </div>
-                            <div className={styles.imageContainer3}>
-                                <Image src='/skills/github.png' alt='github' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                            </div>
-                            <div className={styles.imageContainer3}>
-                                <Image src='/skills/git.png' alt='git' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                             </div>
                         </div>
                         <Link href='/projects/stock-analysis' className={styles.learnMore}>
