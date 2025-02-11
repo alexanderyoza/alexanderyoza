@@ -18,8 +18,8 @@ function Navigate() {
                 </div>
                 <nav className={styles.navOptions}>
                     <Link href='/' className={styles.link}><div className={pathname === '/' ? styles.active : styles.inactive}>About</div></Link>
-                    <Link href='/work' className={styles.link}><div  className={pathname === '/work' ? styles.active : styles.inactive}>Experience</div></Link>
-                    <Link href='/projects' className={styles.link}><div  className={pathname === '/projects' ? styles.active : styles.inactive}>Projects</div></Link>
+                    <Link href='/work' className={styles.link}><div  className={pathname.includes('/work') ? styles.active : styles.inactive}>Experience</div></Link>
+                    <Link href='/projects' className={styles.link}><div  className={pathname.includes('/projects') ? styles.active : styles.inactive}>Projects</div></Link>
                     <Link href='/contact' className={styles.link}><div className={pathname === '/contact' ? styles.active : styles.inactive}>Contact</div></Link>
                 </nav>
             </div>

@@ -1,17 +1,18 @@
 .projectInfo {
     width: 95%;
-    margin-bottom: 10vh;
+    margin-bottom: 100px;
 }
 
 .projectInfo h2 {
+    margin-top: 30px;
     font-weight: normal;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     color: var(--primary);
 }
 
 .projectLine {
     width: 100%;
-    height: 8px;
+    height: 2px;
     margin: 20px 0;
     background-color: var(--tertiary);
 }
@@ -44,13 +45,13 @@
 }
 
 .date {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
 }
 
 .description {
     width: 95%;
     margin-bottom: 10vh;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
 }
 
 
@@ -63,16 +64,25 @@
 
 .gallery h2 {
     font-weight: normal;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     margin-bottom: 5vh;
     width: 100%;
+}
+
+.projectGalleryImages {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 50px;
 }
 
 .projectImageContainer {
     font-size: 0;
     width: 100%;
-    border: 4px solid var(--secondary);
-    margin-bottom: 10vh;
+    max-width: 500px;
+    border: 2px solid var(--secondary);
 }
 
 .projectImageContainer> div {
@@ -87,10 +97,9 @@
 
 .projectImageContainerTall {
     font-size: 0;
-    width: 30%;
-    min-width: 304px;
-    border: 4px solid var(--secondary);
-    margin-bottom: 10vh;
+    height: 500px;
+    border: 2px solid var(--secondary);
+    margin-bottom: 50px;
 }
 
 .projectImageContainerTall> div {
@@ -103,9 +112,29 @@
     position: relative !important;
 }
 
+.back{
+    border-radius: 50px;
+    width: 280px;
+    height: 40px;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    margin-bottom: 50px;
+    border: 1px solid var(--secondary);
+    background-color: var(--background);
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+@media (min-width: 800px) {
 
-
+    .back:hover {
+      border: 2px solid var(--secondary);
+      box-shadow: 1px 1px 2px;
+      transition: 0.2s;
+    }
+}
 
 @media (max-width: 800px) {
     
@@ -115,7 +144,7 @@
     }
     
     .projectLine {
-        height: 4px;
+        height: 2px;
         margin: 10px 0;
     }
 
@@ -125,12 +154,13 @@
     
     .projectSkills {
         width: 100%;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 15px;
     }
     
     .imageContainer {
         margin-right: 0;
-        width: 12vw;
+        width: 50px;
     }
     
     .date {
@@ -150,13 +180,11 @@
     }
     
     .projectImageContainer {
-        border: 2px solid var(--secondary);
-        margin-bottom: 5vh;
+        border: 1px solid var(--secondary);
     }
     
     .projectImageContainerTall {
-        border: 2px solid var(--secondary);
-        margin-bottom: 5vh;
+        border: 1px solid var(--secondary);
     }
     
 }
