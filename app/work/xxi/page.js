@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../../../styles/work.module.css';
 import '../../../styles/globals.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Xxi() {
     return (
@@ -42,6 +43,7 @@ export default function Xxi() {
                     
                 </div>
             </div>
+            <Link href='/work' className={styles.back}>Go Back</Link>
         </main>
     )
 }

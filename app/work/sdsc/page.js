@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../../../styles/work.module.css';
 import '../../../styles/globals.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function SDSC() {
     return (
@@ -33,16 +34,20 @@ export default function SDSC() {
                 </div>
                 <div className={styles.description}>
                     <div>
-                        Assumed a leadership role in planning and creating a full-stack web application project.
+                        <span>•</span>
+                        Assumed a leadership role in the planning and developing of a full-stack web application, driving project direction and team collaboration.
                     </div>
                     <div>
-                        Enhanced team performance through the application of agile software engineering principles.
+                        <span>•</span>
+                        Improved team efficiency by applying agile development practices, ensuring a smooth workflow.
                     </div>
                     <div>
-                        Utilized React.js, Node.js, and Google Firebase to develop a web platform that assists college students in discovering college age-centered locations.
+                        <span>•</span>
+                        Built a web platform using React.js, Node.js, and Google Firebase to help college students discover age-appropriate locations, integrating seamless functionality and a user-friendly interface.
                     </div>
                 </div>
             </div>
+            <Link href='/work' className={styles.back}>Go Back</Link>
         </main>
     )
 }

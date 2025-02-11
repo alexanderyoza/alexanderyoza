@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../../../styles/work.module.css';
 import '../../../styles/globals.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Boh() {
     return (
@@ -32,12 +33,24 @@ export default function Boh() {
                     </div>
                 </div>
                 <div className={styles.description}>
-                    <div>Expanded technical skills by automating bank processes using Microsoft Power Automate.</div>
-                    <div>Collaborated with the Software Engineering team to breakdown and delegate project tasks.</div>
-                    <div>Automated 1500+ hours per year of previously manual bank reporting and processing.</div>
-                    <div>Developed Python scripts to process thousands of daily bank transactions and reports.</div>
+                    <div>
+                        <span>•</span>
+                        Automated redundant bank processes using Microsoft Power Automate, streamlining workflows and enhancing operational efficiency.
+                    </div>
+                    <div><span>•</span>
+                        Collaborated with the Software Engineering team to break down and delegate project tasks, ensuring timely completion and team alignment.
+                    </div>
+                    <div>
+                        <span>•</span>
+                        Saved 1,500+ hours annually by automating manual bank reporting and processing tasks.
+                    </div>
+                    <div>
+                        <span>•</span>
+                        Created Python scripts to process thousands of daily bank transactions and generate accurate reports.
+                    </div>
                 </div>
             </div>
+            <Link href='/work' className={styles.back}>Go Back</Link>
         </main>
     )
 }

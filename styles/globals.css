@@ -10,24 +10,7 @@
   --secondary: #007BFF;
   --tertiary: #FFA733;
   
-  font-size: max(min(calc(8px + 1vw), 36px), 24px);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --max-width: 2500px;
-    --min-width: 320px;
-    --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-      'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-      'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-
-    --primary: #F5F5F5;
-    --background: #333333;
-    --secondary: #007BFF;
-    --tertiary: #FFA733;
-
-    font-size: max(min(calc(8px + 1vw), 36px), 24px);
-  }
+  font-size: 32px;
 }
 
 * {
@@ -64,12 +47,6 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
 .container {
   padding-top: 12vh;
   min-height: 88vh;
@@ -80,6 +57,10 @@ a {
 }
 
 @media (max-width: 800px) {
+  :root {
+    font-size: 24px;
+  }
+
   .container {
     padding-top: 22vh;
   }

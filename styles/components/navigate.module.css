@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0.1px 3px;
     z-index: 100;
 }
 
@@ -52,11 +53,13 @@
     transition: 0.2s;
 }
 
+@media (min-width: 1000px) {
 
-.active:hover, .inactive:hover {
-    text-decoration: underline var(--tertiary);
+    .active:hover, .inactive:hover {
+        text-decoration: underline var(--tertiary);
+    }
+
 }
-
 @media (max-width: 800px) {
     .navigation {
         height: 20vh;
@@ -89,4 +92,5 @@
         width: 33.3%;
         text-align: center;
     }
+    
 }

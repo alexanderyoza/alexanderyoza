@@ -2,6 +2,7 @@ import React from 'react'
 import styles from '../../../styles/work.module.css';
 import '../../../styles/globals.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Freelance() {
     return (
@@ -24,7 +25,7 @@ export default function Freelance() {
                             AGY LLC
                         </div>
                         <div className={styles.position}>
-                            Web Developer and Consultant (Self-Employed)
+                            Web Developer and Consultant
                         </div>
                     </div>
                     <div className={styles.location}>
@@ -32,14 +33,20 @@ export default function Freelance() {
                     </div>
                 </div>
                 <div className={styles.description}>
-                    <div>Reinforced communication skills in order to understand the goals of the clients’ business.</div>
-                    <div>Researched design techniques to grab attention and create simple yet effective website designs.</div>
                     <div>
-                        Developed my understanding of various website testing techniques to enhance the consistency and
-                        reliability of websites, ensuring an optimal user experience and minimizing potential errors.
+                        <span>•</span>
+                        Strengthened communication skills by effectively understanding and aligning with clients' business goals,
+                        utilizing Firebase and Next.js to develop responsive and scalable solutions.
+                    </div>
+                        
+                    <div> <span>•</span>Researched and applied design techniques to create visually engaging, simple, and effective website designs.</div>
+                    <div>
+                        <span>•</span>
+                        Studied website testing methods to improve consistency and user experience while minimizing errors.
                     </div>
                 </div>
             </div>
+            <Link href='/work' className={styles.back}>Go Back</Link>
         </main>
     )
 }
