@@ -9,7 +9,7 @@ export default function Gsfhi() {
         <div className='container'>
             <div className={styles.projectInfo}>
                 <h2>
-                    GSF LLC - Housing Development Company Website
+                    GSF LLC - <a href='https://gsfhi.com/' target='_blank' rel='noopener noreferrer'>Housing Development Company Website</a>
                 </h2>
                 <div className={styles.projectLine}></div>
                 <div className={styles.bottomTitle}>

@@ -9,7 +9,7 @@ export default function Uhfd() {
         <div className='container'>
             <div className={styles.projectInfo}>
                 <h2>
-                    Union Hills Family Dentistry - Dental Practice Website
+                    Union Hills Family Dentistry - <a href='https://www.unionhillsfamilydentistry.com/'  target='_blank' rel='noopener noreferrer'>Dental Practice Website</a>
                 </h2>
                 <div className={styles.projectLine}></div>
                 <div className={styles.bottomTitle}>
