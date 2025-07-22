@@ -17,7 +17,7 @@ export default function Work() {
                             <Image src='/logo.png' alt='freelance web development' fill={true} sizes="(max-width: 300px) 300px" className={styles.workImage} />
                         </div>
                         <h3>
-                            AGY LLC
+                            SitesByAlex LLC
                         </h3>
                         <h4>
                             Web Developer and Consultant
