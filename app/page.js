@@ -138,7 +138,7 @@ export default function Home() {
                             Bachelor of Science, Computer Science
                         </h2>
                         <h3>
-                            September 2021 - January 2025
+                            September 2021 - December 2024
                         </h3>
                     </div>
                     <div className={styles.introImage}>
