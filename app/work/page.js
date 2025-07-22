@@ -25,7 +25,7 @@ export default function Work() {
                         <div className={styles.workDate}>
                             June 2023 - Present
                         </div>
-                        <Link href='/work/agyllc' className={styles.learnMore}>Learn More</Link>
+                        <Link href='/work/sitesbyalex' className={styles.learnMore}>Learn More</Link>
                     </div>
                     <div className={styles.workCard}>
                         <div className={styles.workImageContainer}>

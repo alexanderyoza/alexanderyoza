@@ -22,10 +22,10 @@ export default function Freelance() {
                 <div className={styles.title}>
                     <div>
                         <div className={styles.company}>
-                            AGY LLC
+                            SitesByAlex
                         </div>
                         <div className={styles.position}>
-                            Web Developer and Consultant
+                            Web Developer
                         </div>
                     </div>
                     <div className={styles.location}>
