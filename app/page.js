@@ -61,8 +61,9 @@ export default function Home() {
             </h2>
             <p>
               UCSD computer science grad now working on core modernization and
-              common capability and tooling at Capital One. On the side I ship a
-              language-learning app and an AI workflow orchestration platform.
+              common capability and tooling at Capital One. On the side I'm
+              working on a language-learning app and an AI workflow
+              orchestration platform.
               I care about systems that stay up and interfaces that feel
               inevitable.
             </p>
