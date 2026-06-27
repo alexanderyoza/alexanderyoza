@@ -70,10 +70,18 @@
 @media (max-width: 800px) {
   .navigation {
     height: 54px;
-    top: 10px;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-radius: 0;
   }
   .container {
-    padding: 0 8px 0 14px;
+    padding: 0 14px;
   }
   .navOptions {
     gap: 0;
