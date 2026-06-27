@@ -60,10 +60,10 @@ export default function Home() {
             </h2>
             <p>
               UCSD computer science grad now leading observability for a
-              platinum-availability service handling up to a billion requests a
-              day. On the side I ship a language-learning app and an AI workflow
-              orchestration platform. I care about systems that stay up and
-              interfaces that feel inevitable.
+              platinum-availability service. On the side I ship a
+              language-learning app and an AI workflow orchestration platform.
+              I care about systems that stay up and interfaces that feel
+              inevitable.
             </p>
             <div className={styles.introLinks}>
               <Link href="/contact" className={styles.btnPrimary}>Get in touch</Link>

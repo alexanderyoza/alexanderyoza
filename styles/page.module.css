@@ -273,8 +273,9 @@
 
 /* ---------- responsive ---------- */
 @media (max-width: 860px) {
-  .intro { grid-template-columns: 1fr; gap: 36px; }
-  .portrait { max-width: 360px; }
+  .intro { grid-template-columns: 1fr; gap: 36px; justify-items: center; }
+  .introText { order: 2; }
+  .portrait { order: 1; max-width: 360px; width: 100%; }
   .stackSection { grid-template-columns: 1fr; gap: 32px; }
   .eduGrid { grid-template-columns: 1fr; }
 }

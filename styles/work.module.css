@@ -22,6 +22,30 @@
   border-radius: var(--r-sm);
 }
 
+.brandLockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brandLockup::after {
+  content: '';
+  order: 1;
+  align-self: stretch;
+  width: 1px;
+  background: var(--text-faint);
+  opacity: 0.4;
+}
+.brandLockup :global(svg) {
+  order: 0;
+}
+.brandWordmark {
+  order: 2;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
 .date {
   font-family: var(--font-mono);
   font-size: 0.78rem;

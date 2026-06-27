@@ -9,8 +9,9 @@ export default function Freelance() {
     return (
         <main className='container'>
             <div className={styles.top}>
-                <div className={styles.workImageContainer}>
+                <div className={styles.brandLockup}>
                     <Logo size={44} />
+                    <span className={styles.brandWordmark}>SitesByAlex</span>
                 </div>
                 <div className={styles.date}>
                     June 2023 - Present
