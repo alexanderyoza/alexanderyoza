@@ -14,7 +14,7 @@ const SKILLS = [
 const STACK = {
   Languages: ['TypeScript', 'Python', 'Go', 'Java', 'C / C++', 'SQL'],
   'Frameworks & UI': ['React', 'Next.js', 'React Native', 'FastAPI', 'Node.js', 'Tailwind'],
-  'Cloud & infra': ['AWS', 'AWS CDK', 'Docker', 'CI/CD', 'Observability', 'PostgreSQL'],
+  'Cloud & infra': ['AWS', 'AWS CDK', 'Docker', 'CI/CD', 'Developer Tooling', 'PostgreSQL'],
 };
 
 const COURSES = [
@@ -36,8 +36,9 @@ export default function Home() {
             Alex <span className="gradientText">Yoza</span>
           </h1>
           <p className={styles.heroSub}>
-            I build observability for systems at scale, AI-assisted workflows,
-            and full-stack products from the architecture to the last pixel.
+            I work on core modernization and common capability and tooling at
+            Capital One, plus AI-assisted workflows and full-stack products from
+            the architecture to the last pixel.
           </p>
           <div className={styles.heroCtas}>
             <Link href="/work" className={styles.btnPrimary}>View experience</Link>
@@ -59,8 +60,8 @@ export default function Home() {
               <span>SWE at <strong>Capital One</strong>.</span>
             </h2>
             <p>
-              UCSD computer science grad now leading observability for a
-              platinum-availability service. On the side I ship a
+              UCSD computer science grad now working on core modernization and
+              common capability and tooling at Capital One. On the side I ship a
               language-learning app and an AI workflow orchestration platform.
               I care about systems that stay up and interfaces that feel
               inevitable.
