@@ -3,13 +3,14 @@ import styles from '../../../styles/work.module.css';
 import '../../../styles/globals.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import Logo from '../../../components/Logo';
 
 export default function Freelance() {
     return (
         <main className='container'>
             <div className={styles.top}>
                 <div className={styles.workImageContainer}>
-                    <Image src='/logo.png' alt='freelance logo' fill={true} sizes="(max-width: 300px) 300px" className={styles.workImage}/>
+                    <Logo size={44} />
                 </div>
                 <div className={styles.date}>
                     June 2023 - Present

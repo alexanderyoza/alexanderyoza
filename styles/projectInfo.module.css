@@ -1,195 +1,187 @@
 .projectInfo {
-    width: 95%;
-    margin-bottom: 100px;
+  width: 100%;
+  margin-bottom: 64px;
 }
 
 .projectInfo h2 {
-    margin-top: 30px;
-    font-weight: normal;
-    font-size: 0.8rem;
-    color: var(--primary);
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+  letter-spacing: -0.03em;
+  color: var(--text);
 }
-
 .projectInfo h2 a {
-    text-decoration: underline solid var(--primary);
+  color: var(--accent-2);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(86, 225, 233, 0.4);
+  transition: border-color var(--dur) ease;
+}
+.projectInfo h2 a:hover {
+  border-color: var(--accent-2);
 }
 
 .projectLine {
-    width: 100%;
-    height: 2px;
-    margin: 20px 0;
-    background-color: var(--tertiary);
+  width: 100%;
+  height: 1px;
+  margin: 24px 0;
+  background: var(--border);
 }
 
 .bottomTitle {
-    margin-top: 10px;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
+  margin-top: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
 }
 
 .projectSkills {
-    display: flex;
+  display: flex;
+  gap: 18px;
+  align-items: center;
 }
-
 .imageContainer {
-    margin-right: 20px;
-    width: 3vw;
+  position: relative;
+  width: 28px;
+  height: 28px;
+  opacity: 0.9;
 }
-
-.imageContainer> div {
-    position: unset !important;
+.imageContainer > div {
+  position: unset !important;
 }
-
+.imageContainerLight {
+  background: #fff;
+  border-radius: 50%;
+  padding: 3px;
+}
 .skillImage {
-    object-fit: contain;
-    height: 100% !important;
-    position: relative !important;
+  object-fit: contain;
+  height: 100% !important;
+  position: relative !important;
 }
 
 .date {
-    font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  white-space: nowrap;
 }
 
 .description {
-    width: 95%;
-    margin-bottom: 10vh;
-    font-size: 0.8rem;
+  width: 100%;
+  max-width: 70ch;
+  margin-bottom: 80px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-dim);
 }
-
 
 .gallery {
-    width: 95%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-
 .gallery h2 {
-    font-weight: normal;
-    font-size: 0.8rem;
-    margin-bottom: 5vh;
-    text-align: center;
-    width: 100%;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-faint);
+  margin-bottom: 36px;
+  text-align: center;
+  width: 100%;
 }
 
 .projectGalleryImages {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-bottom: 56px;
 }
 
 .projectImageContainer {
-    font-size: 0;
-    width: 100%;
-    max-width: 500px;
-    border: 2px solid var(--secondary);
+  font-size: 0;
+  width: 100%;
+  max-width: 520px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--bg-elev);
+  transition: border-color var(--dur) ease, transform var(--dur) var(--ease-out);
 }
-
-.projectImageContainer> div {
-    position: unset !important;
+.projectImageContainer:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
 }
-
+.projectImageContainer > div {
+  position: unset !important;
+}
 .projectImage {
-    object-fit: contain;
-    width: 100% !important;
-    position: relative !important;
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
 }
 
 .projectImageContainerTall {
-    font-size: 0;
-    height: 500px;
-    border: 2px solid var(--secondary);
-    margin-bottom: 50px;
+  font-size: 0;
+  height: 520px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--bg-elev);
+  margin-bottom: 56px;
 }
-
-.projectImageContainerTall> div {
-    position: unset !important;
+.projectImageContainerTall > div {
+  position: unset !important;
 }
-
 .projectImageTall {
-    object-fit: contain;
-    height: 100% !important;
-    position: relative !important;
+  object-fit: contain;
+  height: 100% !important;
+  position: relative !important;
 }
 
-.back{
-    border-radius: 50px;
-    width: 280px;
-    height: 40px;
-    padding: 5px 10px;
-    font-size: 0.7rem;
-    margin-bottom: 50px;
-    border: 1px solid var(--secondary);
-    background-color: var(--background);
-    transition: 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.back {
+  border-radius: var(--r-full);
+  width: fit-content;
+  padding: 12px 26px;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-strong);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  transition: border-color var(--dur) ease, color var(--dur) ease, transform var(--dur-micro) var(--ease-out);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-@media (min-width: 800px) {
-
-    .back:hover {
-      border: 2px solid var(--secondary);
-      box-shadow: 1px 1px 2px;
-      transition: 0.2s;
-    }
+.back:hover {
+  border-color: var(--accent);
+  color: #fff;
+}
+.back:active {
+  transform: scale(0.98);
 }
 
 @media (max-width: 800px) {
-    
-    .projectInfo h2 {
-        font-size: 0.8rem;
-        text-align: center;
-    }
-    
-    .projectLine {
-        height: 2px;
-        margin: 10px 0;
-    }
-
-    .bottomTitle {
-        flex-direction: column;
-    }
-    
-    .projectSkills {
-        width: 100%;
-        justify-content: center;
-        gap: 15px;
-    }
-    
-    .imageContainer {
-        margin-right: 0;
-        width: 50px;
-    }
-    
-    .date {
-        font-size: 0.8rem;
-        margin-top: 20px;
-    }
-
-    .description {
-        margin-bottom: 5vh;
-        font-size: 0.8rem;
-    }
-    
-    .gallery h2 {
-        font-size: 0.8rem;
-        margin-bottom: 3vh;
-        text-align: center;
-    }
-    
-    .projectImageContainer {
-        border: 1px solid var(--secondary);
-    }
-    
-    .projectImageContainerTall {
-        border: 1px solid var(--secondary);
-    }
-    
+  .projectInfo h2 {
+    text-align: center;
+  }
+  .bottomTitle {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .projectSkills {
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+  }
+  .date {
+    margin-top: 4px;
+  }
 }

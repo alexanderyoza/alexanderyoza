@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import styles from '../styles/components/navigate.module.css';
 import { usePathname } from 'next/navigation';
-import Image from 'next/image';
+import Logo from './Logo';
 
 function Navigate() {
 
@@ -13,9 +13,9 @@ function Navigate() {
     return (
         <header className={styles.navigation}>
             <div className={styles.container} >
-                <div className={styles.logo}>
-                    <Image src='/logo.png' fill={true} sizes="(max-width: 200px) 10vh"/>
-                </div>
+                <Link href='/' className={styles.logo} aria-label="Home">
+                    <Logo size={30} />
+                </Link>
                 <nav className={styles.navOptions}>
                     <Link href='/' className={styles.link}><div className={pathname === '/' ? styles.active : styles.inactive}>About</div></Link>
                     <Link href='/work' className={styles.link}><div  className={pathname.includes('/work') ? styles.active : styles.inactive}>Experience</div></Link>

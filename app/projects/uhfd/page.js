@@ -14,16 +14,16 @@ export default function Uhfd() {
                 <div className={styles.projectLine}></div>
                 <div className={styles.bottomTitle}>
                     <div className={styles.projectSkills}>
+                        <div className={`${styles.imageContainer} ${styles.imageContainerLight}`}>
+                            <Image src='/skills/next.png' alt='nextjs' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
+                        </div>
                         <div className={styles.imageContainer}>
                             <Image src='/skills/react.png' alt='react' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                         </div>
                         <div className={styles.imageContainer}>
-                            <Image src='/skills/firebase.png' alt='firebase' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                        </div>
-                        <div className={styles.imageContainer}>
                             <Image src='/skills/node.png' alt='node' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
                         </div>
-                    </div>  
+                    </div>
                     <div className={styles.date}>
                         January 2025
                     </div>  

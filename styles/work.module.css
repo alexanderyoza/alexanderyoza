@@ -1,168 +1,140 @@
 .top {
-  width: 95%;
-  height: 12vh;
-  margin-bottom: 50px;
+  width: 100%;
+  margin-bottom: 36px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
 }
 
 .workImageContainer {
   position: relative;
-  height: 100%;
+  height: 44px;
 }
-
 .workImageContainer > div {
   position: unset !important;
 }
-
 .workImage {
   object-fit: contain;
   height: 100% !important;
   position: relative !important;
   width: unset !important;
+  border-radius: var(--r-sm);
 }
-  
+
 .date {
-  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
 }
 
 .experienceImageContainer {
   font-size: 0;
   position: relative;
-  height: 50vh;
-  border: 2px solid var(--secondary);
-  box-shadow: 10px 10px 5px rgb(0, 0, 0, 0.25);
-  margin-bottom: 5vh;
+  width: 100%;
+  height: 52vh;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--bg-elev);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 48px;
 }
-
 .experienceImageContainer > div {
   position: unset !important;
 }
-
 .experienceImage {
-  object-fit: contain;
+  object-fit: cover;
+  width: 100% !important;
   height: 100% !important;
   position: relative !important;
-  width: unset !important;
 }
 
 .content {
-  width: 95%;
+  width: 100%;
 }
 
 .title {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 5vh;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
 }
 
-.company, .location {
-  font-size: 0.9rem;
+.company {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
 }
-
 .position {
-  margin-top: 10px;
-  font-size: 0.8rem;
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: var(--accent-2);
 }
-
+.location {
+  font-size: 0.9rem;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
 
 .description {
-  margin-bottom: 50px;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 70ch;
 }
-
 .description div {
-  font-size: 0.75rem;
-  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-dim);
   display: flex;
 }
-
 .description span {
-  font-size: 0.75rem;
-  margin-right: 10px;
-
+  color: var(--accent);
+  margin-right: 12px;
 }
 
-
-.back{
-  border-radius: 50px;
-  width: 280px;
-  height: 40px;
-  padding: 5px 10px;
-  font-size: 0.7rem;
-  margin-bottom: 50px;
-  border: 1px solid var(--secondary);
-  background-color: var(--background);
-  transition: 0.2s;
+.back {
+  border-radius: var(--r-full);
+  width: fit-content;
+  padding: 12px 26px;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-strong);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  transition: border-color var(--dur) ease, color var(--dur) ease, transform var(--dur-micro) var(--ease-out);
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-@media (min-width: 800px) {
-
-  .back:hover {
-    border: 2px solid var(--secondary);
-    box-shadow: 1px 1px 2px;
-    transition: 0.2s;
-  }
+.back:hover {
+  border-color: var(--accent);
+  color: #fff;
+}
+.back:active {
+  transform: scale(0.98);
 }
 
 @media (max-width: 800px) {
   .top {
-    height: fit-content;
     flex-direction: column;
-    align-items: center;
-  }
-  
-  .workImageContainer {
-    height: 10vh;
-    margin-bottom: 10px;
-  }
-    
-  .date {
-    font-size: 0.8rem;
-  }
-  
-  .experienceImageContainer {
-    position: relative;
-    height: fit-content;
-    width: 95%;
-  }
-
-
-  .experienceImage {
-    width: 100% !important;
-    height: unset !important;
-  }
-  
-  .title {
-    width: 100%;
-    display: flex;
     align-items: flex-start;
+  }
+  .experienceImageContainer {
+    height: 40vh;
+  }
+  .title {
     flex-direction: column;
-    margin-bottom: 5vh;
   }
-  
   .company {
-    font-weight: normal;
-    font-size: 0.8rem;
-    margin-bottom: 0;
-  }
-
-  .position {
-    font-size: 0.7rem;
-    margin-top: 0;
-  }
-
-  .location {
-    font-size: 0.7em;
-  }
-  
-  .description div {
-    font-size: 0.7rem;
-    margin-bottom: 20px;
+    font-size: 1.3rem;
   }
 }

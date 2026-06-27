@@ -1,45 +1,105 @@
 :root {
-  --max-width: 2500px;
+  --max-width: 1200px;
   --min-width: 320px;
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  --primary: #333333;
-  --background: #F5F5F5;
-  --secondary: #007BFF;
-  --tertiary: #FFA733;
-  
-  font-size: 32px;
+  /* ---- Dark design system (see docs/DESIGN.md) ---- */
+  --bg: #08090C;
+  --bg-elev: #0E1014;
+  --bg-elev-2: #15181E;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  --text: #EDEEF2;
+  --text-dim: #9AA1AD;
+  --text-faint: #5C636E;
+
+  --accent: #6E8BFF;
+  --accent-2: #56E1E9;
+  --accent-grad: linear-gradient(120deg, #6E8BFF, #56E1E9);
+  --danger: #FF6B6B;
+
+  /* legacy aliases (kept so un-swept pages stay legible until the sweep) */
+  --primary: var(--text);
+  --background: var(--bg);
+  --secondary: var(--accent);
+  --tertiary: var(--accent-2);
+
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-full: 999px;
+
+  --shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 20px 60px -20px rgba(0, 0, 0, 0.6);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-micro: 150ms;
+  --dur: 240ms;
+  --dur-enter: 400ms;
+
+  --nav-h: 76px;
+
+  font-size: 16px;
+  color-scheme: dark;
 }
 
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 html {
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  width: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  width: 100vw;
-  max-width: 2500px;
-  min-width: 320px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  color: var(--primary);
-  background-color: var(--background);
+  width: 100%;
+  min-width: var(--min-width);
+  margin: 0 auto;
+  color: var(--text);
+  background-color: var(--bg);
+  font-feature-settings: 'ss01', 'cv01';
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* faint ambient grid + glow behind everything */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60vw 60vw at 78% -10%, rgba(110, 139, 255, 0.10), transparent 60%),
+    radial-gradient(50vw 50vw at 0% 8%, rgba(86, 225, 233, 0.06), transparent 55%),
+    linear-gradient(var(--bg), var(--bg));
 }
 
 main {
-  background-color: inherit;
-  color: inherit;
   width: 100%;
+  background-color: transparent;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5 {
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--text);
+}
+
+p {
+  line-height: 1.6;
+  color: var(--text-dim);
 }
 
 a {
@@ -47,23 +107,73 @@ a {
   text-decoration: none;
 }
 
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+::selection {
+  background: rgba(110, 139, 255, 0.32);
+  color: #fff;
+}
+
+/* shared eyebrow label */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-faint);
+}
+
+.gradientText {
+  background: var(--accent-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* page wrapper used across routes */
 .container {
-  padding-top: 12vh;
-  min-height: 88vh;
   width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: calc(var(--nav-h) + 24px) 24px 120px;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+/* scroll-reveal primitive (JS adds .isVisible) */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity var(--dur-enter) var(--ease-out),
+    transform var(--dur-enter) var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal.isVisible {
+  opacity: 1;
+  transform: none;
 }
 
 @media (max-width: 800px) {
-  :root {
-    font-size: 24px;
-  }
-
   .container {
-    padding-top: 22vh;
-    margin-top: 50px;
+    padding: calc(var(--nav-h) + 16px) 18px 88px;
   }
+}
 
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

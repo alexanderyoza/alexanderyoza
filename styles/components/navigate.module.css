@@ -1,96 +1,89 @@
 .navigation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    max-width: 2500px;
-    height: 10vh;
-    background-color: var(--background);
-    color: var(--primary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0.1px 3px;
-    z-index: 100;
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 1080px;
+  height: 56px;
+  z-index: 100;
+  border: 1px solid var(--border);
+  border-radius: var(--r-full);
+  background: rgba(14, 16, 20, 0.65);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: 0 10px 40px -16px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
 }
 
 .container {
-    width: 95%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px 0 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-    height: 60%;
-    aspect-ratio: 1;
-    position: relative;
+  display: flex;
+  align-items: center;
+  color: var(--text);
+  transition: color var(--dur) ease;
+}
+.logo:hover {
+  color: var(--accent);
 }
 
 .navOptions {
-    width: 70%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .link {
-    margin-left: 20%;
-    font-size: max(14px, min(calc(8px + 1vw), 36px));
-    text-decoration: underline transparent;
-    text-align: right;
+  font-size: 0.9rem;
+}
+
+.active,
+.inactive {
+  padding: 8px 14px;
+  border-radius: var(--r-full);
+  transition: color var(--dur) ease, background-color var(--dur) ease;
 }
 
 .active {
-    text-decoration: underline var(--secondary);
-    color: var(--primary);
-    transition: 0.2s;
+  color: #fff;
+  background: rgba(110, 139, 255, 0.16);
 }
 
 .inactive {
-    text-decoration: underline transparent;
-    transition: 0.2s;
+  color: var(--text-dim);
 }
 
-@media (min-width: 1000px) {
-
-    .active:hover, .inactive:hover {
-        text-decoration: underline var(--tertiary);
-    }
-
+.inactive:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
 }
+
 @media (max-width: 800px) {
-    .navigation {
-        height: 20vh;
-    }
-    
-    .container {
-        width: 95%;
-        height: 100%;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-direction: column;
-    }
-    
-    .logo {
-        height: 40%;
-        aspect-ratio: 1;
-        position: relative;
-    }
-    
-    .navOptions {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .link {
-        margin: 0;
-        width: 33.3%;
-        text-align: center;
-    }
-    
+  .navigation {
+    height: 54px;
+    top: 10px;
+  }
+  .container {
+    padding: 0 8px 0 14px;
+  }
+  .navOptions {
+    gap: 0;
+  }
+  .active,
+  .inactive {
+    padding: 8px 9px;
+    font-size: 0.8rem;
+  }
+  .link {
+    font-size: 0.8rem;
+  }
 }

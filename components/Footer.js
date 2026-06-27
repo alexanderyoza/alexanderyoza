@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from '../styles/components/footer.module.css';
-import Image from 'next/image';
+import Logo from './Logo';
 
 function Footer() {
 
@@ -10,9 +10,9 @@ function Footer() {
         <footer className={styles.container}>
             <div className={styles.footer}>
                 <div className={styles.logo}>
-                    <div className={styles.logoImage}>
-                        <Image src='/logo.png' fill={true} sizes="(max-width: 200px) 200px"/>
-                    </div>
+                    <span className={styles.logoImage}>
+                        <Logo size={34} />
+                    </span>
                     <div className={styles.logoText}>
                         Alex Yoza
                     </div>
@@ -31,12 +31,12 @@ function Footer() {
                         Contact
                     </h2>
                     <a href="mailto:alex.yoza@gmail.com">alex.yoza@gmail.com</a>
-                    <a href="tel:6233992062">(623)399-2062</a>
                     <a href="https://www.linkedin.com/in/alex-yoza/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://github.com/alexanderyoza?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
             </div>
             <div className={styles.copyright}>
-                © 2025 Alex Yoza. All Rights Reserved.
+                © 2026 Alex Yoza. All Rights Reserved.
             </div>
         </footer>
     )
