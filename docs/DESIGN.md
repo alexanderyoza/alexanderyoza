@@ -4,6 +4,33 @@
 > futuristic edge. **Always dark — no light mode.** Source of truth for every
 > screen; `/uiux-audit` checks against this. Branch: `redesign`.
 
+## Style choice
+
+**Direction:** premium editorial × Aurora  <!-- PRIMARY structure × SECONDARY feeling -->
+**Chosen:** 2026-07-06 · confirmed by Alex · governs every screen.
+
+- **PRIMARY — premium editorial** (structure): a personal portfolio is a
+  low-density, type-forward content-presentation site. Editorial gives generous
+  space, high-contrast type, and a reading rhythm. The PRIMARY wins every
+  conflict — usability and the accessibility floor follow it, not the feeling.
+- **SECONDARY — Aurora** (feeling): glowing gradient light — *dreamy ·
+  futuristic · quiet-confident*. Carries the indigo→cyan glow, the ambient
+  accent gradients, and the scroll-scrub video hero. It colors the editorial
+  spine; it never overrides it.
+- **Token implications:** near-black `--bg #08090C`; iridescent accent
+  `--accent #6E8BFF` → `--accent-2 #56E1E9` via `--accent-grad`; Inter (tight
+  display + mono eyebrows); restrained motion with one ambient-light
+  centerpiece. These match the tokens already below — Aurora **formalizes** the
+  built look rather than changing it.
+- **Alternatives considered:** *premium editorial × Tenebrism* (darker, more
+  cinematic — more shadow, less glow) and *premium editorial × Luxury
+  Typography* (the editorial default — pure type discipline, drops the glow).
+  The aesthetic cousin *technical devtool × Utilitarian* (the Linear/Vercel
+  language) was set aside as mood-led: the site's category is editorial, not a
+  devtool.
+- **Catalog:** `.claude/knowledge/design/design-styles.md` (Aurora is #16 of the
+  50 named styles).
+
 ## Direction
 
 - **Primary reference:** Linear (calm, precise, dark, subtle gradients) +

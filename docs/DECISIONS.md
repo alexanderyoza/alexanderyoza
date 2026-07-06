@@ -21,3 +21,18 @@ Keep each entry short — the rationale matters more than the prose.
 ---
 
 <!-- Newest entries below this line -->
+
+## 2026-07-06 — Visual style pinned: premium editorial × Aurora
+**Stage:** plan-design
+**Decision:** Committed the site's named style as **premium editorial × Aurora**
+(PRIMARY structure × SECONDARY feeling) in `docs/DESIGN.md`, formalizing the
+existing dark, Linear/Vercel-grade look under the plan-design vocabulary added in
+DevByAlex `06f734c`.
+**Why:** The DESIGN.md predated `/plan-design` — it described a look without
+pinning a named style, and an intentionless default is the #1 generic-AI-UI tell.
+Portfolio = premium-editorial structure (category + density, not mood); Aurora's
+glowing indigo→cyan gradient light matches the built `--accent-grad` + scroll-scrub
+hero and the *precise · futuristic · quiet-confident* feel. Alex confirmed the pick
+over Tenebrism and Luxury Typography.
+**Affects:** `docs/DESIGN.md` (Style choice); governs `/uiux-audit`,
+`/plan-wireframes`, `/dev-scaffold`, and any future `/uiux-redesign`.
