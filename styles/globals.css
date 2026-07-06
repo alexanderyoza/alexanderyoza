@@ -71,17 +71,42 @@ body {
   overflow-x: hidden;
 }
 
-/* faint ambient grid + glow behind everything */
+/* ---- Aurora ambient (see docs/DESIGN.md → Style choice: premium editorial × Aurora) ----
+   Drifting iridescent light behind everything. Shows on every non-video surface
+   (all inner pages); the home page layers its scroll-scrub video over it. It
+   *colors* the dark base — kept low-alpha + blurred so body text stays ≥7:1. */
 body::before {
+  content: '';
+  position: fixed;
+  inset: -25%;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 42% at 22% 24%, rgba(110, 139, 255, 0.26), transparent 62%),
+    radial-gradient(34% 38% at 82% 16%, rgba(86, 225, 233, 0.18), transparent 60%),
+    radial-gradient(46% 46% at 70% 82%, rgba(126, 96, 255, 0.18), transparent 64%),
+    radial-gradient(40% 40% at 10% 90%, rgba(86, 225, 233, 0.12), transparent 62%);
+  filter: blur(72px) saturate(125%);
+  will-change: transform;
+  animation: auroraDrift 32s ease-in-out infinite alternate;
+}
+
+/* base tone + edge vignette — settles the aurora into a calm, readable ground */
+body::after {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(60vw 60vw at 78% -10%, rgba(110, 139, 255, 0.10), transparent 60%),
-    radial-gradient(50vw 50vw at 0% 8%, rgba(86, 225, 233, 0.06), transparent 55%),
-    linear-gradient(var(--bg), var(--bg));
+    radial-gradient(120% 82% at 50% 6%, transparent 42%, rgba(8, 9, 12, 0.55) 100%),
+    linear-gradient(to bottom, transparent 52%, rgba(8, 9, 12, 0.82));
+}
+
+@keyframes auroraDrift {
+  0%   { transform: translate3d(-2%, -1%, 0) scale(1.02); }
+  50%  { transform: translate3d(2%, 2%, 0) scale(1.08); }
+  100% { transform: translate3d(3%, -2%, 0) scale(1.05); }
 }
 
 main {
@@ -166,11 +191,15 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+  body::before {
+    animation: none;
+    transform: scale(1.04);
   }
   .reveal {
     opacity: 1;
