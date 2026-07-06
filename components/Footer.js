@@ -18,7 +18,7 @@ function Footer() {
                     </div>
                 </div>
                 <nav>
-                    <h2>
+                    <h2 className="eyebrow">
                         Links
                     </h2>
                     <Link href='/' className={styles.link}>About</Link>
@@ -27,7 +27,7 @@ function Footer() {
                     <Link href='/contact' className={styles.link}>Contact</Link>
                 </nav>
                 <div className={styles.contacts}>
-                    <h2>
+                    <h2 className="eyebrow">
                         Contact
                     </h2>
                     <a href="mailto:alex.yoza@gmail.com">alex.yoza@gmail.com</a>

@@ -1,49 +1,33 @@
-.top {
+/* ===========================================================================
+   Work / experience detail — editorial layout.
+   Mirrors the overview pages: eyebrow spine, semantic h1, Reveal cadence,
+   clamp() section rhythm, real <ul> bullets, tokens throughout.
+   No !important / position:unset image hacks.
+   =========================================================================== */
+
+.header {
   width: 100%;
-  margin-bottom: 36px;
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.top {
+  margin-top: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
 }
 
-.workImageContainer {
-  position: relative;
-  height: 44px;
-}
-.workImageContainer > div {
-  position: unset !important;
-}
-.workImage {
-  object-fit: contain;
-  height: 100% !important;
-  position: relative !important;
-  width: unset !important;
-  border-radius: var(--r-sm);
-}
-
-.brandLockup {
-  display: flex;
+.logoMark {
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
-}
-.brandLockup::after {
-  content: '';
-  order: 1;
-  align-self: stretch;
-  width: 1px;
-  background: var(--text-faint);
-  opacity: 0.4;
-}
-.brandLockup :global(svg) {
-  order: 0;
-}
-.brandWordmark {
-  order: 2;
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
   color: var(--text);
+}
+.logoImg {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  border-radius: var(--r-sm);
 }
 
 .date {
@@ -51,35 +35,34 @@
   font-size: 0.78rem;
   letter-spacing: 0.06em;
   color: var(--text-faint);
+  white-space: nowrap;
 }
 
-.experienceImageContainer {
-  font-size: 0;
+/* ---------- hero image ---------- */
+.heroWrap {
+  width: 100%;
+  margin-bottom: clamp(40px, 6vw, 72px);
+}
+.hero {
   position: relative;
   width: 100%;
-  height: 52vh;
+  aspect-ratio: 16 / 9;
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
   background: var(--bg-elev);
   overflow: hidden;
   box-shadow: var(--shadow);
-  margin-bottom: 48px;
 }
-.experienceImageContainer > div {
-  position: unset !important;
-}
-.experienceImage {
+.hero img {
   object-fit: cover;
-  width: 100% !important;
-  height: 100% !important;
-  position: relative !important;
+  object-position: top center;
 }
 
+/* ---------- body ---------- */
 .content {
   width: 100%;
 }
-
-.title {
+.titleRow {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -89,16 +72,15 @@
   padding-bottom: 24px;
   border-bottom: 1px solid var(--border);
 }
-
 .company {
-  font-size: 1.5rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text);
 }
 .position {
-  margin-top: 6px;
-  font-size: 0.95rem;
+  margin-top: 8px;
+  font-size: 1rem;
   color: var(--accent-2);
 }
 .location {
@@ -108,36 +90,46 @@
 }
 
 .description {
-  margin-bottom: 48px;
+  list-style: none;
+  width: 100%;
+  max-width: 70ch;
+  margin-bottom: clamp(48px, 7vw, 80px);
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 70ch;
 }
-.description div {
+.description li {
+  position: relative;
+  padding-left: 26px;
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-dim);
-  display: flex;
 }
-.description span {
-  color: var(--accent);
-  margin-right: 12px;
+.description li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--r-full);
+  background: var(--accent);
 }
 
+/* ---------- back link ---------- */
 .back {
   border-radius: var(--r-full);
   width: fit-content;
   padding: 12px 26px;
   font-size: 0.9rem;
-  margin-bottom: 24px;
   border: 1px solid var(--border-strong);
   background: rgba(255, 255, 255, 0.02);
   color: var(--text);
-  transition: border-color var(--dur) ease, color var(--dur) ease, transform var(--dur-micro) var(--ease-out);
-  display: flex;
-  justify-content: center;
+  transition: border-color var(--dur) ease, color var(--dur) ease,
+    transform var(--dur-micro) var(--ease-out);
+  display: inline-flex;
   align-items: center;
+  gap: 8px;
 }
 .back:hover {
   border-color: var(--accent);
@@ -151,14 +143,9 @@
   .top {
     flex-direction: column;
     align-items: flex-start;
+    gap: 14px;
   }
-  .experienceImageContainer {
-    height: 40vh;
-  }
-  .title {
+  .titleRow {
     flex-direction: column;
-  }
-  .company {
-    font-size: 1.3rem;
   }
 }

@@ -1,66 +1,58 @@
-.projectInfo {
+/* ===========================================================================
+   Project detail — editorial layout.
+   Mirrors the overview pages: eyebrow spine, h1 title, Reveal cadence,
+   clamp() section rhythm, tokens throughout. No !important / position:unset.
+   =========================================================================== */
+
+.header {
   width: 100%;
-  margin-bottom: 64px;
+  padding-bottom: 28px;
+  margin-bottom: clamp(56px, 9vw, 120px);
+  border-bottom: 1px solid var(--border);
 }
 
-.projectInfo h2 {
-  margin-top: 8px;
-  font-weight: 600;
-  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+.title {
+  margin: 14px 0 24px;
+  font-size: clamp(1.8rem, 4vw, 3rem);
   letter-spacing: -0.03em;
   color: var(--text);
 }
-.projectInfo h2 a {
+.title a {
   color: var(--accent-2);
-  text-decoration: none;
   border-bottom: 1px solid rgba(86, 225, 233, 0.4);
   transition: border-color var(--dur) ease;
 }
-.projectInfo h2 a:hover {
+.title a:hover {
   border-color: var(--accent-2);
 }
 
-.projectLine {
-  width: 100%;
-  height: 1px;
-  margin: 24px 0;
-  background: var(--border);
-}
-
-.bottomTitle {
-  margin-top: 10px;
+.meta {
   display: flex;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
 }
-
-.projectSkills {
+.skills {
   display: flex;
-  gap: 18px;
   align-items: center;
+  gap: 18px;
 }
-.imageContainer {
+.skillIcon {
   position: relative;
   width: 28px;
   height: 28px;
   opacity: 0.9;
 }
-.imageContainer > div {
-  position: unset !important;
+.skillIcon img {
+  object-fit: contain;
 }
-.imageContainerLight {
+/* logos that are dark on transparent (Next.js "N") need a light backing */
+.skillIconLight {
   background: #fff;
   border-radius: 50%;
   padding: 3px;
+  opacity: 1;
 }
-.skillImage {
-  object-fit: contain;
-  height: 100% !important;
-  position: relative !important;
-}
-
 .date {
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -69,96 +61,63 @@
   white-space: nowrap;
 }
 
-.description {
-  width: 100%;
-  max-width: 70ch;
-  margin-bottom: 80px;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--text-dim);
-}
-
+/* ---------- gallery ---------- */
 .gallery {
   width: 100%;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: clamp(48px, 8vw, 96px);
 }
-.gallery h2 {
-  font-family: var(--font-mono);
-  font-weight: 400;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--text-faint);
-  margin-bottom: 36px;
-  text-align: center;
-  width: 100%;
-}
-
-.projectGalleryImages {
+.galleryGrid {
   width: 100%;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 28px;
-  margin-bottom: 56px;
 }
 
-.projectImageContainer {
-  font-size: 0;
+.shotReveal {
   width: 100%;
-  max-width: 520px;
+  max-width: 620px;
+  display: flex;
+}
+
+.shot {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   border: 1px solid var(--border);
   border-radius: var(--r-md);
   overflow: hidden;
   background: var(--bg-elev);
+  box-shadow: var(--shadow);
   transition: border-color var(--dur) ease, transform var(--dur) var(--ease-out);
 }
-.projectImageContainer:hover {
+.shot:hover {
   border-color: var(--border-strong);
   transform: translateY(-2px);
 }
-.projectImageContainer > div {
-  position: unset !important;
-}
-.projectImage {
-  object-fit: contain;
-  width: 100% !important;
-  position: relative !important;
+.shot img {
+  object-fit: cover;
+  object-position: top center;
 }
 
-.projectImageContainerTall {
-  font-size: 0;
-  height: 520px;
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  overflow: hidden;
-  background: var(--bg-elev);
-  margin-bottom: 56px;
-}
-.projectImageContainerTall > div {
-  position: unset !important;
-}
-.projectImageTall {
-  object-fit: contain;
-  height: 100% !important;
-  position: relative !important;
-}
-
+/* ---------- back link ---------- */
 .back {
   border-radius: var(--r-full);
   width: fit-content;
   padding: 12px 26px;
   font-size: 0.9rem;
-  margin-bottom: 24px;
   border: 1px solid var(--border-strong);
   background: rgba(255, 255, 255, 0.02);
   color: var(--text);
-  transition: border-color var(--dur) ease, color var(--dur) ease, transform var(--dur-micro) var(--ease-out);
-  display: flex;
-  justify-content: center;
+  transition: border-color var(--dur) ease, color var(--dur) ease,
+    transform var(--dur-micro) var(--ease-out);
+  display: inline-flex;
   align-items: center;
+  gap: 8px;
 }
 .back:hover {
   border-color: var(--accent);
@@ -169,19 +128,9 @@
 }
 
 @media (max-width: 800px) {
-  .projectInfo h2 {
-    text-align: center;
-  }
-  .bottomTitle {
+  .meta {
     flex-direction: column;
-    gap: 20px;
-  }
-  .projectSkills {
-    width: 100%;
-    justify-content: center;
-    gap: 16px;
-  }
-  .date {
-    margin-top: 4px;
+    align-items: flex-start;
+    gap: 18px;
   }
 }

@@ -87,6 +87,7 @@ export default function Work() {
   return (
     <main className="container">
       <header className={styles.head}>
+        <span className="eyebrow">Career</span>
         <h1 className={styles.title}>Experience</h1>
         <p className={styles.lede}>
           From banking automation to a billion-request-a-day service — plus the

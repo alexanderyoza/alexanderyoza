@@ -1,56 +1,53 @@
 import React from 'react'
 import styles from '../../../styles/work.module.css';
-import '../../../styles/globals.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import Reveal from '../../../components/Reveal';
+
+const POINTS = [
+  'Automated redundant bank processes using Microsoft Power Automate, streamlining workflows and enhancing operational efficiency.',
+  'Collaborated with the Software Engineering team to break down and delegate project tasks, ensuring timely completion and team alignment.',
+  'Saved 1,500+ hours annually by automating manual bank reporting and processing tasks.',
+  'Created Python scripts to process thousands of daily bank transactions and generate accurate reports.',
+];
 
 export default function Boh() {
-    return (
-        <main className='container'>
-            <div className={styles.top}>
-                <div className={styles.workImageContainer}>
-                    <Image src='/work/boh.png' alt='bank of hawaii logo' fill={true} sizes="(max-width: 300px) 300px" className={styles.workImage}/>
-                </div>
-                <div className={styles.date}>
-                    June 2022 - August 2022
-                </div>
-            </div>
-            <div className={styles.experienceImageContainer}>
-                <Image src='/work/boh-work.jpg' alt='bank of hawaii sample' fill={true} sizes="(max-width: 300px) 300px" className={styles.experienceImage}/>
-            </div>
-            <div className={styles.content}>
-                <div className={styles.title}>
-                    <div>
-                        <div className={styles.company}>
-                            Bank of Hawaii
-                        </div>
-                        <div className={styles.position}>
-                            eSolutions Development Intern
-                        </div>
-                    </div>
-                    <div className={styles.location}>
-                        Honolulu, Hawaii
-                    </div>
-                </div>
-                <div className={styles.description}>
-                    <div>
-                        <span>•</span>
-                        Automated redundant bank processes using Microsoft Power Automate, streamlining workflows and enhancing operational efficiency.
-                    </div>
-                    <div><span>•</span>
-                        Collaborated with the Software Engineering team to break down and delegate project tasks, ensuring timely completion and team alignment.
-                    </div>
-                    <div>
-                        <span>•</span>
-                        Saved 1,500+ hours annually by automating manual bank reporting and processing tasks.
-                    </div>
-                    <div>
-                        <span>•</span>
-                        Created Python scripts to process thousands of daily bank transactions and generate accurate reports.
-                    </div>
-                </div>
-            </div>
-            <Link href='/work' className={styles.back}>Go Back</Link>
-        </main>
-    )
+  return (
+    <main className="container">
+      <Reveal className={styles.header}>
+        <span className="eyebrow">Experience</span>
+        <div className={styles.top}>
+          <span className={styles.logoMark}>
+            <Image src="/work/boh.png" alt="Bank of Hawaii" width={44} height={44} className={styles.logoImg} />
+          </span>
+          <span className={styles.date}>June 2022 – August 2022</span>
+        </div>
+      </Reveal>
+
+      <Reveal className={styles.heroWrap} delay={60}>
+        <div className={styles.hero}>
+          <Image src="/work/boh-work.jpg" alt="Bank of Hawaii project sample" fill sizes="(max-width: 1200px) 100vw, 1152px" />
+        </div>
+      </Reveal>
+
+      <div className={styles.content}>
+        <Reveal className={styles.titleRow}>
+          <div>
+            <h1 className={styles.company}>Bank of Hawaii</h1>
+            <p className={styles.position}>eSolutions Development Intern</p>
+          </div>
+          <span className={styles.location}>Honolulu, Hawaii</span>
+        </Reveal>
+        <Reveal>
+          <ul className={styles.description}>
+            {POINTS.map((p) => <li key={p}>{p}</li>)}
+          </ul>
+        </Reveal>
+      </div>
+
+      <Reveal>
+        <Link href="/work" className={styles.back}>← Back to experience</Link>
+      </Reveal>
+    </main>
+  )
 }

@@ -1,47 +1,51 @@
 import React from 'react'
 import styles from '../../../styles/projectInfo.module.css';
-import '../../../styles/globals.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import Reveal from '../../../components/Reveal';
+
+const SHOTS = [
+  ['/projects/gsfhi/landing.png', 'GSF LLC landing page'],
+  ['/projects/gsfhi/about.png', 'GSF LLC about page'],
+  ['/projects/gsfhi/projects.png', 'GSF LLC projects page'],
+];
 
 export default function Gsfhi() {
-    return (
-        <div className='container'>
-            <div className={styles.projectInfo}>
-                <h2>
-                    GSF LLC - <a href='https://gsfhi.com/' target='_blank' rel='noopener noreferrer'>Housing Development Company Website</a>
-                </h2>
-                <div className={styles.projectLine}></div>
-                <div className={styles.bottomTitle}>
-                    <div className={styles.projectSkills}>
-                        <div className={styles.imageContainer}>
-                            <Image src='/skills/svelte.png' alt='svelte' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                        </div>
-                    </div>  
-                    <div className={styles.date}>
-                        December 2024
-                    </div>  
-                </div>
-            </div>
-            <div className={styles.gallery}>
-                <h2>
-                    Gallery
-                </h2>
-                <div className={styles.projectGalleryImages}>
-                   <div className={styles.projectImageContainer}>
-                        <Image src='/projects/gsfhi/landing.png' alt='gsfhi landing' fill={true} sizes="(max-width: 300px) 300px" className={styles.projectImage}/>
-                    </div>
-                    <div className={styles.projectImageContainer}>
-                        <Image src='/projects/gsfhi/about.png' alt='gsfhi about' fill={true} sizes="(max-width: 300px) 300px" className={styles.projectImage}/>
-                    </div>
-                    <div className={styles.projectImageContainer}>
-                        <Image src='/projects/gsfhi/projects.png' alt='gsfhi projects' fill={true} sizes="(max-width: 300px) 300px" className={styles.projectImage}/>
-                    </div> 
-                </div>
-                
-            </div>
-
-            <Link href='/projects' className={styles.back}>Go Back</Link>
+  return (
+    <main className="container">
+      <Reveal className={styles.header}>
+        <span className="eyebrow">Project</span>
+        <h1 className={styles.title}>
+          GSF LLC — <a href="https://gsfhi.com/" target="_blank" rel="noopener noreferrer">Housing Development Company Website</a>
+        </h1>
+        <div className={styles.meta}>
+          <div className={styles.skills}>
+            <span className={styles.skillIcon}>
+              <Image src="/skills/svelte.png" alt="Svelte" fill sizes="28px" />
+            </span>
+          </div>
+          <span className={styles.date}>December 2024</span>
         </div>
-    )
+      </Reveal>
+
+      <section className={styles.gallery}>
+        <Reveal>
+          <span className="eyebrow">Gallery</span>
+        </Reveal>
+        <div className={styles.galleryGrid}>
+          {SHOTS.map(([src, alt], i) => (
+            <Reveal className={styles.shotReveal} key={src} delay={(i % 2) * 80}>
+              <div className={styles.shot}>
+                <Image src={src} alt={alt} fill sizes="(max-width: 800px) 100vw, 620px" />
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <Reveal>
+        <Link href="/projects" className={styles.back}>← Back to projects</Link>
+      </Reveal>
+    </main>
+  )
 }
