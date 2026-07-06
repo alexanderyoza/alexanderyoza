@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import styles from '../styles/components/scrollVideoHero.module.css';
+import styles from '../styles/components/backgroundVideo.module.css';
 
 /**
  * Fixed full-page background video, scrubbed by whole-page scroll progress

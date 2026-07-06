@@ -43,13 +43,8 @@
   letter-spacing: -0.02em;
 }
 
+/* headings use the shared global .eyebrow class; footer only sets spacing */
 .footer h2 {
-  font-family: var(--font-mono);
-  font-weight: 400;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--text-faint);
   margin-bottom: 20px;
 }
 

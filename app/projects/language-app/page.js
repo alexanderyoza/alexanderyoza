@@ -1,51 +1,57 @@
 import React from 'react'
 import styles from '../../../styles/projectInfo.module.css';
-import '../../../styles/globals.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import Reveal from '../../../components/Reveal';
+
+const STACK = [
+  ['/skills/react.png', 'React Native', false],
+  ['/skills/firebase.png', 'Firebase', false],
+];
+
+const SHOTS = [
+  ['/projects/language-app/home.png', 'Flashcard app home screen'],
+  ['/projects/language-app/set.png', 'Flashcard app set screen'],
+  ['/projects/language-app/english.png', 'Flashcard app English side'],
+  ['/projects/language-app/japanese.png', 'Flashcard app Japanese side'],
+];
 
 export default function LanguageApp() {
-    return (
-        <div className='container'>
-            <div className={styles.projectInfo}>
-                <h2>
-                    Flashcard Mobile App
-                </h2>
-                <div className={styles.projectLine}></div>
-                <div className={styles.bottomTitle}>
-                    <div className={styles.projectSkills}>
-                        <div className={styles.imageContainer}>
-                            <Image src='/skills/react.png' alt='react' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                        </div>
-                        <div className={styles.imageContainer}>
-                            <Image src='/skills/firebase.png' alt='firebase' fill={true} sizes="(max-width: 300px) 300px" className={styles.skillImage}/>
-                        </div>
-                    </div>  
-                    <div className={styles.date}>
-                        August 2023
-                    </div>  
-                </div>
-            </div>
-            <div className={styles.gallery}>
-                <h2>
-                    Gallery
-                </h2>
-                <div className={styles.projectGalleryImages}>
-                    <div className={styles.projectImageContainerTall}>
-                        <Image src='/projects/language-app/home.png' alt='language app home' fill={true} sizes="(max-width: 300px) 300px" className={styles.projectImageTall}/>
-                    </div>
-                    <div className={styles.projectImageContainerTall}>
-                        <Image src='/projects/language-app/set.png' alt='language app set' fill={true} sizes="(max-width: 300px) 300px" className={styles.projectImageTall}/>
-                    </div>
-                    <div className={styles.projectImageContainerTall}>
-                        <Image src='/projects/language-app/english.png' alt='language app english side' fill={true} sizes="(max-width: 300px) 300px" className={styles.projectImageTall}/>
-                    </div>
-                    <div className={styles.projectImageContainerTall}>
-                        <Image src='/projects/language-app/japanese.png' alt='language app japanese side' fill={true} sizes="(max-width: 300px) 300px" className={styles.projectImageTall}/>
-                    </div>
-                </div>
-            </div>
-            <Link href='/projects' className={styles.back}>Go Back</Link>
+  return (
+    <main className="container">
+      <Reveal className={styles.header}>
+        <span className="eyebrow">Project</span>
+        <h1 className={styles.title}>Flashcard Mobile App</h1>
+        <div className={styles.meta}>
+          <div className={styles.skills}>
+            {STACK.map(([src, label, light]) => (
+              <span className={`${styles.skillIcon} ${light ? styles.skillIconLight : ''}`} key={src}>
+                <Image src={src} alt={label} fill sizes="28px" />
+              </span>
+            ))}
+          </div>
+          <span className={styles.date}>August 2023</span>
         </div>
-    )
+      </Reveal>
+
+      <section className={styles.gallery}>
+        <Reveal>
+          <span className="eyebrow">Gallery</span>
+        </Reveal>
+        <div className={styles.galleryGrid}>
+          {SHOTS.map(([src, alt], i) => (
+            <Reveal className={`${styles.shotReveal} ${styles.shotRevealTall}`} key={src} delay={(i % 2) * 80}>
+              <div className={`${styles.shot} ${styles.shotTall}`}>
+                <Image src={src} alt={alt} fill sizes="(max-width: 800px) 45vw, 300px" />
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <Reveal>
+        <Link href="/projects" className={styles.back}>← Back to projects</Link>
+      </Reveal>
+    </main>
+  )
 }
