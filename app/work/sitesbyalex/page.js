@@ -15,7 +15,6 @@ export default function Freelance() {
   return (
     <main className="container">
       <Reveal className={styles.header}>
-        <span className="eyebrow">Experience</span>
         <div className={styles.top}>
           <span className={styles.logoMark}>
             <Logo size={44} />

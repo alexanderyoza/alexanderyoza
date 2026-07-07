@@ -20,7 +20,6 @@ export default function Uhfd() {
   return (
     <main className="container">
       <Reveal className={styles.header}>
-        <span className="eyebrow">Project</span>
         <h1 className={styles.title}>
           Union Hills Family Dentistry — <a href="https://www.unionhillsfamilydentistry.com/" target="_blank" rel="noopener noreferrer">Dental Practice Website</a>
         </h1>

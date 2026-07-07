@@ -32,7 +32,6 @@ export default function Contact() {
     <main className="container">
       <div className={styles.wrap}>
         <Reveal>
-          <span className="eyebrow">Contact</span>
           <h1 className={styles.title}>Let&apos;s build something.</h1>
           <p className={styles.lede}>
             Open to interesting problems, collaborations, and good conversation.
