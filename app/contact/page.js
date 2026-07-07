@@ -32,7 +32,7 @@ export default function Contact() {
     <main className="container">
       <div className={styles.wrap}>
         <Reveal>
-          <h1 className={styles.title}>Let&apos;s build something.</h1>
+          <h1 className={styles.title}><span className={styles.titleInner}>Let&apos;s build something.</span></h1>
           <p className={styles.lede}>
             Open to interesting problems, collaborations, and good conversation.
             The fastest way to reach me is below.
@@ -50,7 +50,7 @@ export default function Contact() {
                 <span className={styles.rowIcon}>{ICONS[l.icon]}</span>
                 <span className={styles.rowLabel}>{l.label}</span>
                 <span className={styles.rowValue}>{l.value}</span>
-                <span className={styles.rowArrow}>→</span>
+                <span className={styles.rowArrow} aria-hidden="true">{l.external ? '↗' : '→'}</span>
               </a>
             </Reveal>
           ))}
