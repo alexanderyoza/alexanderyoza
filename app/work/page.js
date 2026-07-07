@@ -5,11 +5,11 @@ import Reveal from '../../components/Reveal';
 
 const EDUCATION = [
   {
-    dates: '2021 – 2024', title: 'University of California, San Diego',
+    from: 'Sep 2021', to: 'Dec 2024', title: 'University of California, San Diego',
     desc: 'B.S. Computer Science · La Jolla, California',
   },
   {
-    dates: '2024', title: 'International Christian University',
+    from: 'Aug 2024', to: 'Nov 2024', title: 'International Christian University',
     desc: 'Exchange program · Mitaka, Tokyo, Japan',
   },
 ];
@@ -17,59 +17,82 @@ const EDUCATION = [
 // One combined index — roles, projects, and studio work.
 const WORK = [
   {
-    dates: 'Feb 2026 – Present', title: 'Capital One',
+    from: 'Feb 2026', to: 'Present', title: 'Capital One',
     role: 'Associate Software Engineer',
     desc: 'Core modernization and common capability tooling on team StreamPro, on a service that handles over a billion requests a day.',
   },
   {
-    dates: 'Jan 2026 – Present', title: 'Nisatsu',
+    from: 'Jan 2026', to: 'Present', title: 'Nisatsu',
     role: 'Founder and Engineer',
     desc: 'An AI language learning app, built end to end.',
     soon: true,
   },
   {
-    dates: 'Sep 2025 – Present', title: 'Ponzu',
+    from: 'Sep 2025', to: 'Present', title: 'Ponzu',
     role: 'CTO and Cofounder',
     desc: 'An AI workflow orchestration platform.',
     soon: true,
   },
   {
-    dates: '2025 – Present', title: 'Trading Lab',
+    from: 'Jun 2025', to: 'Present', title: 'Trading Lab',
     role: 'Creator',
     desc: 'Research, simulate, and score algorithmic trading strategies with sandboxed, validated plugins.',
     soon: true,
   },
   {
-    dates: 'Jun 2024 – Aug 2024', title: 'San Diego Supercomputer Center',
+    from: 'Jun 2024', to: 'Aug 2024', title: 'San Diego Supercomputer Center',
     role: 'Developer Intern',
     desc: 'Led a full stack platform in React, Node, and Firebase to help students discover places around them.',
     href: '/work/sdsc',
   },
   {
-    dates: '2023 – Present', title: 'AGY',
+    from: 'Oct 2021', to: 'Present', title: 'AGY',
     role: 'Founder',
     desc: 'My independent software studio for products, experiments, and digital systems.',
     href: 'https://agyllc.com/', external: true,
   },
   {
-    dates: 'Jun 2023 – Present', title: 'SitesByAlex',
+    from: 'Jun 2023', to: 'Present', title: 'SitesByAlex',
     role: 'Web Developer and Consultant',
     desc: 'Client websites and web apps for small businesses.',
     href: '/work/sitesbyalex',
   },
   {
-    dates: 'Jun 2022 – Aug 2022', title: 'Bank of Hawaii',
+    from: 'Jun 2022', to: 'Aug 2022', title: 'Bank of Hawaii',
     role: 'eSolutions Development Intern',
     desc: 'Automated bank processes, saving over 1,500 hours a year.',
     href: '/work/boh',
   },
 ];
 
+// Ongoing (…– Present) first, then finished; each most-recent-first by start date.
+const MONTHS = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
+const startKey = (item) => {
+  const parts = item.from.split(' ');
+  const month = parts.length > 1 ? (MONTHS[parts[0]] ?? 0) : 0;
+  const year = Number(parts[parts.length - 1]);
+  return year * 12 + month;
+};
+const orderedWork = [...WORK].sort((a, b) => {
+  const aActive = a.to === 'Present';
+  const bActive = b.to === 'Present';
+  if (aActive !== bActive) return aActive ? -1 : 1;
+  return startKey(b) - startKey(a);
+});
+
 function Row({ item }) {
-  const arrow = item.soon ? 'Soon' : item.external ? '↗' : item.href ? '→' : '';
+  const arrow = item.soon ? 'Coming soon' : item.external ? '↗' : item.href ? '→' : '';
   const inner = (
     <>
-      <span className={styles.rowYear}>{item.dates}</span>
+      <span className={styles.rowYear}>
+        <span className={styles.rowDate}>{item.from}</span>
+        {item.to && (
+          <>
+            <span className={styles.rowDateSep}>to</span>
+            <span className={styles.rowDate}>{item.to}</span>
+          </>
+        )}
+      </span>
       <span className={styles.rowMain}>
         <span className={styles.rowTitle}>{item.title}</span>
         {item.role && <span className={styles.rowRole}>{item.role}</span>}
@@ -112,7 +135,7 @@ export default function Experience() {
           <h2 className={styles.groupLabel}>Work</h2>
         </Reveal>
         <div className={styles.index}>
-          {WORK.map((item, i) => (
+          {orderedWork.map((item, i) => (
             <Reveal key={item.title} delay={Math.min(i, 5) * 45}>
               <Row item={item} />
             </Reveal>
