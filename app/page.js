@@ -32,7 +32,8 @@ export default function Home() {
         <Reveal className={styles.facts}>
           <div className={styles.metaBlock}>
             <span className={styles.metaLabel}>Now</span>
-            <span className={styles.metaValue}>Capital One · Associate SWE</span>
+            <span className={styles.metaValue}>Associate SWE</span>
+            <span className={styles.metaSub}>Capital One</span>
           </div>
           <div className={styles.metaBlock}>
             <span className={styles.metaLabel}>Currently based</span>

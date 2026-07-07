@@ -23,7 +23,7 @@ export default function Reveal({ children, as: Tag = 'div', className = '', dela
           }
         });
       },
-      { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
+      { threshold: 0, rootMargin: '0px 0px 12% 0px' }
     );
     io.observe(el);
     return () => io.disconnect();

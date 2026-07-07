@@ -51,7 +51,7 @@
 
 .row {
   display: grid;
-  grid-template-columns: 168px 1fr auto;
+  grid-template-columns: 116px 1fr auto;
   gap: 28px;
   align-items: baseline;
   padding: 30px 4px;
@@ -66,12 +66,22 @@
 .rowStatic { cursor: default; }
 
 .rowYear {
-  font-size: 0.84rem;
-  color: var(--text-faint);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding-top: 6px;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.01em;
-  padding-top: 6px;
+}
+.rowDate {
+  font-size: 0.84rem;
+  color: var(--text-dim);
   white-space: nowrap;
+}
+.rowDateSep {
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  line-height: 1.5;
 }
 .rowMain {
   display: flex;
