@@ -25,13 +25,13 @@ const WORK = [
     from: 'Jan 2026', to: 'Present', title: 'Nisatsu',
     role: 'Founder and Engineer',
     desc: 'An AI language learning app, built end to end.',
-    soon: true,
+    soon: true, href: 'https://www.nisatsu.com/', external: true,
   },
   {
     from: 'Sep 2025', to: 'Present', title: 'Ponzu',
     role: 'CTO and Cofounder',
     desc: 'An AI workflow orchestration platform.',
-    soon: true,
+    soon: true, href: 'https://www.ponzu.so/', external: true,
   },
   {
     from: 'Jun 2025', to: 'Present', title: 'Trading Lab',
@@ -81,7 +81,9 @@ const orderedWork = [...WORK].sort((a, b) => {
 });
 
 function Row({ item }) {
-  const arrow = item.soon ? 'Coming soon' : item.external ? '↗' : item.href ? '→' : '';
+  const arrow = item.soon
+    ? (item.href ? 'Coming soon ↗' : 'Coming soon')
+    : item.external ? '↗' : item.href ? '→' : '';
   const inner = (
     <>
       <span className={styles.rowYear}>
