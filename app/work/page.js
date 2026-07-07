@@ -66,7 +66,7 @@ const WORK = [
 ];
 
 function Row({ item }) {
-  const arrow = item.soon ? 'Soon' : item.external ? '↗' : item.href ? '→' : '';
+  const arrow = item.soon ? 'Coming soon' : item.external ? '↗' : item.href ? '→' : '';
   const inner = (
     <>
       <span className={styles.rowYear}>

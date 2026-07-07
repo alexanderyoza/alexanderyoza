@@ -115,6 +115,7 @@
   color: var(--text-faint);
   min-width: 40px;
   text-align: right;
+  white-space: nowrap;
   padding-top: 6px;
   transition: color var(--dur) ease, transform var(--dur) var(--ease-out);
 }
