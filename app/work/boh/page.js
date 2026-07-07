@@ -15,7 +15,6 @@ export default function Boh() {
   return (
     <main className="container">
       <Reveal className={styles.header}>
-        <span className="eyebrow">Experience</span>
         <div className={styles.top}>
           <span className={styles.logoMark}>
             <Image src="/work/boh.png" alt="Bank of Hawaii" width={44} height={44} className={styles.logoImg} />

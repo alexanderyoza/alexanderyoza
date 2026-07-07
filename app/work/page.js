@@ -3,54 +3,44 @@ import Link from 'next/link';
 import styles from '../../styles/workOverview.module.css';
 import Reveal from '../../components/Reveal';
 
-// One combined index — roles, projects, studio and client work, merged.
+// One combined index — roles, projects, studio work, merged.
 const ENTRIES = [
   {
-    year: '2026', title: 'Capital One', kind: 'Role',
+    dates: 'Feb 2026 – Present', title: 'Capital One',
     desc: 'Associate Software Engineer on team StreamPro — core modernization and common capability & tooling on a service handling a billion+ requests a day.',
   },
   {
-    year: '2026', title: 'Nisatsu', kind: 'Project',
+    dates: 'Jan 2026 – Present', title: 'Nisatsu',
     desc: 'Founder & engineer — an AI language-learning app, built end to end.',
     soon: true,
   },
   {
-    year: '2025', title: 'Ponzu', kind: 'Project',
+    dates: 'Sep 2025 – Present', title: 'Ponzu',
     desc: 'CTO & co-founder — an AI workflow-orchestration platform.',
     soon: true,
   },
   {
-    year: '2025', title: 'Union Hills Family Dentistry', kind: 'Client',
-    desc: 'Full-stack marketing site and patient-facing pages for a Phoenix dental practice.',
-    href: '/projects/uhfd',
-  },
-  {
-    year: '2024', title: 'GSF LLC', kind: 'Client',
-    desc: 'Property and project showcase site for a Hawaii housing-development company.',
-    href: '/projects/gsfhi',
-  },
-  {
-    year: '2024', title: 'San Diego Supercomputer Center', kind: 'Role',
-    desc: 'Developer intern — led a full-stack platform in React, Node, and Firebase.',
-    href: '/work/sdsc',
-  },
-  {
-    year: '2023', title: 'AGY', kind: 'Studio',
-    desc: 'My independent software studio — products, experiments, and digital systems.',
-    href: 'https://agyllc.com/', external: true,
-  },
-  {
-    year: '2023', title: 'SitesByAlex', kind: 'Studio',
-    desc: 'Web developer & consultant — client websites and web apps.',
-    href: '/work/sitesbyalex',
-  },
-  {
-    year: '2023', title: 'Trading Lab', kind: 'Project',
+    dates: '2025 – Present', title: 'Trading Lab',
     desc: 'Research, simulate, and score algorithmic trading strategies with sandboxed, validated plugins.',
     soon: true,
   },
   {
-    year: '2022', title: 'Bank of Hawaii', kind: 'Role',
+    dates: 'Jun 2024 – Aug 2024', title: 'San Diego Supercomputer Center',
+    desc: 'Developer intern — led a full-stack platform in React, Node, and Firebase.',
+    href: '/work/sdsc',
+  },
+  {
+    dates: '2023 – Present', title: 'AGY',
+    desc: 'My independent software studio — products, experiments, and digital systems.',
+    href: 'https://agyllc.com/', external: true,
+  },
+  {
+    dates: 'Jun 2023 – Present', title: 'SitesByAlex',
+    desc: 'Web developer & consultant — client websites and web apps.',
+    href: '/work/sitesbyalex',
+  },
+  {
+    dates: 'Jun 2022 – Aug 2022', title: 'Bank of Hawaii',
     desc: 'eSolutions development intern — automated bank processes, saving 1,500+ hours a year.',
     href: '/work/boh',
   },
@@ -60,15 +50,12 @@ function Row({ item }) {
   const arrow = item.soon ? 'Soon' : item.external ? '↗' : item.href ? '→' : '';
   const inner = (
     <>
-      <span className={styles.rowYear}>{item.year}</span>
+      <span className={styles.rowYear}>{item.dates}</span>
       <span className={styles.rowMain}>
         <span className={styles.rowTitle}>{item.title}</span>
         <span className={styles.rowDesc}>{item.desc}</span>
       </span>
-      <span className={styles.rowMeta}>
-        <span className={styles.rowKind}>{item.kind}</span>
-        <span className={styles.rowArrow}>{arrow}</span>
-      </span>
+      <span className={styles.rowArrow}>{arrow}</span>
     </>
   );
   if (item.href && item.external) {
@@ -85,16 +72,12 @@ export default function Experience() {
     <main className="container">
       <header className={styles.head}>
         <Reveal>
-          <span className="eyebrow">Experience</span>
-        </Reveal>
-        <Reveal delay={60}>
           <h1 className={styles.title}>Roles &amp; things I&apos;ve built.</h1>
         </Reveal>
-        <Reveal delay={120}>
+        <Reveal delay={80}>
           <p className={styles.lede}>
             From banking automation to a billion-request-a-day service — plus the
-            studios, clients, and companies I&apos;m building. Roles and projects,
-            in one place.
+            studios and companies I&apos;m building. Roles and projects, in one place.
           </p>
         </Reveal>
       </header>

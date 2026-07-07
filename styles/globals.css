@@ -191,11 +191,12 @@ a {
   min-height: 100vh;
 }
 
-/* hairline rule primitive */
+/* hairline rule primitive — also carries section rhythm */
 .rule {
   border: 0;
   border-top: 1px solid var(--border);
   width: 100%;
+  margin: clamp(60px, 9vw, 108px) 0;
 }
 
 /* legacy tile primitive — kept for not-yet-restyled pages (Phase 2) */

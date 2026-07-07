@@ -5,19 +5,20 @@
 
 .head {
   max-width: 760px;
-  margin-bottom: clamp(40px, 6vw, 72px);
+  margin-bottom: clamp(52px, 8vw, 96px);
 }
 .title {
   font-size: clamp(2.2rem, 6vw, 4rem);
   font-weight: 500;
   letter-spacing: -0.03em;
-  margin: 18px 0 20px;
+  margin: 0 0 22px;
   text-wrap: balance;
 }
 .lede {
-  font-size: 1.1rem;
+  font-size: 1.12rem;
   color: var(--text-dim);
   max-width: 56ch;
+  line-height: 1.6;
 }
 
 .index {
@@ -28,36 +29,37 @@
 
 .row {
   display: grid;
-  grid-template-columns: 84px 1fr auto;
+  grid-template-columns: 168px 1fr auto;
   gap: 28px;
   align-items: baseline;
-  padding: 26px 4px;
+  padding: 32px 4px;
   border-top: 1px solid var(--border);
   transition: background-color var(--dur) ease, padding var(--dur) var(--ease-out);
 }
 .row:hover:not(.rowStatic) {
   background: var(--surface-2);
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 .rowStatic { cursor: default; }
 
 .rowYear {
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   color: var(--text-faint);
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.02em;
-  padding-top: 4px;
+  letter-spacing: 0.01em;
+  padding-top: 5px;
+  white-space: nowrap;
 }
 .rowMain {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 8px;
   min-width: 0;
 }
 .rowTitle {
   font-family: var(--font-serif);
-  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
   font-weight: 500;
   letter-spacing: -0.015em;
   color: var(--text);
@@ -67,31 +69,15 @@
 .rowDesc {
   font-size: 0.98rem;
   color: var(--text-dim);
-  max-width: 62ch;
-  line-height: 1.55;
-}
-.rowMeta {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding-top: 6px;
-}
-.rowKind {
-  font-size: 0.68rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--text-faint);
-  border: 1px solid var(--border);
-  border-radius: var(--r-full);
-  padding: 4px 10px;
-  white-space: nowrap;
+  max-width: 60ch;
+  line-height: 1.6;
 }
 .rowArrow {
   font-size: 1rem;
   color: var(--text-faint);
-  min-width: 28px;
+  min-width: 40px;
   text-align: right;
+  padding-top: 5px;
   transition: color var(--dur) ease, transform var(--dur) var(--ease-out);
 }
 .row:hover:not(.rowStatic) .rowArrow {
@@ -101,14 +87,14 @@
 
 @media (max-width: 760px) {
   .row {
-    grid-template-columns: 56px 1fr;
-    gap: 16px;
+    grid-template-columns: 1fr auto;
+    gap: 6px 16px;
     grid-template-areas:
-      'year main'
-      '.    meta';
+      'year arrow'
+      'main main';
   }
   .rowYear { grid-area: year; }
-  .rowMain { grid-area: main; }
-  .rowMeta { grid-area: meta; padding-top: 12px; }
+  .rowArrow { grid-area: arrow; padding-top: 0; }
+  .rowMain { grid-area: main; margin-top: 6px; }
   .row:hover:not(.rowStatic) { padding-left: 4px; padding-right: 4px; }
 }

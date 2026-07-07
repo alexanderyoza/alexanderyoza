@@ -14,7 +14,6 @@ export default function Gsfhi() {
   return (
     <main className="container">
       <Reveal className={styles.header}>
-        <span className="eyebrow">Project</span>
         <h1 className={styles.title}>
           GSF LLC — <a href="https://gsfhi.com/" target="_blank" rel="noopener noreferrer">Housing Development Company Website</a>
         </h1>
