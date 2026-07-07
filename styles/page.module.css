@@ -91,11 +91,14 @@
 
 /* ---------- intro blurb (block centered, text left-aligned) ---------- */
 .aboutBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1em;
   max-width: 62ch;
   margin: 0 auto;
 }
 .aboutBody p {
-  font-size: 1.22rem;
+  font-size: 1.18rem;
   line-height: 1.72;
   color: var(--text);
   text-align: left;
