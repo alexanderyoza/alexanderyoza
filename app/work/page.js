@@ -55,7 +55,7 @@ const WORK = [
     from: 'Jun 2023', to: 'Present', title: 'SitesByAlex',
     role: 'Web Developer and Consultant',
     desc: 'Client websites and web apps for small businesses.',
-    href: '/work/sitesbyalex',
+    href: 'https://sitesbyalex.com/', external: true,
   },
   {
     from: 'Jun 2022', to: 'Aug 2022', title: 'Bank of Hawaii',
