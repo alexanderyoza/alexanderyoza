@@ -1,0 +1,40 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-left: 4px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: color var(--dur) ease, border-color var(--dur) ease,
+    background-color var(--dur) ease, transform var(--dur-micro) var(--ease-out);
+}
+.toggle:hover {
+  color: var(--accent);
+  border-color: var(--border-strong);
+}
+.toggle:active {
+  transform: scale(0.94);
+}
+
+.icon {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+}
+.icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@media (max-width: 800px) {
+  .toggle {
+    width: 34px;
+    height: 34px;
+  }
+}

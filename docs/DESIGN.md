@@ -1,114 +1,90 @@
-# Alex Yoza — Design System (dark, always)
+# Alex Yoza — Design System (Bento UI · light + dark)
 
-> The visual contract for the redesign. Linear/Vercel-grade restraint with a
-> futuristic edge. **Always dark — no light mode.** Source of truth for every
-> screen; `/uiux-audit` checks against this. Branch: `redesign`.
+> The visual contract for the redesign. A calm, modular **bento** portfolio:
+> content lives in rounded tiles on a clean grid, mixing imagery, stats, text,
+> and logos. **Light and dark, user-toggleable** (no-flash, persisted, respects
+> system preference). Source of truth for every screen. Branch: `redesign`.
 
 ## Style choice
 
-**Direction:** premium editorial × Aurora  <!-- PRIMARY structure × SECONDARY feeling -->
-**Chosen:** 2026-07-06 · confirmed by Alex · governs every screen.
+**Direction:** premium editorial × **Bento UI**  <!-- PRIMARY structure × SECONDARY feeling -->
+**Chosen:** 2026-07-07 · confirmed by Alex · governs every screen.
+**Supersedes:** premium editorial × Aurora (dark-only, indigo/cyan glow, scroll-scrub
+video hero) — retired 2026-07-07 at Alex's direction. The flat bento system replaces
+the ambient aurora glow and the always-dark constraint.
 
-- **PRIMARY — premium editorial** (structure): a personal portfolio is a
-  low-density, type-forward content-presentation site. Editorial gives generous
-  space, high-contrast type, and a reading rhythm. The PRIMARY wins every
-  conflict — usability and the accessibility floor follow it, not the feeling.
-- **SECONDARY — Aurora** (feeling): glowing gradient light — *dreamy ·
-  futuristic · quiet-confident*. Carries the indigo→cyan glow, the ambient
-  accent gradients, and the scroll-scrub video hero. It colors the editorial
-  spine; it never overrides it.
-- **Token implications:** near-black `--bg #08090C`; iridescent accent
-  `--accent #6E8BFF` → `--accent-2 #56E1E9` via `--accent-grad`; Inter (tight
-  display + mono eyebrows); restrained motion with one ambient-light
-  centerpiece. These match the tokens already below — Aurora **formalizes** the
-  built look rather than changing it.
-- **Alternatives considered:** *premium editorial × Tenebrism* (darker, more
-  cinematic — more shadow, less glow) and *premium editorial × Luxury
-  Typography* (the editorial default — pure type discipline, drops the glow).
-  The aesthetic cousin *technical devtool × Utilitarian* (the Linear/Vercel
-  language) was set aside as mood-led: the site's category is editorial, not a
-  devtool.
-- **Catalog:** `.claude/knowledge/design/design-styles.md` (Aurora is #16 of the
-  50 named styles).
+- **PRIMARY — premium editorial** (structure, unchanged): a personal portfolio is a
+  low-density, type-forward content site. Editorial gives generous space, strong
+  type, and a reading rhythm. The PRIMARY wins every conflict; usability and the
+  accessibility floor follow it.
+- **SECONDARY — Bento UI** (feeling): modular compartmentalized tiles on a clean
+  grid — *organized · friendly · modern*. Content is composed as a bento of
+  differently-sized rounded cards: image tiles, stat/number tiles, text tiles,
+  skill-icon tiles, logo tiles. Subtle shadows and hairline borders; **flat, no
+  glow, no gradients-everywhere.**
+- **Token implications:** dual-theme semantic tokens; warm off-white light ground
+  / near-black dark ground; one confident accent plus a few soft tile tints for
+  variety; Inter; generous radii (bento reads rounded); soft low shadows; restrained
+  lift-on-hover motion.
+- **Catalog:** `.claude/knowledge/design/design-styles.md` (Bento UI is #39 of the 50).
 
-## Direction
+## Theming (light + dark toggle)
 
-- **Primary reference:** Linear (calm, precise, dark, subtle gradients) +
-  Vercel (high-contrast type, generous space, crisp borders).
-- **Secondary refs:** agyllc.com (editorial warmth, blurred light), Apple product
-  pages (scroll-driven video hero).
-- **Feel (3 words):** precise · futuristic · quiet-confident.
-- **Motion:** refined & restrained — micro-interactions, scroll reveals, one bold
-  centerpiece (the scroll-scrub video hero). No bouncy/spinny gimmicks.
+- Tokens are **semantic** (`--bg`, `--text`, `--accent`…) and flip by theme.
+- Resolution order: no attribute → follow `prefers-color-scheme`; `:root[data-theme="light"]`
+  / `:root[data-theme="dark"]` override and win.
+- A no-flash inline script in `<head>` stamps `data-theme` from `localStorage`
+  before first paint. A `ThemeToggle` client component sets/persists it.
+- Both themes meet the contrast floor: body text ≥ 7:1, all interactive ≥ 4.5:1.
 
-## Color (dark only)
+## Color
 
-| Token | Value | Use |
-|---|---|---|
-| `--bg` | `#08090C` | page background (near-black, slightly blue) |
-| `--bg-elev` | `#0E1014` | cards, raised surfaces |
-| `--bg-elev-2` | `#15181E` | hover / nested surfaces |
-| `--border` | `rgba(255,255,255,0.08)` | hairline borders |
-| `--border-strong` | `rgba(255,255,255,0.14)` | focus / emphasis borders |
-| `--text` | `#EDEEF2` | primary text |
-| `--text-dim` | `#9AA1AD` | secondary text |
-| `--text-faint` | `#5C636E` | tertiary / captions |
-| `--accent` | `#6E8BFF` | primary accent (electric indigo) |
-| `--accent-2` | `#56E1E9` | secondary accent (cyan) |
-| `--accent-grad` | `linear-gradient(120deg,#6E8BFF,#56E1E9)` | hero text / CTA glow |
-| `--danger` | `#FF6B6B` | errors |
+Semantic tokens (see `styles/globals.css` for the two theme blocks):
 
-Contrast: body text ≥ 7:1 on `--bg` (AAA where feasible), all interactive ≥ 4.5:1.
+| Token | Role |
+|---|---|
+| `--bg` | page ground (warm off-white / near-black) |
+| `--surface` | tile / card background |
+| `--surface-2` | hover / nested surface |
+| `--border` | hairline tile borders |
+| `--border-strong` | emphasis / focus borders |
+| `--text` / `--text-dim` / `--text-faint` | primary / secondary / tertiary text |
+| `--accent` / `--accent-ink` | primary accent + its on-accent text |
+| `--tile-a … --tile-d` (+ `-ink`) | soft tile tints for grid variety (blue/green/amber/violet) |
 
 ## Typography
 
-- **UI / body:** Inter (already wired via `next/font`). Variable.
-- **Display:** Inter tight (`-0.03em`) at large sizes; consider a future serif/
-  mono display accent for headers (optional, deferred).
-- **Mono accent:** `--font-mono` for labels/eyebrows (uppercase, letter-spaced).
-- Scale (rem, base 16px — **fix the current 32px root**): 0.75 / 0.875 / 1 / 1.25 /
-  1.5 / 2 / 3 / 4.5 / 6. Line-height 1.1 display, 1.6 body.
-- Eyebrow labels: 0.75rem, uppercase, `letter-spacing:0.12em`, `--text-faint`.
+- **UI / body / display:** Inter (variable, via `next/font`). Tight tracking on
+  large display sizes (`-0.03em`); 1.5–1.6 line-height on body.
+- **Mono accent:** `--font-mono` for eyebrows/labels/stats (uppercase, spaced).
+- Scale (rem, 16px root): 0.75 / 0.875 / 1 / 1.25 / 1.5 / 2 / 3 / 4. Big stat
+  numbers may go larger inside their tiles.
 
 ## Space / radius / shadow
 
-- Spacing scale (px): 4 8 12 16 24 32 48 64 96 128.
-- Radius: `--r-sm:8px` `--r-md:14px` `--r-lg:20px` `--r-full:999px`.
-- Borders do the work; shadows are subtle: `--shadow:0 1px 0 rgba(255,255,255,.04) inset, 0 20px 60px -20px rgba(0,0,0,.6)`.
-- Section rhythm: `clamp(96px, 12vw, 200px)` vertical between sections.
+- Spacing scale (px): 4 8 12 16 24 32 48 64 96.
+- Radius: `--r-sm:10px` `--r-md:18px` `--r-lg:26px` `--r-full:999px` (bento = rounded).
+- Shadows soft and low, no glow: `--shadow-sm`, `--shadow` (both theme-aware; lighter in dark).
+- Bento gap: 16–20px between tiles; section rhythm `clamp(72px, 10vw, 140px)`.
+
+## The signature element — the bento grid
+
+Each major section is a responsive bento: a CSS grid of tiles that span 1–2
+columns / 1–2 rows. Tiles mix types (image, stat, text, icon, logo, CTA). Tiles
+lift subtly on hover (border → `--border-strong`, shadow deepens, ~translateY(-2px)).
+Collapses to a single column on mobile. Reuse the `.tile` primitive.
 
 ## Motion
 
-- Durations: 150ms (micro) · 240ms (default) · 400ms (entrance). Never > 450ms.
-- Easing: `cubic-bezier(0.22,1,0.36,1)` (easeOutExpo-ish) for entrances;
-  `ease` only for color. **Never `transition: all`.**
-- Patterns: scroll-reveal fade-up (12px, staggered), hairline underline grows on
-  hover, `:active` scale 0.98 on buttons, glow pulse on primary CTA (subtle).
-- **`prefers-reduced-motion`:** disable scroll-scrub (show poster), reveals become
-  instant, no looping motion.
-
-## Signature element — scroll-scrub video hero
-
-Landing page hero: a muted `playsInline` video whose `currentTime` is driven by
-scroll progress (rAF + lerp). Fallback: poster image + animated mesh/grid when no
-video / reduced-motion / load error. Spec + asset dims in
-`docs/reference/INTAKE.md` §D2.
-
-## Components
-
-- **Nav:** floating glass pill, `backdrop-filter: blur(12px)`, hairline border,
-  active link = accent underline. (Refs: Linear, AGY.)
-- **Cards (work/projects):** `--bg-elev`, hairline border, preview image top,
-  hover lifts border to `--border-strong` + faint accent glow + image zoom 1.03.
-  "Coming soon" cards: dimmed, `cursor:default`, badge instead of link.
-- **Buttons:** primary = accent gradient text/glow on dark; secondary = hairline
-  outline. Mono eyebrow labels above section headers.
-- **Background texture:** optional faint grid / radial accent glows, very low
-  opacity. Subtle, not noisy.
+- Durations: 150ms (micro) · 220ms (default) · 360ms (entrance). Easing
+  `cubic-bezier(0.22,1,0.36,1)`. **Never `transition: all`.**
+- Patterns: tile hover-lift, scroll-reveal fade-up (staggered), `:active` scale 0.98.
+- `prefers-reduced-motion`: reveals instant, no looping motion.
 
 ## Anti-patterns (do not)
 
-- No light mode, no pure-black `#000`, no pure-white `#FFF` text.
-- No generic SaaS purple-gradient-everything; accents are restrained.
-- No `transition: all`, no animations on interruptible UI, no autoplaying audio.
-- No emoji as UI icons; use a consistent SVG icon set.
+- No aurora glow, no gradient-on-everything, no scroll-scrub video hero (retired).
+- No `transition: all`; no animations on interruptible UI; no autoplaying audio.
+- No pure `#000` / `#FFF` text; keep the warm off-white / near-black grounds.
+- No emoji as UI icons; consistent SVG icon set.
+- Bento tiles must stay legible — tints are soft backings, never low-contrast text.

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import styles from '../styles/components/navigate.module.css';
 import { usePathname } from 'next/navigation';
 import Logo from './Logo';
+import ThemeToggle from './ThemeToggle';
 
 function Navigate() {
 
@@ -21,6 +22,7 @@ function Navigate() {
                     <Link href='/work' className={styles.link}><div  className={pathname.includes('/work') ? styles.active : styles.inactive}>Experience</div></Link>
                     <Link href='/projects' className={styles.link}><div  className={pathname.includes('/projects') ? styles.active : styles.inactive}>Projects</div></Link>
                     <Link href='/contact' className={styles.link}><div className={pathname === '/contact' ? styles.active : styles.inactive}>Contact</div></Link>
+                    <ThemeToggle />
                 </nav>
             </div>
         </header>

@@ -64,7 +64,7 @@ function CardInner({ item }) {
         {item.preview ? (
           <Image src={item.preview} alt={item.title} fill sizes="(max-width: 800px) 100vw, 380px" />
         ) : item.logo ? (
-          <span className={`${styles.markImg} ${item.wordmark ? styles.markWide : ''} ${item.whiten ? styles.markWhite : ''}`}>
+          <span className={`${styles.markImg} ${item.wordmark ? styles.markWide : ''}`}>
             <Image src={item.logo} alt={item.title} fill sizes="200px" />
           </span>
         ) : (

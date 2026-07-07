@@ -2,9 +2,7 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  background: rgba(14, 16, 20, 0.55);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  background: var(--surface);
   border-top: 1px solid var(--border);
   color: var(--text-dim);
   padding: 72px 24px 28px;
@@ -65,7 +63,7 @@
 
 .link:hover,
 .contacts a:hover {
-  color: var(--accent-2);
+  color: var(--accent);
 }
 
 .copyright {
