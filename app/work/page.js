@@ -34,7 +34,7 @@ const WORK = [
     soon: true, href: 'https://www.ponzu.so/', external: true,
   },
   {
-    from: 'Jun 2025', to: 'Present', title: 'Trading Lab',
+    from: 'Jun 2025', to: 'Present', title: 'Crucible',
     role: 'Creator',
     desc: 'Research, simulate, and score algorithmic trading strategies with sandboxed, validated plugins.',
     soon: true,
