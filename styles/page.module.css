@@ -89,12 +89,16 @@
   border-color: color-mix(in srgb, var(--accent) 45%, transparent);
 }
 
-/* ---------- intro blurb ---------- */
+/* ---------- intro blurb (block centered, text left-aligned) ---------- */
+.aboutBody {
+  max-width: 62ch;
+  margin: 0 auto;
+}
 .aboutBody p {
   font-size: 1.22rem;
   line-height: 1.72;
   color: var(--text);
-  max-width: 60ch;
+  text-align: left;
 }
 
 /* ---------- facts ---------- */
@@ -122,11 +126,6 @@
   font-size: 1.2rem;
   color: var(--text);
   letter-spacing: -0.01em;
-}
-.metaSub {
-  font-size: 1rem;
-  color: var(--text-dim);
-  margin-top: 1px;
 }
 
 @media (max-width: 860px) {
