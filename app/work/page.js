@@ -1,118 +1,108 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../../styles/workOverview.module.css';
 import Reveal from '../../components/Reveal';
 
-const WORK = [
+// One combined index — roles, projects, studio and client work, merged.
+const ENTRIES = [
   {
-    title: 'Capital One',
-    role: 'Associate Software Engineer',
-    meta: 'Team StreamPro, Core Modernization',
-    date: 'Feb 2026 – Present',
-    logo: '/work/capitalone/logo.png',
-    wordmark: true,
-    whiten: true,
+    year: '2026', title: 'Capital One', kind: 'Role',
+    desc: 'Associate Software Engineer on team StreamPro — core modernization and common capability & tooling on a service handling a billion+ requests a day.',
   },
   {
-    title: 'Ponzu',
-    role: 'CTO & Co-Founder',
-    meta: 'AI workflow orchestration platform',
-    date: 'Sep 2025 – Present',
-    logo: '/work/ponzu/logo.png',
+    year: '2026', title: 'Nisatsu', kind: 'Project',
+    desc: 'Founder & engineer — an AI language-learning app, built end to end.',
     soon: true,
   },
   {
-    title: 'Nisatsu',
-    role: 'Founder & Software Engineer',
-    meta: 'AI language-learning app',
-    date: 'Jan 2026 – Present',
-    logo: '/work/nisatsu/logo.png',
+    year: '2025', title: 'Ponzu', kind: 'Project',
+    desc: 'CTO & co-founder — an AI workflow-orchestration platform.',
     soon: true,
   },
   {
-    title: 'SitesByAlex',
-    role: 'Web Developer & Consultant',
-    meta: 'Client websites & web apps',
-    date: 'Jun 2023 – Present',
-    preview: '/work/sitesbyalex/preview.png',
-    href: 'https://sitesbyalex.com/',
-    external: true,
+    year: '2025', title: 'Union Hills Family Dentistry', kind: 'Client',
+    desc: 'Full-stack marketing site and patient-facing pages for a Phoenix dental practice.',
+    href: '/projects/uhfd',
   },
   {
-    title: 'San Diego Supercomputer Center',
-    role: 'SDSC Developer Intern',
-    meta: 'React · Node · Firebase',
-    date: 'Jun 2024 – Aug 2024',
-    preview: '/work/sdsc.jpeg',
+    year: '2024', title: 'GSF LLC', kind: 'Client',
+    desc: 'Property and project showcase site for a Hawaii housing-development company.',
+    href: '/projects/gsfhi',
+  },
+  {
+    year: '2024', title: 'San Diego Supercomputer Center', kind: 'Role',
+    desc: 'Developer intern — led a full-stack platform in React, Node, and Firebase.',
     href: '/work/sdsc',
   },
   {
-    title: 'Bank of Hawaii',
-    role: 'eSolutions Development Intern',
-    meta: 'Power Automate · Python automation',
-    date: 'Jun 2022 – Aug 2022',
-    preview: '/work/boh.png',
+    year: '2023', title: 'AGY', kind: 'Studio',
+    desc: 'My independent software studio — products, experiments, and digital systems.',
+    href: 'https://agyllc.com/', external: true,
+  },
+  {
+    year: '2023', title: 'SitesByAlex', kind: 'Studio',
+    desc: 'Web developer & consultant — client websites and web apps.',
+    href: '/work/sitesbyalex',
+  },
+  {
+    year: '2023', title: 'Trading Lab', kind: 'Project',
+    desc: 'Research, simulate, and score algorithmic trading strategies with sandboxed, validated plugins.',
+    soon: true,
+  },
+  {
+    year: '2022', title: 'Bank of Hawaii', kind: 'Role',
+    desc: 'eSolutions development intern — automated bank processes, saving 1,500+ hours a year.',
     href: '/work/boh',
   },
 ];
 
-function CardInner({ item }) {
-  return (
+function Row({ item }) {
+  const arrow = item.soon ? 'Soon' : item.external ? '↗' : item.href ? '→' : '';
+  const inner = (
     <>
-      <div className={`${styles.thumb} ${item.preview ? styles.thumbCover : styles.thumbMark}`}>
-        {item.preview ? (
-          <Image src={item.preview} alt={item.title} fill sizes="(max-width: 800px) 100vw, 380px" />
-        ) : item.logo ? (
-          <span className={`${styles.markImg} ${item.wordmark ? styles.markWide : ''}`}>
-            <Image src={item.logo} alt={item.title} fill sizes="200px" />
-          </span>
-        ) : (
-          <span className={styles.markText}>{item.mark?.text}</span>
-        )}
-        {item.soon && <span className={styles.badge}>Coming soon</span>}
-        {item.external && <span className={styles.live}>Live ↗</span>}
-      </div>
-      <div className={styles.body}>
-        <h3>{item.title}</h3>
-        <p className={styles.role}>{item.role}</p>
-        <p className={styles.meta}>{item.meta}</p>
-        <span className={styles.date}>{item.date}</span>
-      </div>
+      <span className={styles.rowYear}>{item.year}</span>
+      <span className={styles.rowMain}>
+        <span className={styles.rowTitle}>{item.title}</span>
+        <span className={styles.rowDesc}>{item.desc}</span>
+      </span>
+      <span className={styles.rowMeta}>
+        <span className={styles.rowKind}>{item.kind}</span>
+        <span className={styles.rowArrow}>{arrow}</span>
+      </span>
     </>
   );
+  if (item.href && item.external) {
+    return <a className={styles.row} href={item.href} target="_blank" rel="noopener noreferrer">{inner}</a>;
+  }
+  if (item.href) {
+    return <Link className={styles.row} href={item.href}>{inner}</Link>;
+  }
+  return <div className={`${styles.row} ${styles.rowStatic}`}>{inner}</div>;
 }
 
-export default function Work() {
+export default function Experience() {
   return (
     <main className="container">
       <header className={styles.head}>
-        <span className="eyebrow">Career</span>
-        <h1 className={styles.title}>Experience</h1>
-        <p className={styles.lede}>
-          From banking automation to a billion-request-a-day service — plus the
-          companies I&apos;m building.
-        </p>
+        <Reveal>
+          <span className="eyebrow">Experience</span>
+        </Reveal>
+        <Reveal delay={60}>
+          <h1 className={styles.title}>Roles &amp; things I&apos;ve built.</h1>
+        </Reveal>
+        <Reveal delay={120}>
+          <p className={styles.lede}>
+            From banking automation to a billion-request-a-day service — plus the
+            studios, clients, and companies I&apos;m building. Roles and projects,
+            in one place.
+          </p>
+        </Reveal>
       </header>
 
-      <div className={styles.grid}>
-        {WORK.map((item, i) => (
-          <Reveal key={item.title} delay={(i % 3) * 70}>
-            {item.href ? (
-              item.external ? (
-                <a className={styles.card} href={item.href} target="_blank" rel="noopener noreferrer">
-                  <CardInner item={item} />
-                </a>
-              ) : (
-                <Link className={styles.card} href={item.href}>
-                  <CardInner item={item} />
-                </Link>
-              )
-            ) : (
-              <div className={`${styles.card} ${styles.static}`}>
-                <CardInner item={item} />
-              </div>
-            )}
+      <div className={styles.index}>
+        {ENTRIES.map((item, i) => (
+          <Reveal key={item.title} delay={Math.min(i, 5) * 45}>
+            <Row item={item} />
           </Reveal>
         ))}
       </div>

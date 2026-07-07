@@ -49,6 +49,7 @@ const EDUCATION = [
 ];
 
 function Row({ item }) {
+  const arrow = item.soon ? 'Soon' : item.external ? '↗' : item.href ? '→' : '';
   const inner = (
     <>
       <span className={styles.rowYear}>{item.year}</span>
@@ -58,13 +59,13 @@ function Row({ item }) {
       </span>
       <span className={styles.rowMeta}>
         <span className={styles.rowKind}>{item.kind}</span>
-        <span className={styles.rowArrow}>{item.soon ? 'Soon' : item.external ? '↗' : '→'}</span>
+        <span className={styles.rowArrow}>{arrow}</span>
       </span>
     </>
   );
-  if (item.soon) return <div className={`${styles.row} ${styles.rowStatic}`}>{inner}</div>;
-  if (item.external) return <a className={styles.row} href={item.href} target="_blank" rel="noopener noreferrer">{inner}</a>;
-  return <Link className={styles.row} href={item.href}>{inner}</Link>;
+  if (item.href && item.external) return <a className={styles.row} href={item.href} target="_blank" rel="noopener noreferrer">{inner}</a>;
+  if (item.href) return <Link className={styles.row} href={item.href}>{inner}</Link>;
+  return <div className={`${styles.row} ${styles.rowStatic}`}>{inner}</div>;
 }
 
 export default function Home() {

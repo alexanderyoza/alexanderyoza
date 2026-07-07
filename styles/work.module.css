@@ -1,15 +1,15 @@
 /* ===========================================================================
-   Work / experience detail — editorial layout on the Bento UI system.
-   Eyebrow spine, semantic h1, Reveal cadence, tile-framed hero, real <ul> bullets.
+   Work / experience detail — minimalist × editorial.
+   Serif h1 (global), hairline rules, thin-framed figures, one accent.
    =========================================================================== */
 
 .header {
   width: 100%;
-  margin-bottom: clamp(28px, 4vw, 48px);
+  margin-bottom: clamp(28px, 4vw, 44px);
 }
 
 .top {
-  margin-top: 14px;
+  margin-top: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,34 +22,33 @@
   color: var(--text);
 }
 .logoImg {
-  height: 44px;
+  height: 42px;
   width: auto;
   object-fit: contain;
   border-radius: var(--r-sm);
 }
 
 .date {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
   color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
-/* ---------- hero image tile ---------- */
+/* ---------- hero figure ---------- */
 .heroWrap {
   width: 100%;
-  margin-bottom: clamp(40px, 6vw, 72px);
+  margin-bottom: clamp(36px, 5vw, 64px);
 }
 .hero {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   border: 1px solid var(--border);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-md);
   background: var(--surface);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
 }
 .hero img {
   object-fit: cover;
@@ -66,18 +65,19 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
   padding-bottom: 24px;
   border-bottom: 1px solid var(--border);
 }
 .company {
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  font-weight: 600;
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+  font-weight: 500;
   letter-spacing: -0.02em;
   color: var(--text);
 }
 .position {
-  margin-top: 8px;
+  margin-top: 10px;
   font-size: 1rem;
   color: var(--accent);
 }
@@ -90,51 +90,44 @@
 .description {
   list-style: none;
   width: 100%;
-  max-width: 70ch;
-  margin-bottom: clamp(48px, 7vw, 80px);
+  max-width: 68ch;
+  margin-bottom: clamp(44px, 6vw, 72px);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 .description li {
   position: relative;
   padding-left: 26px;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.04rem;
+  line-height: 1.65;
   color: var(--text-dim);
 }
 .description li::before {
   content: '';
   position: absolute;
-  left: 2px;
-  top: 0.62em;
-  width: 6px;
-  height: 6px;
-  border-radius: var(--r-full);
+  left: 0;
+  top: 0.68em;
+  width: 7px;
+  height: 1px;
   background: var(--accent);
 }
 
 /* ---------- back link ---------- */
 .back {
-  border-radius: var(--r-full);
   width: fit-content;
-  padding: 12px 26px;
-  font-size: 0.9rem;
-  border: 1px solid var(--border-strong);
-  background: transparent;
+  font-size: 0.95rem;
   color: var(--text);
-  transition: border-color var(--dur) ease, color var(--dur) ease,
-    transform var(--dur-micro) var(--ease-out);
+  border-bottom: 1px solid var(--border-strong);
+  padding-bottom: 2px;
+  transition: color var(--dur) ease, border-color var(--dur) ease;
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
 .back:hover {
-  border-color: var(--accent);
   color: var(--accent);
-}
-.back:active {
-  transform: scale(0.98);
+  border-color: var(--accent);
 }
 
 @media (max-width: 800px) {
