@@ -18,13 +18,6 @@
 
   --nav-h: 76px;
 
-  /* legacy token aliases — keep pre-bento pages (work/projects/contact detail)
-     legible until Phase 2 sweeps them onto the new tokens. Resolve per-theme. */
-  --bg-elev: var(--surface);
-  --bg-elev-2: var(--surface-2);
-  --accent-2: var(--accent);
-  --accent-grad: var(--accent);
-
   font-size: 16px;
 }
 

@@ -1,9 +1,9 @@
 .head {
-  margin-bottom: 56px;
+  margin-bottom: 48px;
   max-width: 720px;
 }
 .title {
-  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-size: clamp(2rem, 5vw, 3.2rem);
   letter-spacing: -0.03em;
   margin: 14px 0 16px;
 }
@@ -16,7 +16,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 16px;
 }
 
 .card {
@@ -24,16 +24,17 @@
   flex-direction: column;
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
-  background: var(--bg-elev);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
   height: 100%;
   transition: border-color var(--dur) ease, transform var(--dur) var(--ease-out),
-    box-shadow var(--dur) ease;
+    box-shadow var(--dur) ease, background-color var(--dur) ease;
 }
 .card:hover {
   border-color: var(--border-strong);
-  transform: scale(1.01);
-  box-shadow: 0 16px 46px -24px rgba(0, 0, 0, 0.7);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
 }
 .static { cursor: default; }
 
@@ -52,8 +53,8 @@
   align-items: center;
   justify-content: center;
   background:
-    radial-gradient(80% 80% at 50% 30%, rgba(110, 139, 255, 0.18), transparent 70%),
-    var(--bg-elev-2);
+    radial-gradient(80% 80% at 50% 30%, var(--accent-weak), transparent 70%),
+    #fff;
 }
 .markImg {
   position: relative;
@@ -74,11 +75,12 @@
   padding: 5px 10px;
   border-radius: var(--r-full);
   border: 1px solid var(--border-strong);
-  background: rgba(8, 9, 12, 0.7);
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   color: var(--text-dim);
 }
-.live { color: var(--accent-2); }
+.live { color: var(--accent); }
 
 .body {
   padding: 22px 24px 26px;

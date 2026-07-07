@@ -2,11 +2,11 @@
   width: 100%;
   max-width: 760px;
   margin: 0 auto;
-  padding: clamp(40px, 8vw, 100px) 0;
+  padding: clamp(32px, 7vw, 88px) 0;
 }
 
 .title {
-  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
   letter-spacing: -0.03em;
   margin: 14px 0 18px;
 }
@@ -15,7 +15,7 @@
   font-size: 1.1rem;
   color: var(--text-dim);
   max-width: 50ch;
-  margin-bottom: 48px;
+  margin-bottom: 44px;
 }
 
 .links {
@@ -30,16 +30,17 @@
   gap: 20px;
   padding: 22px 24px;
   border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  background: var(--bg-elev);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
   transition: border-color var(--dur) ease, transform var(--dur) var(--ease-out),
-    background-color var(--dur) ease;
+    background-color var(--dur) ease, box-shadow var(--dur) ease;
 }
 .row:hover {
   border-color: var(--border-strong);
-  transform: scale(1.008);
-  background: var(--bg-elev-2);
-  box-shadow: 0 12px 36px -22px rgba(0, 0, 0, 0.7);
+  transform: translateY(-3px);
+  background: var(--surface-2);
+  box-shadow: var(--shadow);
 }
 
 .rowIcon {
@@ -55,7 +56,7 @@
   display: block;
 }
 .row:hover .rowIcon {
-  color: var(--accent-2);
+  color: var(--accent);
 }
 
 .rowLabel {
@@ -77,7 +78,7 @@
   transition: transform var(--dur) var(--ease-out), color var(--dur) ease;
 }
 .row:hover .rowArrow {
-  color: var(--accent-2);
+  color: var(--accent);
   transform: translateX(4px);
 }
 

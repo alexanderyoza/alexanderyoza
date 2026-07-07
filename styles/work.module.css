@@ -1,8 +1,6 @@
 /* ===========================================================================
-   Work / experience detail — editorial layout.
-   Mirrors the overview pages: eyebrow spine, semantic h1, Reveal cadence,
-   clamp() section rhythm, real <ul> bullets, tokens throughout.
-   No !important / position:unset image hacks.
+   Work / experience detail — editorial layout on the Bento UI system.
+   Eyebrow spine, semantic h1, Reveal cadence, tile-framed hero, real <ul> bullets.
    =========================================================================== */
 
 .header {
@@ -38,7 +36,7 @@
   white-space: nowrap;
 }
 
-/* ---------- hero image ---------- */
+/* ---------- hero image tile ---------- */
 .heroWrap {
   width: 100%;
   margin-bottom: clamp(40px, 6vw, 72px);
@@ -49,9 +47,9 @@
   aspect-ratio: 16 / 9;
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
-  background: var(--bg-elev);
+  background: var(--surface);
   overflow: hidden;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-sm);
 }
 .hero img {
   object-fit: cover;
@@ -81,7 +79,7 @@
 .position {
   margin-top: 8px;
   font-size: 1rem;
-  color: var(--accent-2);
+  color: var(--accent);
 }
 .location {
   font-size: 0.9rem;
@@ -123,7 +121,7 @@
   padding: 12px 26px;
   font-size: 0.9rem;
   border: 1px solid var(--border-strong);
-  background: rgba(255, 255, 255, 0.02);
+  background: transparent;
   color: var(--text);
   transition: border-color var(--dur) ease, color var(--dur) ease,
     transform var(--dur-micro) var(--ease-out);
@@ -133,7 +131,7 @@
 }
 .back:hover {
   border-color: var(--accent);
-  color: #fff;
+  color: var(--accent);
 }
 .back:active {
   transform: scale(0.98);
