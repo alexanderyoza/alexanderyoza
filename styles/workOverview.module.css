@@ -1,24 +1,32 @@
 /* ===========================================================================
-   Experience — combined roles + projects index (minimalist × editorial).
+   Experience — education + combined roles/projects index (minimalist × editorial).
    Typographic contents list; hairline rules, serif titles, one accent.
    =========================================================================== */
 
 .head {
   max-width: 760px;
-  margin-bottom: clamp(52px, 8vw, 96px);
+  margin-bottom: clamp(44px, 7vw, 80px);
 }
 .title {
-  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-size: clamp(2.4rem, 6.5vw, 4.2rem);
   font-weight: 500;
   letter-spacing: -0.03em;
-  margin: 0 0 22px;
+  margin: 0;
   text-wrap: balance;
 }
-.lede {
-  font-size: 1.12rem;
-  color: var(--text-dim);
-  max-width: 56ch;
-  line-height: 1.6;
+
+.group {
+  margin-top: clamp(40px, 6vw, 72px);
+}
+.group:first-of-type {
+  margin-top: 0;
+}
+.groupLabel {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
 }
 
 .index {
@@ -32,7 +40,7 @@
   grid-template-columns: 168px 1fr auto;
   gap: 28px;
   align-items: baseline;
-  padding: 32px 4px;
+  padding: 30px 4px;
   border-top: 1px solid var(--border);
   transition: background-color var(--dur) ease, padding var(--dur) var(--ease-out);
 }
@@ -48,7 +56,7 @@
   color: var(--text-faint);
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.01em;
-  padding-top: 5px;
+  padding-top: 6px;
   white-space: nowrap;
 }
 .rowMain {
@@ -66,6 +74,12 @@
   transition: color var(--dur) ease;
 }
 .row:hover:not(.rowStatic) .rowTitle { color: var(--accent); }
+.rowRole {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-top: -1px;
+}
 .rowDesc {
   font-size: 0.98rem;
   color: var(--text-dim);
@@ -77,7 +91,7 @@
   color: var(--text-faint);
   min-width: 40px;
   text-align: right;
-  padding-top: 5px;
+  padding-top: 6px;
   transition: color var(--dur) ease, transform var(--dur) var(--ease-out);
 }
 .row:hover:not(.rowStatic) .rowArrow {

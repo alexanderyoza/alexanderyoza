@@ -1,6 +1,6 @@
 /* ===========================================================================
    Home / About — minimalist × editorial (see docs/DESIGN.md).
-   Masthead + about + education; experience and contact live on their own pages.
+   Masthead + about; experience (incl. education) and contact are their own pages.
    =========================================================================== */
 
 .masthead {
@@ -23,6 +23,7 @@
   background: var(--surface);
 }
 .portrait img { object-fit: cover; }
+
 .name {
   font-size: clamp(3.4rem, 11vw, 7rem);
   font-weight: 500;
@@ -75,89 +76,25 @@
 .aboutMeta {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 30px;
   padding-top: 6px;
 }
 .metaBlock {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 8px;
 }
 .metaLabel {
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   color: var(--text-faint);
 }
 .metaValue {
-  font-size: 0.98rem;
+  font-size: 1.2rem;
   color: var(--text);
-}
-.metaLinks {
-  display: flex;
-  gap: 18px;
-}
-.metaLinks a {
-  font-size: 0.98rem;
-  color: var(--text);
-  border-bottom: 1px solid var(--border-strong);
-  padding-bottom: 1px;
-  transition: color var(--dur) ease, border-color var(--dur) ease;
-}
-.metaLinks a:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-/* ---------- education ---------- */
-.section { width: 100%; }
-.sectionTitle {
-  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  margin-bottom: 12px;
-}
-
-.index {
-  display: flex;
-  flex-direction: column;
-  border-bottom: 1px solid var(--border);
-}
-.row {
-  display: grid;
-  grid-template-columns: 96px 1fr;
-  gap: 28px;
-  align-items: baseline;
-  padding: 28px 4px;
-  border-top: 1px solid var(--border);
-}
-.rowStatic { cursor: default; }
-.rowYear {
-  font-size: 0.86rem;
-  color: var(--text-faint);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.02em;
-  padding-top: 4px;
-}
-.rowMain {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  min-width: 0;
-}
-.rowTitle {
-  font-family: var(--font-serif);
-  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
-  font-weight: 500;
-  letter-spacing: -0.015em;
-  color: var(--text);
-}
-.rowDesc {
-  font-size: 0.98rem;
-  color: var(--text-dim);
-  max-width: 56ch;
-  line-height: 1.55;
+  letter-spacing: -0.01em;
 }
 
 @media (max-width: 860px) {
@@ -176,9 +113,5 @@
   .about {
     grid-template-columns: 1fr;
     gap: 36px;
-  }
-  .row {
-    grid-template-columns: 64px 1fr;
-    gap: 16px;
   }
 }
