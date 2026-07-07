@@ -91,9 +91,7 @@ export default function Experience() {
   return (
     <main className="container">
       <header className={styles.head}>
-        <Reveal>
-          <h1 className={styles.title}>My experience</h1>
-        </Reveal>
+        <h1 className={styles.title}><span className={styles.titleInner}>My experience</span></h1>
       </header>
 
       <section className={styles.group}>

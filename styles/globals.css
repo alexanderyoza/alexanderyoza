@@ -220,9 +220,9 @@ a.tile:hover,
 /* scroll-reveal primitive (JS adds .isVisible) */
 .reveal {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity var(--dur-enter) var(--ease-out),
-    transform var(--dur-enter) var(--ease-out);
+  transform: translateY(22px);
+  transition: opacity 560ms var(--ease-out),
+    transform 560ms var(--ease-out);
   will-change: opacity, transform;
 }
 .reveal.isVisible {

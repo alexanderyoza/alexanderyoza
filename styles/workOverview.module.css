@@ -3,6 +3,11 @@
    Typographic contents list; hairline rules, serif titles, one accent.
    =========================================================================== */
 
+@keyframes maskRise {
+  from { transform: translateY(115%); }
+  to { transform: translateY(0); }
+}
+
 .head {
   max-width: 760px;
   margin-bottom: clamp(44px, 7vw, 80px);
@@ -13,6 +18,15 @@
   letter-spacing: -0.03em;
   margin: 0;
   text-wrap: balance;
+  overflow: hidden;
+  padding-bottom: 0.1em;
+}
+.titleInner {
+  display: inline-block;
+  animation: maskRise 0.9s var(--ease-out) 0.08s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .titleInner { animation: none; }
 }
 
 .group {

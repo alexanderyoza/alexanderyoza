@@ -32,7 +32,7 @@ export default function Contact() {
     <main className="container">
       <div className={styles.wrap}>
         <Reveal>
-          <h1 className={styles.title}>Let&apos;s build something.</h1>
+          <h1 className={styles.title}><span className={styles.titleInner}>Let&apos;s build something.</span></h1>
           <p className={styles.lede}>
             Open to interesting problems, collaborations, and good conversation.
             The fastest way to reach me is below.
