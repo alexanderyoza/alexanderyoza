@@ -5,46 +5,119 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-  /* ---- Dark design system (see docs/DESIGN.md) ---- */
-  --bg: #08090C;
-  --bg-elev: #0E1014;
-  --bg-elev-2: #15181E;
-
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
-
-  --text: #EDEEF2;
-  --text-dim: #9AA1AD;
-  --text-faint: #5C636E;
-
-  --accent: #6E8BFF;
-  --accent-2: #56E1E9;
-  --accent-grad: linear-gradient(120deg, #6E8BFF, #56E1E9);
-  --danger: #FF6B6B;
-
-  /* legacy aliases (kept so un-swept pages stay legible until the sweep) */
-  --primary: var(--text);
-  --background: var(--bg);
-  --secondary: var(--accent);
-  --tertiary: var(--accent-2);
-
-  --r-sm: 8px;
-  --r-md: 14px;
-  --r-lg: 20px;
+  /* ---- non-color tokens (shared across themes) ---- */
+  --r-sm: 10px;
+  --r-md: 18px;
+  --r-lg: 26px;
   --r-full: 999px;
-
-  --shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset,
-    0 20px 60px -20px rgba(0, 0, 0, 0.6);
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --dur-micro: 150ms;
-  --dur: 240ms;
-  --dur-enter: 400ms;
+  --dur: 220ms;
+  --dur-enter: 360ms;
 
   --nav-h: 76px;
 
+  /* legacy token aliases — keep pre-bento pages (work/projects/contact detail)
+     legible until Phase 2 sweeps them onto the new tokens. Resolve per-theme. */
+  --bg-elev: var(--surface);
+  --bg-elev-2: var(--surface-2);
+  --accent-2: var(--accent);
+  --accent-grad: var(--accent);
+
   font-size: 16px;
+}
+
+/* ===========================================================================
+   Theme tokens (Bento UI · light + dark — see docs/DESIGN.md).
+   Resolution: no attribute → follow prefers-color-scheme;
+   [data-theme="light|dark"] overrides and wins.
+   =========================================================================== */
+
+/* ---- light (default) ---- */
+:root,
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #F5F5F3;
+  --surface: #FFFFFF;
+  --surface-2: #F0F1F4;
+
+  --border: rgba(18, 20, 24, 0.09);
+  --border-strong: rgba(18, 20, 24, 0.18);
+
+  --text: #16181D;
+  --text-dim: #565B64;
+  --text-faint: #878D97;
+
+  --accent: #3B5BFF;
+  --accent-ink: #FFFFFF;
+  --accent-weak: rgba(59, 91, 255, 0.10);
+
+  --tile-a: #E9EEFF;  --tile-a-ink: #2440C9;   /* blue   */
+  --tile-b: #E4F6EC;  --tile-b-ink: #1F8A54;   /* green  */
+  --tile-c: #FBEEDD;  --tile-c-ink: #B4650E;   /* amber  */
+  --tile-d: #F0EAFE;  --tile-d-ink: #6E3AD6;   /* violet */
+
+  --shadow-sm: 0 1px 2px rgba(18, 20, 24, 0.06), 0 1px 1px rgba(18, 20, 24, 0.04);
+  --shadow: 0 6px 24px -12px rgba(18, 20, 24, 0.22), 0 2px 6px -3px rgba(18, 20, 24, 0.10);
+}
+
+/* ---- dark ---- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --bg: #0D0E11;
+    --surface: #17181D;
+    --surface-2: #202228;
+
+    --border: rgba(255, 255, 255, 0.09);
+    --border-strong: rgba(255, 255, 255, 0.18);
+
+    --text: #F2F3F5;
+    --text-dim: #9BA1AB;
+    --text-faint: #6B717C;
+
+    --accent: #6D83FF;
+    --accent-ink: #0D0E11;
+    --accent-weak: rgba(109, 131, 255, 0.14);
+
+    --tile-a: #1A2246;  --tile-a-ink: #AEBEFF;
+    --tile-b: #123023;  --tile-b-ink: #74D6A2;
+    --tile-c: #35260F;  --tile-c-ink: #E7B269;
+    --tile-d: #241640;  --tile-d-ink: #C4A7FF;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow: 0 10px 40px -16px rgba(0, 0, 0, 0.7), 0 2px 8px -4px rgba(0, 0, 0, 0.5);
+  }
+}
+
+:root[data-theme='dark'] {
   color-scheme: dark;
+
+  --bg: #0D0E11;
+  --surface: #17181D;
+  --surface-2: #202228;
+
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  --text: #F2F3F5;
+  --text-dim: #9BA1AB;
+  --text-faint: #6B717C;
+
+  --accent: #6D83FF;
+  --accent-ink: #0D0E11;
+  --accent-weak: rgba(109, 131, 255, 0.14);
+
+  --tile-a: #1A2246;  --tile-a-ink: #AEBEFF;
+  --tile-b: #123023;  --tile-b-ink: #74D6A2;
+  --tile-c: #35260F;  --tile-c-ink: #E7B269;
+  --tile-d: #241640;  --tile-d-ink: #C4A7FF;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow: 0 10px 40px -16px rgba(0, 0, 0, 0.7), 0 2px 8px -4px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -69,44 +142,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
-}
-
-/* ---- Aurora ambient (see docs/DESIGN.md → Style choice: premium editorial × Aurora) ----
-   Drifting iridescent light behind everything. Shows on every non-video surface
-   (all inner pages); the home page layers its scroll-scrub video over it. It
-   *colors* the dark base — kept low-alpha + blurred so body text stays ≥7:1. */
-body::before {
-  content: '';
-  position: fixed;
-  inset: -25%;
-  z-index: -2;
-  pointer-events: none;
-  background:
-    radial-gradient(38% 42% at 22% 24%, rgba(110, 139, 255, 0.26), transparent 62%),
-    radial-gradient(34% 38% at 82% 16%, rgba(86, 225, 233, 0.18), transparent 60%),
-    radial-gradient(46% 46% at 70% 82%, rgba(126, 96, 255, 0.18), transparent 64%),
-    radial-gradient(40% 40% at 10% 90%, rgba(86, 225, 233, 0.12), transparent 62%);
-  filter: blur(72px) saturate(125%);
-  will-change: transform;
-  animation: auroraDrift 32s ease-in-out infinite alternate;
-}
-
-/* base tone + edge vignette — settles the aurora into a calm, readable ground */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(120% 82% at 50% 6%, transparent 42%, rgba(8, 9, 12, 0.55) 100%),
-    linear-gradient(to bottom, transparent 52%, rgba(8, 9, 12, 0.82));
-}
-
-@keyframes auroraDrift {
-  0%   { transform: translate3d(-2%, -1%, 0) scale(1.02); }
-  50%  { transform: translate3d(2%, 2%, 0) scale(1.08); }
-  100% { transform: translate3d(3%, -2%, 0) scale(1.05); }
+  transition: background-color var(--dur) ease, color var(--dur) ease;
 }
 
 main {
@@ -117,7 +153,7 @@ main {
 
 h1, h2, h3, h4, h5 {
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1.12;
   font-weight: 600;
   color: var(--text);
 }
@@ -139,8 +175,8 @@ a {
 }
 
 ::selection {
-  background: rgba(110, 139, 255, 0.32);
-  color: #fff;
+  background: var(--accent-weak);
+  color: var(--text);
 }
 
 /* shared eyebrow label */
@@ -154,11 +190,8 @@ a {
   color: var(--text-faint);
 }
 
-.gradientText {
-  background: var(--accent-grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.accentText {
+  color: var(--accent);
 }
 
 /* page wrapper used across routes */
@@ -171,6 +204,24 @@ a {
   flex-direction: column;
   align-items: stretch;
   min-height: 100vh;
+}
+
+/* ---- bento tile primitive ---- */
+.tile {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: border-color var(--dur) ease, transform var(--dur) var(--ease-out),
+    box-shadow var(--dur) ease, background-color var(--dur) ease;
+}
+a.tile:hover,
+.tileHover:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
 }
 
 /* scroll-reveal primitive (JS adds .isVisible) */
@@ -198,10 +249,6 @@ a {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
-  }
-  body::before {
-    animation: none;
-    transform: scale(1.04);
   }
   .reveal {
     opacity: 1;
