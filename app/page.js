@@ -12,8 +12,8 @@ export default function Home() {
         <div className={styles.mastheadText}>
           <h1 className={styles.name}><span className={styles.nameInner}>Alex Yoza</span></h1>
           <p className={styles.lede}>
-            I build <span className="serif italic">reliable systems</span> and clear,
-            useful interfaces.
+            Software Engineer building <span className="serif italic">AI workflows</span>,
+            scalable architectures, and user facing applications.
           </p>
           <div className={styles.ctaRow}>
             <Link href="/work" className={`${styles.cta} ${styles.ctaPrimary}`}>View experience →</Link>
