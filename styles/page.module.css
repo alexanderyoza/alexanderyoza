@@ -73,14 +73,20 @@
 }
 .cta {
   font-size: 1.02rem;
-  color: var(--text);
-  border-bottom: 1px solid var(--border-strong);
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
   padding-bottom: 3px;
   transition: color var(--dur) ease, border-color var(--dur) ease;
 }
 .cta:hover {
   color: var(--accent);
   border-color: var(--accent);
+}
+/* the single primary action on the page */
+.ctaPrimary {
+  color: var(--accent);
+  font-weight: 500;
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
 }
 
 /* ---------- intro blurb ---------- */

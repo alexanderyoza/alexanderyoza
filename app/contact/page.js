@@ -50,7 +50,7 @@ export default function Contact() {
                 <span className={styles.rowIcon}>{ICONS[l.icon]}</span>
                 <span className={styles.rowLabel}>{l.label}</span>
                 <span className={styles.rowValue}>{l.value}</span>
-                <span className={styles.rowArrow}>→</span>
+                <span className={styles.rowArrow} aria-hidden="true">{l.external ? '↗' : '→'}</span>
               </a>
             </Reveal>
           ))}

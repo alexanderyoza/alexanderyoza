@@ -16,7 +16,7 @@ export default function Home() {
             interfaces that feel inevitable.
           </p>
           <div className={styles.ctaRow}>
-            <Link href="/work" className={styles.cta}>View experience →</Link>
+            <Link href="/work" className={`${styles.cta} ${styles.ctaPrimary}`}>View experience →</Link>
             <Link href="/contact" className={styles.cta}>Get in touch →</Link>
           </div>
         </div>

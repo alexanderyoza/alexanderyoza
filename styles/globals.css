@@ -41,7 +41,7 @@
 
   --text: #1B1915;
   --text-dim: #575249;
-  --text-faint: #8C877D;
+  --text-faint: #6C675D;
 
   --accent: #D23A24;
   --accent-ink: #FFFFFF;
@@ -64,7 +64,7 @@
 
     --text: #ECEAE1;
     --text-dim: #A8A395;
-    --text-faint: #6F6A5D;
+    --text-faint: #8B8577;
 
     --accent: #FF5C43;
     --accent-ink: #14130F;
@@ -87,7 +87,7 @@
 
   --text: #ECEAE1;
   --text-dim: #A8A395;
-  --text-faint: #6F6A5D;
+  --text-faint: #8B8577;
 
   --accent: #FF5C43;
   --accent-ink: #14130F;
@@ -197,24 +197,6 @@ a {
   border-top: 1px solid var(--border);
   width: 100%;
   margin: clamp(60px, 9vw, 108px) 0;
-}
-
-/* legacy tile primitive — kept for not-yet-restyled pages (Phase 2) */
-.tile {
-  position: relative;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  transition: border-color var(--dur) ease, transform var(--dur) var(--ease-out),
-    box-shadow var(--dur) ease, background-color var(--dur) ease;
-}
-a.tile:hover,
-.tileHover:hover {
-  border-color: var(--border-strong);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
 }
 
 /* scroll-reveal primitive (JS adds .isVisible) */
