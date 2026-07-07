@@ -65,6 +65,21 @@ const WORK = [
   },
 ];
 
+// Ongoing (…– Present) first, then finished; each most-recent-first by start date.
+const MONTHS = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
+const startKey = (item) => {
+  const parts = item.from.split(' ');
+  const month = parts.length > 1 ? (MONTHS[parts[0]] ?? 0) : 0;
+  const year = Number(parts[parts.length - 1]);
+  return year * 12 + month;
+};
+const orderedWork = [...WORK].sort((a, b) => {
+  const aActive = a.to === 'Present';
+  const bActive = b.to === 'Present';
+  if (aActive !== bActive) return aActive ? -1 : 1;
+  return startKey(b) - startKey(a);
+});
+
 function Row({ item }) {
   const arrow = item.soon ? 'Coming soon' : item.external ? '↗' : item.href ? '→' : '';
   const inner = (
@@ -120,7 +135,7 @@ export default function Experience() {
           <h2 className={styles.groupLabel}>Work</h2>
         </Reveal>
         <div className={styles.index}>
-          {WORK.map((item, i) => (
+          {orderedWork.map((item, i) => (
             <Reveal key={item.title} delay={Math.min(i, 5) * 45}>
               <Row item={item} />
             </Reveal>
