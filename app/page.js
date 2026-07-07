@@ -1,150 +1,185 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/page.module.css';
 import Reveal from '../components/Reveal';
 
-const SKILLS = [
-  ['java', 'Java'], ['cpp', 'C++'], ['c', 'C'], ['python', 'Python'],
-  ['react', 'React'], ['next', 'Next.js'], ['node', 'Node.js'], ['svelte', 'Svelte'],
-  ['angular', 'Angular'], ['firebase', 'Firebase'], ['mongo', 'MongoDB'], ['git', 'Git'],
+// Merged experience + projects — roles and things built, one index.
+const WORK = [
+  {
+    year: '2026', title: 'Capital One', kind: 'Role',
+    desc: 'Associate Software Engineer — core modernization and common capability & tooling.',
+    href: '/work',
+  },
+  {
+    year: '2026', title: 'Nisatsu', kind: 'Project',
+    desc: 'Founder & engineer — an AI language-learning app, built end to end.',
+    soon: true,
+  },
+  {
+    year: '2025', title: 'Ponzu', kind: 'Project',
+    desc: 'CTO & co-founder — an AI workflow-orchestration platform.',
+    soon: true,
+  },
+  {
+    year: '2024', title: 'San Diego Supercomputer Center', kind: 'Role',
+    desc: 'Developer intern — led a full-stack platform in React, Node, and Firebase.',
+    href: '/work/sdsc',
+  },
+  {
+    year: '2023', title: 'SitesByAlex', kind: 'Studio',
+    desc: 'Web developer & consultant — client sites and web apps.',
+    href: 'https://sitesbyalex.com/', external: true,
+  },
+  {
+    year: '2023', title: 'AGY', kind: 'Project',
+    desc: 'My independent software studio — products and experiments.',
+    href: 'https://agyllc.com/', external: true,
+  },
 ];
 
-const STACK = {
-  Languages: ['TypeScript', 'Python', 'Go', 'Java', 'C / C++', 'SQL'],
-  'Frameworks & UI': ['React', 'Next.js', 'React Native', 'FastAPI', 'Node.js', 'Tailwind'],
-  'Cloud & infra': ['AWS', 'AWS CDK', 'Docker', 'CI/CD', 'Dev Tooling', 'PostgreSQL'],
-};
-
-const COURSES = [
-  'Artificial Intelligence', 'Operating Systems', 'Data Structures', 'Computer Architecture',
-  'Software Engineering', 'Database Systems', 'Algorithms', 'Cryptography',
+const EDUCATION = [
+  {
+    year: '2021–24', school: 'University of California, San Diego',
+    detail: 'B.S. Computer Science · La Jolla, CA',
+  },
+  {
+    year: '2024', school: 'International Christian University',
+    detail: 'Exchange program · Mitaka, Tokyo, Japan',
+  },
 ];
+
+function Row({ item }) {
+  const inner = (
+    <>
+      <span className={styles.rowYear}>{item.year}</span>
+      <span className={styles.rowMain}>
+        <span className={styles.rowTitle}>{item.title}</span>
+        <span className={styles.rowDesc}>{item.desc}</span>
+      </span>
+      <span className={styles.rowMeta}>
+        <span className={styles.rowKind}>{item.kind}</span>
+        <span className={styles.rowArrow}>{item.soon ? 'Soon' : item.external ? '↗' : '→'}</span>
+      </span>
+    </>
+  );
+  if (item.soon) return <div className={`${styles.row} ${styles.rowStatic}`}>{inner}</div>;
+  if (item.external) return <a className={styles.row} href={item.href} target="_blank" rel="noopener noreferrer">{inner}</a>;
+  return <Link className={styles.row} href={item.href}>{inner}</Link>;
+}
 
 export default function Home() {
   return (
     <main className="container">
-      {/* ---- hero bento ---- */}
-      <section className={`${styles.bento} ${styles.heroBento}`}>
-        <Reveal className={`tile ${styles.intro}`}>
+      {/* ---- masthead ---- */}
+      <header className={styles.masthead}>
+        <Reveal>
           <span className="eyebrow">Software Engineer · Richmond, VA</span>
-          <h1 className={styles.name}>Alex <span className="accentText">Yoza</span></h1>
+        </Reveal>
+        <Reveal delay={60}>
+          <h1 className={styles.name}>Alex Yoza</h1>
+        </Reveal>
+        <Reveal delay={120}>
           <p className={styles.lede}>
-            I work on core modernization and common capability &amp; tooling at
-            Capital One — plus AI-assisted workflows and full-stack products, from
-            the architecture to the last pixel.
+            I build <span className="serif italic">software that stays up</span> and
+            interfaces that feel inevitable.
           </p>
-          <div className={styles.ctaRow}>
-            <Link href="/work" className={styles.btnPrimary}>View experience</Link>
-            <Link href="/projects" className={styles.btnGhost}>See projects</Link>
-          </div>
         </Reveal>
-
-        <Reveal className={`tile ${styles.portraitTile}`} delay={60}>
-          <Image src="/portrait.png" alt="Alex Yoza" fill sizes="(max-width: 900px) 100vw, 300px" />
+        <Reveal delay={180}>
+          <p className={styles.support}>
+            Core modernization and common capability &amp; tooling at Capital One, plus
+            AI-assisted workflows and full-stack products — from the architecture to the
+            last pixel.
+          </p>
         </Reveal>
+      </header>
 
-        <Reveal className={`tile ${styles.nowTile}`} delay={100}>
-          <span className="eyebrow">Now</span>
-          <span className={styles.nowLogo}>
-            <Image src="/work/capitalone/logo.png" alt="Capital One" fill sizes="140px" />
-          </span>
-          <p className={styles.nowRole}>Associate Software Engineer</p>
-        </Reveal>
+      <hr className="rule" />
 
-        <Reveal className={`tile ${styles.statTile} ${styles.tileA}`} delay={140}>
-          <span className={styles.statNum}>1B+</span>
-          <span className={styles.statLabel}>requests a day on the service I build on</span>
-        </Reveal>
-      </section>
-
-      {/* ---- about bento ---- */}
-      <section className={styles.bento}>
-        <Reveal className={`tile ${styles.bioTile}`}>
-          <span className="eyebrow">About</span>
-          <p className={styles.bio}>
+      {/* ---- about ---- */}
+      <section className={styles.about}>
+        <Reveal className={styles.aboutBody}>
+          <p>
             UCSD computer science grad now working on core modernization and common
             capability &amp; tooling at Capital One. On the side I&apos;m building a
             language-learning app (Nisatsu) and an AI workflow-orchestration platform
-            (Ponzu). I care about systems that stay up and interfaces that feel
-            inevitable.
+            (Ponzu). I care about systems that stay up and interfaces that feel inevitable.
           </p>
-          <div className={styles.bioLinks}>
-            <Link href="/contact" className={styles.btnPrimary}>Get in touch</Link>
-            <Link href="/work" className={styles.textLink}>View my experience →</Link>
+        </Reveal>
+        <Reveal className={styles.aboutMeta} delay={80}>
+          <div className={styles.metaBlock}>
+            <span className={styles.metaLabel}>Now</span>
+            <span className={styles.metaValue}>Capital One · Assoc. SWE</span>
           </div>
-        </Reveal>
-
-        <Reveal className={`tile ${styles.statTile} ${styles.tileC}`} delay={60}>
-          <span className={styles.statNum}>1,500+</span>
-          <span className={styles.statLabel}>hours a year automated at Bank of Hawaii</span>
-        </Reveal>
-
-        <Reveal className={`tile ${styles.statTile} ${styles.tileD}`} delay={100}>
-          <span className={styles.statNum}>2</span>
-          <span className={styles.statLabel}>companies I&apos;m building — Nisatsu &amp; Ponzu</span>
+          <div className={styles.metaBlock}>
+            <span className={styles.metaLabel}>Based</span>
+            <span className={styles.metaValue}>Richmond, Virginia</span>
+          </div>
+          <div className={styles.metaBlock}>
+            <span className={styles.metaLabel}>Elsewhere</span>
+            <span className={styles.metaLinks}>
+              <a href="https://www.linkedin.com/in/alex-yoza/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://github.com/alexanderyoza?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </span>
+          </div>
         </Reveal>
       </section>
 
-      {/* ---- skills ---- */}
+      <hr className="rule" />
+
+      {/* ---- selected work (roles + projects, merged) ---- */}
       <section className={styles.section}>
-        <Reveal><span className="eyebrow">Tools I reach for</span></Reveal>
-        <Reveal className={`tile ${styles.skillsTile}`} delay={40}>
-          <div className={styles.skillGrid}>
-            {SKILLS.map(([file, label]) => (
-              <span className={styles.skillChip} key={file}>
-                <span className={`${styles.skillIcon} ${file === 'next' ? styles.skillIconLight : ''}`}>
-                  <Image src={`/skills/${file}.png`} alt="" fill sizes="28px" />
+        <Reveal className={styles.sectionHead}>
+          <h2 className={styles.sectionTitle}>Selected work</h2>
+          <span className={styles.sectionNote}>Roles &amp; projects</span>
+        </Reveal>
+        <div className={styles.index}>
+          {WORK.map((item, i) => (
+            <Reveal key={item.title} delay={Math.min(i, 4) * 50}>
+              <Row item={item} />
+            </Reveal>
+          ))}
+        </div>
+        <Reveal>
+          <Link href="/work" className={styles.moreLink}>View all experience →</Link>
+        </Reveal>
+      </section>
+
+      <hr className="rule" />
+
+      {/* ---- education ---- */}
+      <section className={styles.section}>
+        <Reveal className={styles.sectionHead}>
+          <h2 className={styles.sectionTitle}>Education</h2>
+        </Reveal>
+        <div className={styles.index}>
+          {EDUCATION.map((e) => (
+            <Reveal key={e.school}>
+              <div className={`${styles.row} ${styles.rowStatic}`}>
+                <span className={styles.rowYear}>{e.year}</span>
+                <span className={styles.rowMain}>
+                  <span className={styles.rowTitle}>{e.school}</span>
+                  <span className={styles.rowDesc}>{e.detail}</span>
                 </span>
-                {label}
-              </span>
-            ))}
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ---- full stack ---- */}
-      <section className={styles.section}>
-        <Reveal><span className="eyebrow">Full stack</span></Reveal>
-        <div className={styles.stackGrid}>
-          {Object.entries(STACK).map(([group, items], gi) => (
-            <Reveal className={`tile ${styles.stackTile}`} key={group} delay={gi * 60}>
-              <h3 className={styles.stackHeading}>{group}</h3>
-              <div className={styles.tags}>
-                {items.map((t) => <span className={styles.tag} key={t}>{t}</span>)}
+                <span className={styles.rowMeta} />
               </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* ---- education ---- */}
-      <section className={styles.section}>
-        <Reveal><h2 className={styles.eduTitle}>Education</h2></Reveal>
-        <div className={styles.eduGrid}>
-          <Reveal className={`tile ${styles.eduCard}`}>
-            <span className={styles.eduLogo}>
-              <Image src="/ucsd.png" alt="UC San Diego" fill sizes="56px" />
-            </span>
-            <h3>University of California, San Diego</h3>
-            <p className={styles.eduMeta}>B.S. Computer Science · La Jolla, CA</p>
-            <p className={styles.eduMeta}>Sep 2021 – Dec 2024</p>
-            <div className={styles.courseTags}>
-              {COURSES.map((c) => <span className={styles.tag} key={c}>{c}</span>)}
-            </div>
-          </Reveal>
-          <Reveal className={`tile ${styles.eduCard}`} delay={80}>
-            <span className={styles.eduLogo}>
-              <Image src="/icu.png" alt="International Christian University" fill sizes="56px" />
-            </span>
-            <h3>International Christian University</h3>
-            <p className={styles.eduMeta}>Exchange Program · Mitaka, Tokyo, Japan</p>
-            <p className={styles.eduMeta}>Aug 2024 – Nov 2024</p>
-            <div className={styles.courseTags}>
-              <span className={styles.tag}>Japanese (Conversational)</span>
-            </div>
-          </Reveal>
-        </div>
+      <hr className="rule" />
+
+      {/* ---- contact ---- */}
+      <section className={styles.contact}>
+        <Reveal>
+          <span className="eyebrow">Contact</span>
+          <h2 className={styles.contactTitle}>Let&apos;s build something.</h2>
+          <p className={styles.contactLede}>
+            Open to interesting problems and good conversation. The fastest way to reach
+            me is email.
+          </p>
+          <a href="mailto:alex.yoza@gmail.com" className={styles.contactEmail}>alex.yoza@gmail.com</a>
+        </Reveal>
       </section>
     </main>
   );

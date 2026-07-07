@@ -1,9 +1,10 @@
-import { Inter } from 'next/font/google'
+import { Inter, Fraunces } from 'next/font/google'
 import '../styles/globals.css';
 import Navigate from '../components/Navigate';
 import Footer from '../components/Footer';
 
-const inter = Inter({ variable: '--font-inter', subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-sans' })
+const fraunces = Fraunces({ subsets: ['latin'], style: ['normal', 'italic'], display: 'swap', variable: '--font-serif' })
 
 export const metadata = {
     title: 'Alex Yoza — Software Engineer',
@@ -20,8 +21,8 @@ export const metadata = {
 
 export const viewport = {
     themeColor: [
-        { media: '(prefers-color-scheme: light)', color: '#F5F5F3' },
-        { media: '(prefers-color-scheme: dark)', color: '#0D0E11' },
+        { media: '(prefers-color-scheme: light)', color: '#FBFAF7' },
+        { media: '(prefers-color-scheme: dark)', color: '#14130F' },
     ],
 }
 
@@ -34,7 +35,7 @@ export default function RootLayout({ children }) {
             <head>
                 <script dangerouslySetInnerHTML={{ __html: themeScript }} />
             </head>
-            <body className={inter.className}>
+            <body className={`${inter.variable} ${fraunces.variable}`}>
                 <Navigate />
                 {children}
                 <Footer />

@@ -1,116 +1,100 @@
 :root {
-  --max-width: 1200px;
+  --max-width: 1160px;
   --min-width: 320px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-serif: var(--font-serif), Georgia, 'Times New Roman', serif;
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Roboto Mono', monospace;
 
   /* ---- non-color tokens (shared across themes) ---- */
-  --r-sm: 10px;
-  --r-md: 18px;
-  --r-lg: 26px;
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 12px;
   --r-full: 999px;
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --dur-micro: 150ms;
   --dur: 220ms;
-  --dur-enter: 360ms;
+  --dur-enter: 420ms;
 
-  --nav-h: 76px;
+  --nav-h: 72px;
 
   font-size: 16px;
 }
 
 /* ===========================================================================
-   Theme tokens (Bento UI · light + dark — see docs/DESIGN.md).
-   Resolution: no attribute → follow prefers-color-scheme;
-   [data-theme="light|dark"] overrides and wins.
+   Theme tokens — minimalist × editorial (see docs/DESIGN.md).
+   Warm-neutral paper / warm near-black; near-monochrome with one restrained red.
+   No attribute → prefers-color-scheme; [data-theme] overrides and wins.
    =========================================================================== */
 
-/* ---- light (default) ---- */
 :root,
 :root[data-theme='light'] {
   color-scheme: light;
 
-  --bg: #F5F5F3;
+  --bg: #FBFAF7;
   --surface: #FFFFFF;
-  --surface-2: #F0F1F4;
+  --surface-2: #F1F0EB;
 
-  --border: rgba(18, 20, 24, 0.09);
-  --border-strong: rgba(18, 20, 24, 0.18);
+  --border: rgba(27, 25, 20, 0.13);
+  --border-strong: rgba(27, 25, 20, 0.26);
 
-  --text: #16181D;
-  --text-dim: #565B64;
-  --text-faint: #878D97;
+  --text: #1B1915;
+  --text-dim: #575249;
+  --text-faint: #8C877D;
 
-  --accent: #3B5BFF;
+  --accent: #D23A24;
   --accent-ink: #FFFFFF;
-  --accent-weak: rgba(59, 91, 255, 0.10);
+  --accent-weak: rgba(210, 58, 36, 0.09);
 
-  --tile-a: #E9EEFF;  --tile-a-ink: #2440C9;   /* blue   */
-  --tile-b: #E4F6EC;  --tile-b-ink: #1F8A54;   /* green  */
-  --tile-c: #FBEEDD;  --tile-c-ink: #B4650E;   /* amber  */
-  --tile-d: #F0EAFE;  --tile-d-ink: #6E3AD6;   /* violet */
-
-  --shadow-sm: 0 1px 2px rgba(18, 20, 24, 0.06), 0 1px 1px rgba(18, 20, 24, 0.04);
-  --shadow: 0 6px 24px -12px rgba(18, 20, 24, 0.22), 0 2px 6px -3px rgba(18, 20, 24, 0.10);
+  --shadow-sm: 0 1px 2px rgba(27, 25, 20, 0.05);
+  --shadow: 0 10px 34px -18px rgba(27, 25, 20, 0.28);
 }
 
-/* ---- dark ---- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     color-scheme: dark;
 
-    --bg: #0D0E11;
-    --surface: #17181D;
-    --surface-2: #202228;
+    --bg: #14130F;
+    --surface: #1C1B15;
+    --surface-2: #26241C;
 
-    --border: rgba(255, 255, 255, 0.09);
-    --border-strong: rgba(255, 255, 255, 0.18);
+    --border: rgba(240, 236, 224, 0.14);
+    --border-strong: rgba(240, 236, 224, 0.28);
 
-    --text: #F2F3F5;
-    --text-dim: #9BA1AB;
-    --text-faint: #6B717C;
+    --text: #ECEAE1;
+    --text-dim: #A8A395;
+    --text-faint: #6F6A5D;
 
-    --accent: #6D83FF;
-    --accent-ink: #0D0E11;
-    --accent-weak: rgba(109, 131, 255, 0.14);
-
-    --tile-a: #1A2246;  --tile-a-ink: #AEBEFF;
-    --tile-b: #123023;  --tile-b-ink: #74D6A2;
-    --tile-c: #35260F;  --tile-c-ink: #E7B269;
-    --tile-d: #241640;  --tile-d-ink: #C4A7FF;
+    --accent: #FF5C43;
+    --accent-ink: #14130F;
+    --accent-weak: rgba(255, 92, 67, 0.14);
 
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-    --shadow: 0 10px 40px -16px rgba(0, 0, 0, 0.7), 0 2px 8px -4px rgba(0, 0, 0, 0.5);
+    --shadow: 0 14px 40px -18px rgba(0, 0, 0, 0.7);
   }
 }
 
 :root[data-theme='dark'] {
   color-scheme: dark;
 
-  --bg: #0D0E11;
-  --surface: #17181D;
-  --surface-2: #202228;
+  --bg: #14130F;
+  --surface: #1C1B15;
+  --surface-2: #26241C;
 
-  --border: rgba(255, 255, 255, 0.09);
-  --border-strong: rgba(255, 255, 255, 0.18);
+  --border: rgba(240, 236, 224, 0.14);
+  --border-strong: rgba(240, 236, 224, 0.28);
 
-  --text: #F2F3F5;
-  --text-dim: #9BA1AB;
-  --text-faint: #6B717C;
+  --text: #ECEAE1;
+  --text-dim: #A8A395;
+  --text-faint: #6F6A5D;
 
-  --accent: #6D83FF;
-  --accent-ink: #0D0E11;
-  --accent-weak: rgba(109, 131, 255, 0.14);
-
-  --tile-a: #1A2246;  --tile-a-ink: #AEBEFF;
-  --tile-b: #123023;  --tile-b-ink: #74D6A2;
-  --tile-c: #35260F;  --tile-c-ink: #E7B269;
-  --tile-d: #241640;  --tile-d-ink: #C4A7FF;
+  --accent: #FF5C43;
+  --accent-ink: #14130F;
+  --accent-weak: rgba(255, 92, 67, 0.14);
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow: 0 10px 40px -16px rgba(0, 0, 0, 0.7), 0 2px 8px -4px rgba(0, 0, 0, 0.5);
+  --shadow: 0 14px 40px -18px rgba(0, 0, 0, 0.7);
 }
 
 * {
@@ -131,7 +115,7 @@ body {
   margin: 0 auto;
   color: var(--text);
   background-color: var(--bg);
-  font-feature-settings: 'ss01', 'cv01';
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
@@ -145,14 +129,15 @@ main {
 }
 
 h1, h2, h3, h4, h5 {
-  letter-spacing: -0.02em;
-  line-height: 1.12;
-  font-weight: 600;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
   color: var(--text);
 }
 
 p {
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--text-dim);
 }
 
@@ -172,34 +157,48 @@ a {
   color: var(--text);
 }
 
-/* shared eyebrow label */
+/* editorial label / eyebrow — tracked uppercase sans with a red tick */
 .eyebrow {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   font-size: 0.72rem;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   color: var(--text-faint);
 }
-
-.accentText {
-  color: var(--accent);
+.eyebrow::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--accent);
 }
 
-/* page wrapper used across routes */
+.serif { font-family: var(--font-serif); }
+.italic { font-style: italic; }
+.accentText { color: var(--accent); }
+
+/* page wrapper */
 .container {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: calc(var(--nav-h) + 24px) 24px 120px;
+  padding: calc(var(--nav-h) + 40px) 32px 120px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   min-height: 100vh;
 }
 
-/* ---- bento tile primitive ---- */
+/* hairline rule primitive */
+.rule {
+  border: 0;
+  border-top: 1px solid var(--border);
+  width: 100%;
+}
+
+/* legacy tile primitive — kept for not-yet-restyled pages (Phase 2) */
 .tile {
   position: relative;
   background: var(--surface);
@@ -220,7 +219,7 @@ a.tile:hover,
 /* scroll-reveal primitive (JS adds .isVisible) */
 .reveal {
   opacity: 0;
-  transform: translateY(14px);
+  transform: translateY(12px);
   transition: opacity var(--dur-enter) var(--ease-out),
     transform var(--dur-enter) var(--ease-out);
   will-change: opacity, transform;
@@ -232,7 +231,7 @@ a.tile:hover,
 
 @media (max-width: 800px) {
   .container {
-    padding: calc(var(--nav-h) + 16px) 18px 88px;
+    padding: calc(var(--nav-h) + 24px) 20px 88px;
   }
 }
 

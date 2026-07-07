@@ -23,7 +23,6 @@ function Footer() {
                     </h2>
                     <Link href='/' className={styles.link}>About</Link>
                     <Link href='/work' className={styles.link}>Experience</Link>
-                    <Link href='/projects' className={styles.link}>Projects</Link>
                     <Link href='/contact' className={styles.link}>Contact</Link>
                 </nav>
                 <div className={styles.contacts}>
