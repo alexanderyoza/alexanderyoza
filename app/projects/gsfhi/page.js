@@ -43,7 +43,7 @@ export default function Gsfhi() {
       </section>
 
       <Reveal>
-        <Link href="/projects" className={styles.back}>← Back to projects</Link>
+        <Link href="/work" className={styles.back}>← Back to experience</Link>
       </Reveal>
     </main>
   )

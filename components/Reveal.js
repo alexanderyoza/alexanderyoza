@@ -10,10 +10,16 @@ export default function Reveal({ children, as: Tag = 'div', className = '', dela
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      typeof IntersectionObserver === 'undefined'
+    ) {
       setVisible(true);
       return;
     }
+    // Safety net: content must never stay stranded at opacity 0 if the
+    // observer never fires (CRIT-001).
+    const fallback = setTimeout(() => setVisible(true), 3000);
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -26,7 +32,10 @@ export default function Reveal({ children, as: Tag = 'div', className = '', dela
       { threshold: 0, rootMargin: '0px 0px 12% 0px' }
     );
     io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      clearTimeout(fallback);
+      io.disconnect();
+    };
   }, []);
 
   return (

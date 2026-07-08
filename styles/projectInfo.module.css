@@ -19,12 +19,15 @@
   color: var(--text);
   text-wrap: balance;
 }
+/* Monochrome h1 (CRIT-004): the title link keeps its underline affordance
+   but not the accent ink — red never dominates a screen. */
 .title a {
-  color: var(--accent);
-  border-bottom: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
-  transition: border-color var(--dur) ease;
+  color: inherit;
+  border-bottom: 1px solid var(--border-strong);
+  transition: color var(--dur) ease, border-color var(--dur) ease;
 }
 .title a:hover {
+  color: var(--accent);
   border-color: var(--accent);
 }
 

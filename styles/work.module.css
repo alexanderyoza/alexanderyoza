@@ -79,7 +79,7 @@
 .position {
   margin-top: 10px;
   font-size: 1rem;
-  color: var(--accent);
+  color: var(--text-dim);
 }
 .location {
   font-size: 0.9rem;

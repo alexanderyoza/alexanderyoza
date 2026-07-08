@@ -20,6 +20,44 @@ type-first, and hairline-driven — no tiles, no glow.
   Content is presented as **typographic indexes** — contents-page rows with year,
   title, and tag — not cards.
 
+**Why:** a portfolio's product is the person; type-first restraint reads as
+senior confidence where tiles (Bento) read as a dashboard and glow (Aurora)
+reads as a template trend. Near-monochrome + one red accent survives both
+themes and ages well; the index device fits a career that is rows of work,
+not a grid of thumbnails.
+
+**Alternatives considered:** the two retired directions — Bento UI (tiles;
+retired: modular chrome fought the editorial voice) and Aurora (dark glow;
+retired: trend-bound, decoration-led). No third candidate was recorded at
+pick time (2026-07-07).
+
+**Real-world references (pulled by web search — backfilled 2026-07-08):**
+- Thibaud Allie — http://www.thibaudallie.com — the exact type register:
+  high-contrast display serif (Roslindale) over a clean grotesque body
+  (Graphik) on a personal portfolio; the role Fraunces/Inter play here.
+  (Typewolf portfolio top-40, site-of-the-day.)
+- Thierry Blancpain — https://thierryblancpain.com — Swiss typographic
+  discipline on a personal site: strict rhythm, active whitespace,
+  near-monochrome restraint. Shares PRIMARY (low-density portfolio).
+  (siteinspire: typographic · portfolio · minimal.)
+- Slava Kirilenko — https://slavakirilenko.com — minimal type-led personal
+  portfolio; work as quiet text rows, not cards — the index device.
+  (Same siteinspire collection.)
+- UNCUT.wtf — https://uncut.wtf — live typeface catalogue built as a
+  typographic index: rows with metadata columns, list/grid restraint, zero
+  decoration — the model for the "Selected work" / Experience indexes.
+- Gallery pool: https://httpster.net/style/typographic/ and siteinspire
+  portfolio × typographic × minimal — where these were pulled; re-search
+  here if the style evolves.
+- **Anti-reference:** generic "Swiss style" listicle treatments (giant
+  Helvetica, red circles, poster props without product density) — borrow the
+  grid discipline, never the poster decoration.
+
+<!-- Backfill note (2026-07-08): references added to comply with the
+     plan-design web-reference mandate (DevByAlex 123bb20), which landed
+     after this style was chosen. Blancpain/Kirilenko verified via gallery
+     listings (direct fetch blocked); Allie via Typewolf; UNCUT live. -->
+
 ## Typography
 
 - **Display / headlines:** **Fraunces** (variable serif, incl. italic), via
