@@ -3,7 +3,7 @@
 > The visual contract for the redesign. A type-led, near-monochrome editorial
 > portfolio: serif display over a clean sans, hairline rules, generous
 > whitespace, one restrained accent. **Light and dark, user-toggleable.**
-> Source of truth for every screen. Branch: `redesign`.
+> Source of truth for every screen. Live on `main`.
 
 ## Style choice
 
@@ -18,7 +18,7 @@ type-first, and hairline-driven — no tiles, no glow.
   active whitespace, restraint, near-monochrome) crossed with an editorial serif
   voice (high-contrast display serif for headlines over a clean sans for reading).
   Content is presented as **typographic indexes** — contents-page rows with year,
-  title, and tag — not cards.
+  title, and description — not cards.
 
 **Why:** a portfolio's product is the person; type-first restraint reads as
 senior confidence where tiles (Bento) read as a dashboard and glow (Aurora)
@@ -92,13 +92,20 @@ underline, list hovers, and the contact email rule. ~95% of the page is monochro
 
 ## Layout
 
-- **Home:** editorial masthead (eyebrow → serif name → italic lede → support) →
-  two-column about with a meta sidebar → a "Selected work" typographic index →
-  education → a "Let's build something" contact close.
-- **Experience:** one combined index of **roles + projects** (merged — Projects is
-  no longer a separate section) with year · title · description · kind tag.
-- **Detail pages:** eyebrow → serif h1 → thin-framed hero/gallery figures →
-  prose → an underlined back link.
+- **Home:** editorial masthead (serif name → italic-accent lede → CTA pair,
+  with portrait) → meta facts strip → single-column about. Deliberately short:
+  the work index lives on Experience; education and the "Let's build
+  something" close live on Experience and Contact respectively.
+  <!-- Amended 2026-07-08 per Alex (BUG-001): doc now matches the built,
+       shorter home rather than the earlier committed section list. -->
+- **Experience:** one combined index of **roles + projects** (merged — Projects
+  is no longer a separate section) with year · title · description, plus an
+  Education group on the same page. No kind tag — the merged index stays
+  uniform (Alex's call, 2026-07-08).
+- **Detail pages (work only):** logo mark + date → thin-framed hero/gallery
+  figures → serif h1 → bullet prose → an underlined "Back to experience"
+  link. The orphaned project detail pages (`/projects/*`) were removed
+  2026-07-08 — external ↗ links on index rows are the only project surface.
 - **Nav:** clean top bar, hairline underline, accent-underline on the active item.
   Items: **About · Experience · Contact**.
 

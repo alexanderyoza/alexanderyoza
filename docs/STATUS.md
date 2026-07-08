@@ -29,7 +29,7 @@
 - [ ] Brand foundation (`docs/BRAND.md`) — public-facing → required (`/marketer-brand-generation`)
 - [ ] `docs/IMPLEMENTATION_GUIDE.md` written
 - [x] Design style chosen (`docs/DESIGN.md`) — PRIMARY × SECONDARY via `/plan-design`, with web-searched real-world references recorded (backfilled 2026-07-08 per DevByAlex `123bb20` mandate; rides under the wireframes gate)
-- [ ] Wireframes created (`docs/wireframes/`) — **capture from existing UI** (`/plan-wireframes capture`)
+- [x] Wireframes created (`docs/wireframes/`) — captured from the existing UI 2026-07-08 (BUG-004 closed); rides under Alex's approval gate with the guide
 - [ ] Design resources specced (`docs/design/RESOURCES.md`) — loader · marketing load-in · OG preview image
 
 ## Dev
@@ -47,7 +47,7 @@ Status: `todo` → `in-progress` → `blocked` → `done`. All Impl values below
 |---|---------|:----:|:---------:|:-----:|:----:|:----------:|:-----------:|:-------:|--------|
 | 1 | Home / about (`app/page.js`) | ⬜ | ⬜ | ⬜ | ✅ | ⬜ | ⬜ | ⬜ | in-progress |
 | 2 | Work index + cases (boh, sdsc, sitesbyalex, xxi) | ⬜ | ⬜ | ⬜ | ✅ | ⬜ | ⬜ | ⬜ | in-progress |
-| 3 | Projects index + pages (gsfhi, language-app, racctracc, uhfd) | ⬜ | ⬜ | ⬜ | ✅ | ⬜ | ⬜ | ⬜ | in-progress |
+| 3 | ~~Projects index + pages~~ — **retired 2026-07-08**: routes were orphans; projects live as rows/↗ links in the Experience index | — | — | — | — | — | — | — | done |
 | 4 | Contact (`app/contact`) | ⬜ | ⬜ | ⬜ | ✅ | ⬜ | ⬜ | ⬜ | in-progress |
 | 5 | Shared chrome (Footer, Navigate) | ⬜ | ⬜ | ⬜ | ✅ | ⬜ | ⬜ | ⬜ | in-progress |
 
@@ -72,7 +72,7 @@ Status: `todo` → `in-progress` → `blocked` → `done`. All Impl values below
 → Redesign is DONE (premium editorial × Swiss/minimalist + editorial serif,
 PRs #8–#11 merged 2026-07-07; design-enforcement pass 2026-07-08 — see Log).
 Next: finish the plan-stage backlog — `/plan-spec reverse` approval, then
-`/marketer-brand-generation`, then `/plan-wireframes capture`.
+`/marketer-brand-generation`. (Wireframe capture done 2026-07-08.)
 
 ## Blockers / open questions
 
@@ -87,6 +87,7 @@ Next: finish the plan-stage backlog — `/plan-spec reverse` approval, then
 ## Log
 
 <!-- newest first: date — skill — what changed (branch, commit) -->
+- 2026-07-08 — gate findings resolved (round 2, Alex's calls) — BUG-001 closed by amending DESIGN.md to the built short home; BUG-002 closed by dropping the kind tag from the contract; BUG-003/005 mooted by **removing the orphaned `/projects/gsfhi` + `/projects/uhfd` routes** (plus `projectInfo.module.css`, their assets, and Navigate's dead `/projects` check). BUG-004 (wireframe capture) remains the only open bug. Branch `claude/design-gate-enforcement` (PR #12).
 - 2026-07-08 — design-enforcement pass — the `123bb20` design mandates enforced retroactively: (1) web-searched real-world references backfilled into `docs/DESIGN.md` (Allie, Blancpain, Kirilenko, UNCUT.wtf + gallery pool, anti-reference) with Why/Alternatives; (2) the 2026-07-07 style decision backfilled into `docs/DECISIONS.md`; (3) **design-critic screenshot gate run for the first time** on all 7 routes × light/dark × desktop/mobile — first run FAIL (1 blocker, 3 major, 3 minor); fixed CRIT-001 (Reveal.js hardened: IO-missing bail + 3s fallback so content can never strand at opacity 0), CRIT-003 (dead "← Back to projects" links → `/work` "Back to experience"), CRIT-004 (accent discipline: monochrome project h1 links, `--text-dim` role subtitles); CRIT-006 withdrawn on evidence (Coming-soon ↗ rows really are live external links). Re-run **PASS**, conditional on BUG-001..005 (`docs/BUGS.md`) — home-page sections build-vs-amend, kind tags, project prose, wireframe capture, h1 underline — which are Alex's calls.
 - 2026-07-07 — restyle rollout — premium editorial × Swiss/minimalist + editorial serif applied across all screens (PRs #8–#11 merged to `main`); supersedes Bento tiles and Aurora glow. Content updates rode along (Crucible rename, positioning subheader, Experience links).
 - 2026-07-07 — workflow sync — DevByAlex synced to `123bb20` (`cf2c432`): uiux-redesign skill, design-critic screenshot gate, universal design rules, web-searched-references mandate in plan-design.

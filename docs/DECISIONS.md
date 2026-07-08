@@ -22,6 +22,24 @@ Keep each entry short — the rationale matters more than the prose.
 
 <!-- Newest entries below this line -->
 
+## 2026-07-08 — Gate findings resolved by contract amendment + orphan removal, not building
+**Stage:** plan-design (enforcement pass, round 2 — Alex's calls on the deferred BUG queue)
+**Decision:** (1) DESIGN.md's Home layout amended to the built, deliberately-short
+page (masthead → meta facts → about) instead of building the committed
+Selected-work index / education / contact close — those live on Experience and
+Contact. (2) The kind tag dropped from the Experience index contract; the merged
+index stays uniform. (3) `/projects/gsfhi` and `/projects/uhfd` **removed**
+(with `styles/projectInfo.module.css` and their `public/projects/` assets) —
+they were orphans with no inbound links, absent from the Experience index, and
+Alex believed them already gone; external ↗ links on index rows are now the only
+project surface. This also mooted the no-prose and half-underlined-h1 findings.
+**Why:** doc and screens must agree for the design-critic gate to be finally
+clean, and Alex chose the built reality over the aspirational section list.
+Removing dead routes beats polishing pages nothing links to.
+**Affects:** `docs/DESIGN.md` (Layout), `app/projects/*` (deleted),
+`components/Navigate.js` (dead `/projects` active-state check removed),
+`docs/BUGS.md` (BUG-001/002/003/005 closed; BUG-004 wireframes still open).
+
 ## 2026-07-08 — Design mandate enforced: web-searched references backfilled into DESIGN.md
 **Stage:** plan-design (enforcement pass)
 **Decision:** Backfilled the mandatory real-world reference set (Thibaud Allie,
