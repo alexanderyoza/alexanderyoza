@@ -8,12 +8,12 @@ const EDUCATION = [
   {
     from: 'Sep 2021', to: 'Dec 2024', title: 'University of California, San Diego',
     desc: 'B.S. Computer Science · La Jolla, California',
-    logo: '/ucsd.png',
+    logo: '/ucsd.png', logoLift: true,
   },
   {
     from: 'Aug 2024', to: 'Nov 2024', title: 'International Christian University',
     desc: 'Exchange program · Mitaka, Tokyo, Japan',
-    logo: '/icu.png',
+    logo: '/icu.png', logoLift: true,
   },
 ];
 
@@ -58,14 +58,14 @@ const WORK = [
     role: 'Founder',
     desc: 'My independent software studio for products, experiments, and digital systems.',
     href: 'https://agyllc.com/', external: true,
-    logo: '/projects/agy/logo.png',
+    logo: '/projects/agy/logo.png', logoInvert: true,
   },
   {
     from: 'Jun 2023', to: 'Present', title: 'SitesByAlex',
     role: 'Web Developer and Consultant',
     desc: 'Client websites and web apps for small businesses.',
     href: 'https://sitesbyalex.com/', external: true,
-    logo: '/work/sitesbyalex/logo.png',
+    logo: '/work/sitesbyalex/logo.png', logoInvert: true,
   },
   {
     from: 'Jun 2022', to: 'Aug 2022', title: 'Bank of Hawaii',
@@ -114,7 +114,7 @@ function Row({ item }) {
               alt=""
               width={44}
               height={44}
-              className={item.logoFull ? styles.rowLogoImgFull : styles.rowLogoImg}
+              className={`${item.logoFull ? styles.rowLogoImgFull : styles.rowLogoImg}${item.logoInvert ? ` ${styles.rowLogoInvert}` : ''}${item.logoLift ? ` ${styles.rowLogoLift}` : ''}`}
             />
           ) : (
             <span className={styles.rowLogoFallback}>{item.title[0]}</span>
