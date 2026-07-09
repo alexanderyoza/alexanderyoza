@@ -10,7 +10,7 @@
 > while it has open bugs.
 
 **Stage:** plan <!-- plan | dev | launch -->
-**Updated:** 2026-06-26 · main · (pre-revamp baseline)
+**Updated:** 2026-07-08 · main · (design-enforcement pass; redesign PRs #8–#11 merged 2026-07-07)
 **Stack:** Next.js 13 (App Router) · React 18 · JavaScript (no TS) · npm · CSS Modules · deployed on Vercel · no backend/DB/auth/tests/CI
 
 ## Gates (Alex approves these — agents must never self-check them)
@@ -28,7 +28,8 @@
 - [x] `docs/SPEC.md` written — **reverse stub only**, needs `/plan-spec reverse` + Alex approval (needs review)
 - [ ] Brand foundation (`docs/BRAND.md`) — public-facing → required (`/marketer-brand-generation`)
 - [ ] `docs/IMPLEMENTATION_GUIDE.md` written
-- [ ] Wireframes created (`docs/wireframes/`) — **capture from existing UI** (`/plan-wireframes capture`)
+- [x] Design style chosen (`docs/DESIGN.md`) — PRIMARY × SECONDARY via `/plan-design`, with web-searched real-world references recorded (backfilled 2026-07-08 per DevByAlex `123bb20` mandate; rides under the wireframes gate)
+- [x] Wireframes created (`docs/wireframes/`) — captured from the existing UI 2026-07-08 (BUG-004 closed); rides under Alex's approval gate with the guide
 - [ ] Design resources specced (`docs/design/RESOURCES.md`) — loader · marketing load-in · OG preview image
 
 ## Dev
@@ -46,7 +47,7 @@ Status: `todo` → `in-progress` → `blocked` → `done`. All Impl values below
 |---|---------|:----:|:---------:|:-----:|:----:|:----------:|:-----------:|:-------:|--------|
 | 1 | Home / about (`app/page.js`) | ⬜ | ⬜ | ⬜ | ✅ | ⬜ | ⬜ | ⬜ | in-progress |
 | 2 | Work index + cases (boh, sdsc, sitesbyalex, xxi) | ⬜ | ⬜ | ⬜ | ✅ | ⬜ | ⬜ | ⬜ | in-progress |
-| 3 | Projects index + pages (gsfhi, language-app, racctracc, uhfd) | ⬜ | ⬜ | ⬜ | ✅ | ⬜ | ⬜ | ⬜ | in-progress |
+| 3 | ~~Projects index + pages~~ — **retired 2026-07-08**: routes were orphans; projects live as rows/↗ links in the Experience index | — | — | — | — | — | — | — | done |
 | 4 | Contact (`app/contact`) | ⬜ | ⬜ | ⬜ | ✅ | ⬜ | ⬜ | ⬜ | in-progress |
 | 5 | Shared chrome (Footer, Navigate) | ⬜ | ⬜ | ⬜ | ✅ | ⬜ | ⬜ | ⬜ | in-progress |
 
@@ -68,26 +69,28 @@ Status: `todo` → `in-progress` → `blocked` → `done`. All Impl values below
 ## Next action
 
 <!-- dev-autopilot reads THIS line first. Exactly one next step. -->
-→ Alex has requested a **full dark-mode redesign** (Linear/Vercel feel, futuristic
-animations, generated media). Before building: `/plan-spec reverse` to backfill the
-real spec from code + Alex's resume, then `/marketer-brand-generation` (public-facing),
-then `/uiux-redesign` for the new always-dark theme. (See Blockers.)
+→ Redesign is DONE (premium editorial × Swiss/minimalist + editorial serif,
+PRs #8–#11 merged 2026-07-07; design-enforcement pass 2026-07-08 — see Log).
+Next: finish the plan-stage backlog — `/plan-spec reverse` approval, then
+`/marketer-brand-generation`. (Wireframe capture done 2026-07-08.)
 
 ## Blockers / open questions
 
-- **Redesign requested (2026-06-26):** always-dark theme, Linear/Vercel aesthetic,
-  futuristic animations, generated videos/characters/icons. Needs a design direction
-  doc (`docs/DESIGN.md` via `/uiux-redesign`) before sweeping screens.
-- **Resume pending:** Alex is providing a resume to update site details — fold into
-  `/plan-spec reverse`.
-- **Working branch:** repo's only branch is the protected production `main`. Create a
-  dedicated iteration branch (e.g. `redesign` or `staging`) before any dev/cron runs.
 - **Compliance unknowns:** is the contact page a form (PII) or mailto? Any analytics?
   (drives the compliance section)
+
+<!-- Resolved 2026-07-08: the 2026-06-26 "dark-mode redesign requested" blocker
+     (superseded twice; current style applied via PRs #8–#11), "resume pending"
+     (docs/resume.pdf landed; content updated from it), and "working branch"
+     (iteration happened on claude/* branches, merged by PR). -->
 
 ## Log
 
 <!-- newest first: date — skill — what changed (branch, commit) -->
+- 2026-07-08 — gate findings resolved (round 2, Alex's calls) — BUG-001 closed by amending DESIGN.md to the built short home; BUG-002 closed by dropping the kind tag from the contract; BUG-003/005 mooted by **removing the orphaned `/projects/gsfhi` + `/projects/uhfd` routes** (plus `projectInfo.module.css`, their assets, and Navigate's dead `/projects` check). BUG-004 (wireframe capture) remains the only open bug. Branch `claude/design-gate-enforcement` (PR #12).
+- 2026-07-08 — design-enforcement pass — the `123bb20` design mandates enforced retroactively: (1) web-searched real-world references backfilled into `docs/DESIGN.md` (Allie, Blancpain, Kirilenko, UNCUT.wtf + gallery pool, anti-reference) with Why/Alternatives; (2) the 2026-07-07 style decision backfilled into `docs/DECISIONS.md`; (3) **design-critic screenshot gate run for the first time** on all 7 routes × light/dark × desktop/mobile — first run FAIL (1 blocker, 3 major, 3 minor); fixed CRIT-001 (Reveal.js hardened: IO-missing bail + 3s fallback so content can never strand at opacity 0), CRIT-003 (dead "← Back to projects" links → `/work` "Back to experience"), CRIT-004 (accent discipline: monochrome project h1 links, `--text-dim` role subtitles); CRIT-006 withdrawn on evidence (Coming-soon ↗ rows really are live external links). Re-run **PASS**, conditional on BUG-001..005 (`docs/BUGS.md`) — home-page sections build-vs-amend, kind tags, project prose, wireframe capture, h1 underline — which are Alex's calls.
+- 2026-07-07 — restyle rollout — premium editorial × Swiss/minimalist + editorial serif applied across all screens (PRs #8–#11 merged to `main`); supersedes Bento tiles and Aurora glow. Content updates rode along (Crucible rename, positioning subheader, Experience links).
+- 2026-07-07 — workflow sync — DevByAlex synced to `123bb20` (`cf2c432`): uiux-redesign skill, design-critic screenshot gate, universal design rules, web-searched-references mandate in plan-design.
 - 2026-06-26 — redesign (readability + polish) — bumped bg-video tint for legibility; About headline split into 3 lines (companies emphasized); Capital One tile now matches Ponzu/Nisatsu (dark gradient + whitened wordmark); footer made semi-transparent glass (bg video shows through); SitesByAlex detail page uses vector `<Logo>`.
 - 2026-06-26 — redesign (full-page bg video) — video is now a **fixed full-page background** (`BackgroundScrubVideo`) scrubbed by whole-page scroll (frame 0 at top → last frame at bottom); all content rides over it with a readability scrim. Replaced new audio-stripped clip. Removed old `ScrollVideoHero`.
 - 2026-06-26 — redesign (hero interaction) — hero is now **hybrid scroll-scrub**: video is a sticky background scrubbed by scroll distance while the hero content scrolls normally past it (no pin/freeze). Scrub range tuned to ~100vh so it completes as the content clears into the About section (track 200vh).

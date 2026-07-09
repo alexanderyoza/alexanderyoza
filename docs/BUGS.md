@@ -28,11 +28,13 @@
 - **Notes:** <links, related feature id, anything that pins it down>
 -->
 
-_(none)_
-
 ## Fixed
 
 <!-- newest first — the autopilot appends here: BUG-id — title — fix summary
      (branch · commit · date). Kept as an audit trail; safe to prune old entries. -->
 
-_(none)_
+- BUG-004 — wireframes never captured — resolved by **backfilling the CAPTURE-mode inventory** into `docs/wireframes/README.md` from the shipped screens (5 routes + shared chrome, flows, missing-state notes) (2026-07-08; `claude/design-gate-enforcement`).
+- BUG-001 — home missing committed sections — resolved by **amending DESIGN.md** to the built, deliberately-short home (Alex's call, 2026-07-08; `claude/design-gate-enforcement`).
+- BUG-002 — missing kind tags — resolved by **dropping the tag from the contract**; the merged index stays uniform (Alex's call, 2026-07-08; same branch).
+- BUG-003 — project pages had no prose — **moot: pages removed.** `/projects/gsfhi` and `/projects/uhfd` were orphans (no inbound links, not in the Experience index); deleted with their stylesheet and assets (Alex's call, 2026-07-08; same branch).
+- BUG-005 — half-underlined project h1 — **moot: same removal** (the deleted project pages were the only screens with linked h1s).
