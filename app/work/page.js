@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../../styles/workOverview.module.css';
 import Reveal from '../../components/Reveal';
@@ -7,10 +8,12 @@ const EDUCATION = [
   {
     from: 'Sep 2021', to: 'Dec 2024', title: 'University of California, San Diego',
     desc: 'B.S. Computer Science · La Jolla, California',
+    logo: '/ucsd.png',
   },
   {
     from: 'Aug 2024', to: 'Nov 2024', title: 'International Christian University',
     desc: 'Exchange program · Mitaka, Tokyo, Japan',
+    logo: '/icu.png',
   },
 ];
 
@@ -20,48 +23,56 @@ const WORK = [
     from: 'Feb 2026', to: 'Present', title: 'Capital One',
     role: 'Associate Software Engineer',
     desc: 'Core modernization and common capability tooling on team StreamPro, on a service that handles over a billion requests a day.',
+    logo: '/work/capitalone/icon.jpg', logoFull: true,
   },
   {
     from: 'Jan 2026', to: 'Present', title: 'Nisatsu',
     role: 'Founder and Engineer',
     desc: 'An AI language learning app, built end to end.',
     soon: true, href: 'https://www.nisatsu.com/', external: true,
+    logo: '/work/nisatsu/logo.png',
   },
   {
     from: 'Sep 2025', to: 'Present', title: 'Ponzu',
     role: 'CTO and Cofounder',
     desc: 'An AI workflow orchestration platform.',
     soon: true, href: 'https://www.ponzu.so/', external: true,
+    logo: '/work/ponzu/logo.png',
   },
   {
     from: 'Jun 2025', to: 'Present', title: 'Crucible',
     role: 'Creator',
     desc: 'Research, simulate, and score algorithmic trading strategies with sandboxed, validated plugins.',
     soon: true,
+    logo: '/work/crucible/logo.png',
   },
   {
     from: 'Jun 2024', to: 'Aug 2024', title: 'San Diego Supercomputer Center',
     role: 'Developer Intern',
     desc: 'Led a full stack platform in React, Node, and Firebase to help students discover places around them.',
     href: '/work/sdsc',
+    logo: '/work/sdsc.jpeg',
   },
   {
     from: 'Oct 2021', to: 'Present', title: 'AGY',
     role: 'Founder',
     desc: 'My independent software studio for products, experiments, and digital systems.',
     href: 'https://agyllc.com/', external: true,
+    logo: '/projects/agy/logo.png',
   },
   {
     from: 'Jun 2023', to: 'Present', title: 'SitesByAlex',
     role: 'Web Developer and Consultant',
     desc: 'Client websites and web apps for small businesses.',
     href: 'https://sitesbyalex.com/', external: true,
+    logo: '/work/sitesbyalex/logo.png',
   },
   {
     from: 'Jun 2022', to: 'Aug 2022', title: 'Bank of Hawaii',
     role: 'eSolutions Development Intern',
     desc: 'Automated bank processes, saving over 1,500 hours a year.',
     href: '/work/boh',
+    logo: '/work/boh.png',
   },
 ];
 
@@ -96,9 +107,24 @@ function Row({ item }) {
         )}
       </span>
       <span className={styles.rowMain}>
-        <span className={styles.rowTitle}>{item.title}</span>
-        {item.role && <span className={styles.rowRole}>{item.role}</span>}
-        <span className={styles.rowDesc}>{item.desc}</span>
+        <span className={styles.rowLogo} aria-hidden="true">
+          {item.logo ? (
+            <Image
+              src={item.logo}
+              alt=""
+              width={44}
+              height={44}
+              className={item.logoFull ? styles.rowLogoImgFull : styles.rowLogoImg}
+            />
+          ) : (
+            <span className={styles.rowLogoFallback}>{item.title[0]}</span>
+          )}
+        </span>
+        <span className={styles.rowText}>
+          <span className={styles.rowTitle}>{item.title}</span>
+          {item.role && <span className={styles.rowRole}>{item.role}</span>}
+          <span className={styles.rowDesc}>{item.desc}</span>
+        </span>
       </span>
       <span className={styles.rowArrow}>{arrow}</span>
     </>
