@@ -93,8 +93,8 @@ const orderedWork = [...WORK].sort((a, b) => {
 
 function Row({ item }) {
   const arrow = item.soon
-    ? (item.href ? 'Coming soon ↗' : 'Coming soon')
-    : item.external ? '↗' : item.href ? '→' : '';
+    ? (item.href ? 'Coming soon ↗\uFE0E' : 'Coming soon')
+    : item.external ? '↗\uFE0E' : item.href ? '→' : '';
   const inner = (
     <>
       <span className={styles.rowYear}>
