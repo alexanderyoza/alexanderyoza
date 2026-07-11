@@ -22,6 +22,19 @@ Keep each entry short — the rationale matters more than the prose.
 
 <!-- Newest entries below this line -->
 
+## 2026-07-11 — No extra observability on this site
+**Stage:** launch (Alex's call, during the DevByAlex v0.2.0 rollout)
+**Decision:** No error monitoring, analytics, or uptime alerting will be added.
+The `/launch-observability` contract is **waived** — the `Observability wired`
+launch row and the live-events row in STATUS are N/A, not pending.
+**Why:** Static public portfolio with no backend, accounts, or transactions —
+production signal beyond user reports isn't worth the surface it adds. This also
+settles the analytics half of the compliance unknown: nothing to disclose
+because nothing is collected.
+**Affects:** `docs/STATUS.md` Launch + Live sections (rows N/A);
+`/launch-compliance` (no analytics disclosure needed); `/live-triage` runs on
+`docs/FEEDBACK.md` user reports alone.
+
 ## 2026-07-11 — Leave-no-orphans enforcement sweep; workflow synced to ec490f4
 **Stage:** dev-update (DevByAlex vendor sync + retro orphan sweep)
 **Decision:** Vendored workflow re-synced ff86ad9 → **ec490f4** (leave-no-orphans

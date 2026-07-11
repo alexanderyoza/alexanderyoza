@@ -56,7 +56,7 @@ Status: `todo` → `in-progress` → `blocked` → `done`. All Impl values below
 ## Launch
 
 - [ ] No open bugs in `docs/BUGS.md` or open tweaks in `docs/TWEAKS.md`   ← soft gate: autopilot won't enter launch while either log has open entries
-- [ ] Observability wired — error monitoring (PII-scrubbed) + consent-gated analytics + uptime, verified on staging (`/launch-observability`)
+- [ ] Observability wired — **N/A** (Alex, 2026-07-11: no extra observability on this site — see `docs/DECISIONS.md`)
 - [ ] Acceptance tests written (`docs/ACCEPTANCE_TESTS.md`)
 - [ ] Acceptance suite passed against staging (`/launch-verify`)
 - [ ] Visual QA passed (`/launch-visual-qa`)
@@ -71,7 +71,7 @@ Status: `todo` → `in-progress` → `blocked` → `done`. All Impl values below
 
 ## Live (post-launch)
 
-- [ ] Observability receiving real production events (not just the staging test events)
+- [ ] Observability receiving real production events — **N/A** (no observability by decision; production signal = user reports via `docs/FEEDBACK.md`)
 - [ ] Feedback triage running — `/live-triage` drains `docs/FEEDBACK.md` into the bug/tweak logs (manual or scheduled)
 
 ## Next action
@@ -84,8 +84,9 @@ Next: finish the plan-stage backlog — `/plan-spec reverse` approval, then
 
 ## Blockers / open questions
 
-- **Compliance unknowns:** is the contact page a form (PII) or mailto? Any analytics?
-  (drives the compliance section)
+- **Compliance unknown:** is the contact page a form (PII) or mailto? (drives the
+  compliance section — the analytics half is settled: none, and none will be
+  added, per the 2026-07-11 no-observability decision)
 
 <!-- Resolved 2026-07-08: the 2026-06-26 "dark-mode redesign requested" blocker
      (superseded twice; current style applied via PRs #8–#11), "resume pending"
@@ -95,6 +96,7 @@ Next: finish the plan-stage backlog — `/plan-spec reverse` approval, then
 ## Log
 
 <!-- newest first: date — skill — what changed (branch, commit) — pulse: <staging URL> · <screenshot paths> (or pulse: n/a for non-UI runs) -->
+- 2026-07-11 — decision (Alex) — **no extra observability on this site**: `/launch-observability` waived, the Observability launch row + live-events row marked N/A, analytics compliance unknown settled (none collected). Recorded in `docs/DECISIONS.md`. pulse: n/a
 - 2026-07-11 — dev-update — DevByAlex synced `ec490f4` → `313a2d1` (v0.2.0: tweak lane, visual pulse, live stage, image references); backfilled `docs/TWEAKS.md` + `docs/FEEDBACK.md`, the bugs+tweaks launch gate, the Observability launch row, and the `## Live (post-launch)` section (branch `claude/devbyalex-v0.2-rollout`). pulse: n/a
 - 2026-07-08 — gate findings resolved (round 2, Alex's calls) — BUG-001 closed by amending DESIGN.md to the built short home; BUG-002 closed by dropping the kind tag from the contract; BUG-003/005 mooted by **removing the orphaned `/projects/gsfhi` + `/projects/uhfd` routes** (plus `projectInfo.module.css`, their assets, and Navigate's dead `/projects` check). BUG-004 (wireframe capture) remains the only open bug. Branch `claude/design-gate-enforcement` (PR #12).
 - 2026-07-08 — design-enforcement pass — the `123bb20` design mandates enforced retroactively: (1) web-searched real-world references backfilled into `docs/DESIGN.md` (Allie, Blancpain, Kirilenko, UNCUT.wtf + gallery pool, anti-reference) with Why/Alternatives; (2) the 2026-07-07 style decision backfilled into `docs/DECISIONS.md`; (3) **design-critic screenshot gate run for the first time** on all 7 routes × light/dark × desktop/mobile — first run FAIL (1 blocker, 3 major, 3 minor); fixed CRIT-001 (Reveal.js hardened: IO-missing bail + 3s fallback so content can never strand at opacity 0), CRIT-003 (dead "← Back to projects" links → `/work` "Back to experience"), CRIT-004 (accent discipline: monochrome project h1 links, `--text-dim` role subtitles); CRIT-006 withdrawn on evidence (Coming-soon ↗ rows really are live external links). Re-run **PASS**, conditional on BUG-001..005 (`docs/BUGS.md`) — home-page sections build-vs-amend, kind tags, project prose, wireframe capture, h1 underline — which are Alex's calls.
