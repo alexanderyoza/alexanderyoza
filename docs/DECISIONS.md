@@ -22,6 +22,27 @@ Keep each entry short — the rationale matters more than the prose.
 
 <!-- Newest entries below this line -->
 
+## 2026-07-11 — Leave-no-orphans enforcement sweep; workflow synced to ec490f4
+**Stage:** dev-update (DevByAlex vendor sync + retro orphan sweep)
+**Decision:** Vendored workflow re-synced ff86ad9 → **ec490f4** (leave-no-orphans
+rule). Retro sweep of the app removed 23 provably unreferenced public assets:
+`next.svg`/`vercel.svg` (boilerplate), `github.png`/`javascript.png` (pre-redesign
+leftovers), `public/skills/` (12 icons — old home skills grid, removed in the
+2026-06-26 redesign), `work/xxi.JPG`/`work/xxi-work.jpg` (Prom XXI dropped,
+confirmed in INTAKE), `public/projects/racctracc/` (3 files — RaccTracc dropped,
+confirmed), `projects/nisatsu/logo.png` (byte-identical duplicate of
+`work/nisatsu/logo.png`), `work/capitalone/logo.png` (superseded by `icon.jpg`,
+which `/work` uses). Code, components, styles, and deps had no orphans.
+**Kept pending Alex's call:** `projects/stockapi/stockapi-cover.png` (Trading Lab
+"coming soon" asset, recorded kept in INTAKE but no surface remains) and
+`projects/agy/preview.png` (recorded kept for the retired projects card; `/work`
+uses only the AGY logo).
+**Why:** Rolling out DevByAlex's leave-no-orphans rule — every run cleans up what
+its work strands; these assets were stranded by the redesign and the projects
+retirement. `npm run build` green after removal.
+**Affects:** `.claude/` (managed vendor files), `public/`; STATUS feature row 2
+still lists `xxi` from route inference — stale, xxi is dropped.
+
 ## 2026-07-08 — Gate findings resolved by contract amendment + orphan removal, not building
 **Stage:** plan-design (enforcement pass, round 2 — Alex's calls on the deferred BUG queue)
 **Decision:** (1) DESIGN.md's Home layout amended to the built, deliberately-short

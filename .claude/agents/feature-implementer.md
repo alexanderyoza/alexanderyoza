@@ -39,6 +39,11 @@ and anything the card left ambiguous that you had to assume.
    every action, recoverable errors. Your screens will be screenshotted and
    vetted by a separate design-critic agent before the feature counts as done,
    so design against those documents, not from memory.
+   **Show, don't tell:** the spec, ADR, and decision log guide what you build —
+   never paste their content into the UI. Users learn what a section does from
+   its layout, hierarchy, and labels, not from a descriptive paragraph; if a
+   section seems to need explanatory copy, restructure it instead. The critic
+   fails screens with decision-leakage text.
 5. Handle failure and edge cases the card lists; default-deny on authz.
 
 ## Rules
@@ -55,7 +60,12 @@ and anything the card left ambiguous that you had to assume.
 - Surface any **new material decision** you had to make in your summary so the
   orchestrator records it in the ADR.
 - Never commit secrets; keep `.env*` gitignored.
-- Match the project's lint/format/typecheck — leave the code clean.
+- Match the project's lint/format/typecheck — leave the code clean, and
+  **leave no orphans**: delete your scratch/debug scripts, temp files,
+  commented-out blocks, and anything your change left unreferenced before you
+  report. If your work strands something *substantial* (a module or screen the
+  feature replaced), flag it `keep-or-remove` in your summary for the
+  orchestrator to route to Alex — don't delete it yourself.
 - Don't fabricate alignment: if the card contradicts the code or the guide, say
   so in your report rather than papering over it.
 
