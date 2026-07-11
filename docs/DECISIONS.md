@@ -22,6 +22,18 @@ Keep each entry short — the rationale matters more than the prose.
 
 <!-- Newest entries below this line -->
 
+## 2026-07-11 — Keep the two stranded project assets (Alex's call)
+**Stage:** dev-update (leave-no-orphans follow-up)
+**Decision:** Alex resolved the sweep's two keep-or-remove questions as **keep
+for now**: `public/projects/stockapi/stockapi-cover.png` and
+`public/projects/agy/preview.png` stay in the repo even though no surface
+references them since the 2026-07-08 projects retirement.
+**Why:** Both are recorded as kept in INTAKE's final decisions and may return
+with a future Trading Lab / projects surface; explicitly recording the keep is
+what stops later leave-no-orphans sweeps from re-flagging them.
+**Affects:** `public/projects/stockapi/`, `public/projects/agy/` — exempt from
+orphan sweeps until this entry is superseded.
+
 ## 2026-07-11 — Leave-no-orphans enforcement sweep; workflow synced to ec490f4
 **Stage:** dev-update (DevByAlex vendor sync + retro orphan sweep)
 **Decision:** Vendored workflow re-synced ff86ad9 → **ec490f4** (leave-no-orphans
