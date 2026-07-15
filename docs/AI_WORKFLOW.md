@@ -59,6 +59,11 @@ is the live control file; this file is the map.
 - Agents never self-approve a gate; approvals are Alex's.
 - `docs/STATUS.md` stays accurate and the test suite stays green at every stop.
 - Tests trace to the spec; never weakened just to make code pass.
+- **Models are routed by reasoning difficulty**
+  (`.claude/knowledge/workflow/model-routing.md`): fast tier for discovery and
+  mechanical work, capable tier for normal implementation, strong tier for
+  ambiguity, trust boundaries, and verification. Stronger models verify
+  evidence packages and diffs; they don't redo completed mechanical work.
 - Security and privacy beat convenience — most of all in auth.
 
 To advance the build, run `/dev-goal` and let it push until the goal is met.
