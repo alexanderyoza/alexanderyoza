@@ -12,7 +12,7 @@ Keep each entry short — the rationale matters more than the prose.
 
 ```
 ## YYYY-MM-DD — <short title>
-**Stage:** <plan-spec | dev-auth | dev-scaffold | dev-autopilot | launch-* | …>
+**Stage:** <plan-spec | dev-auth | dev-scaffold | dev-goal | launch-* | …>
 **Decision:** <what was decided, one or two sentences>
 **Why:** <the reasoning / what it rules out>
 **Affects:** <files, features, or follow-ups this constrains>

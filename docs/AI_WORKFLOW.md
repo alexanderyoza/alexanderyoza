@@ -26,8 +26,17 @@ is the live control file; this file is the map.
    - `/feature-loop <id>` — per feature: parallel tests + implementation →
      feature validation → integration validation → align to guide/wireframes →
      update STATUS.
-   - `/dev-autopilot` — advances the build one safe step per run; this is what a
-     schedule calls.
+   - `/dev-tweak` — the cosmetic light lane: drains `docs/TWEAKS.md` (copy,
+     tokens, spacing) behind a hard qualification test + a proportional gate,
+     without paying the full feature loop.
+   - `/dev-todo` — the planned-change lane: drains `docs/TODO.md` (deliberate
+     improvements heavier than a tweak, smaller than a feature), routing every
+     entry first (broken → BUGS, cosmetic → TWEAKS, feature-sized → a proposal
+     for Alex). Once the site is stable, most iteration lives here.
+   - `/dev-goal` — the driver: give it a goal (default: dev stage complete) and
+     it pushes until the goal is met, draining `docs/BUGS.md`, then
+     `docs/TWEAKS.md`, then `docs/TODO.md` before each build unit; each unit
+     runs in a subagent and ends in its own green commit.
 
 3. **Launch readiness**
    - Staging deploys automatically via Pipeline by Alex on push to `staging`; the
@@ -44,12 +53,12 @@ is the live control file; this file is the map.
 ## Rules of the road
 
 - Dev work commits and pushes **straight to the working branch** — the branch you
-  call the skill on, or the one a cron sets explicitly. No per-step branches, no
-  PR pile-up. Use a dedicated iteration branch (e.g. `staging`/`autopilot`), not a
+  call the skill on, or one passed explicitly. No per-unit branches, no
+  PR pile-up. Use a dedicated iteration branch (e.g. `staging`), not a
   protected default.
 - Agents never self-approve a gate; approvals are Alex's.
 - `docs/STATUS.md` stays accurate and the test suite stays green at every stop.
 - Tests trace to the spec; never weakened just to make code pass.
 - Security and privacy beat convenience — most of all in auth.
 
-To run unattended, see `docs/SCHEDULING.md` in the DevByAlex repo.
+To advance the build, run `/dev-goal` and let it push until the goal is met.

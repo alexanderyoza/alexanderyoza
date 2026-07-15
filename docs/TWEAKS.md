@@ -1,4 +1,4 @@
-# {{APP_NAME}}: Tweak Lane
+# alexyoza.com: Tweak Lane
 
 > Drop small cosmetic changes here: one entry per tweak under **Open**. This is
 > the **light lane**: copy edits, token/spacing/color adjustments, asset swaps,
