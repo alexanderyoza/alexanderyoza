@@ -31,7 +31,8 @@
 ## Fixed
 
 <!-- newest first — the loop appends here: BUG-id — title — fix summary
-     (branch · commit · date). Kept as an audit trail; safe to prune old entries. -->
+     (branch · commit · date). Rotates: keep the current stage's entries,
+     max ~20; each names its commit, so pruning loses nothing. -->
 
 - BUG-004 — wireframes never captured — resolved by **backfilling the CAPTURE-mode inventory** into `docs/wireframes/README.md` from the shipped screens (5 routes + shared chrome, flows, missing-state notes) (2026-07-08; `claude/design-gate-enforcement`).
 - BUG-001 — home missing committed sections — resolved by **amending DESIGN.md** to the built, deliberately-short home (Alex's call, 2026-07-08; `claude/design-gate-enforcement`).
