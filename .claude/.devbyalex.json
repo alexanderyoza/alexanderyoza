@@ -1,9 +1,9 @@
 {
   "name": "devbyalex",
-  "version": "0.7.0",
-  "source_ref": "fc0c9e3",
+  "version": "0.8.0",
+  "source_ref": "1e59397",
   "source_path": "/home/alex/dev/Startups/AlexOS/DevByAlex",
-  "updated_at": "2026-07-23T23:42:52Z",
-  "managed_skills": "accessibility-critique create-demo dev-auth dev-goal dev-scaffold dev-todo dev-tweak dev-update feature-loop fix-errors init-ai ios-audit issue-checker launch-acceptance launch-compliance launch-observability launch-readiness launch-store-assets launch-submit launch-verify launch-visual-qa live-triage marketer-brand-generation marketer-copywriting plan-design plan-guide plan-spec plan-wireframes prose-check scout seo-audit staging-smoke-test test-suite-developer uiux-redesign",
+  "updated_at": "2026-07-24T02:03:05Z",
+  "managed_skills": "accessibility-critique create-demo custom-uiux-skill dev-auth dev-goal dev-scaffold dev-todo dev-tweak dev-update feature-loop fix-errors init-ai ios-audit issue-checker launch-acceptance launch-compliance launch-observability launch-readiness launch-store-assets launch-submit launch-verify launch-visual-qa live-triage marketer-brand-generation marketer-copywriting plan-design plan-guide plan-spec plan-wireframes prose-check scout seo-audit staging-smoke-test test-suite-developer uiux-audit uiux-init uiux-redesign",
   "managed_agents": "design-critic.md explorer.md feature-builder.md feature-implementer.md feature-validator.md integration-validator.md test-author.md"
 }
