@@ -7,12 +7,12 @@ const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-san
 const fraunces = Fraunces({ subsets: ['latin'], style: ['normal', 'italic'], display: 'swap', variable: '--font-serif' })
 
 export const metadata = {
-    title: 'Alex Yoza — Software Engineer',
-    description: 'Alex Yoza — Associate Software Engineer at Capital One, founder of Nisatsu, co-founder of Ponzu. Core modernization, common capability and tooling, AI workflows, and products built end-to-end.',
+    title: 'Alex Yoza | Software Engineer',
+    description: 'I’m a software engineer at Capital One and the builder behind Nisatsu and Ponzu. I work on core modernization, AI workflows, and products built end to end.',
     metadataBase: new URL('https://alexyoza.com'),
     openGraph: {
-        title: 'Alex Yoza — Software Engineer',
-        description: 'Core modernization, common capability and tooling, AI workflows, and products built end-to-end.',
+        title: 'Alex Yoza | Software Engineer',
+        description: 'I build AI workflows, scalable systems, and products people can actually use.',
         url: 'https://alexyoza.com',
         siteName: 'Alex Yoza',
         type: 'website',
