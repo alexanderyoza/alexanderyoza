@@ -8,7 +8,20 @@
 **Mode:** CAPTURE (from code) — backfilled 2026-07-08 (BUG-004); reflects the
 current shipped UI (premium editorial × Swiss/minimalist), not an approved
 redesign.
-**Updated:** 2026-07-08
+**Penpot:** exempt (permanent) - surface too simple
+**Reason:** A static single-author portfolio of a handful of screens whose whole
+layout is legible at a glance in the code and in `docs/DESIGN.md`; round-tripping
+it through Penpot boards would cost more than it informs.
+**Declared:** 2026-07-24
+**Updated:** 2026-07-24
+
+> **No Penpot boards, by design.** This app is exempt under DevByAlex
+> `knowledge/workflow/penpot-wireframes.md`, so it never gets the initial
+> wireframe rollout. Design and layout changes go straight to code. The CAPTURE
+> inventory below is therefore design-critic's primary layout reference (with
+> `docs/DESIGN.md` and the universal design rules), so keep it current as
+> screens change. Every other gate applies unchanged: the universal checklist,
+> decision leakage, the WCAG 2.2 AA floor, and the E2E gate.
 
 ## Screen → feature map
 
