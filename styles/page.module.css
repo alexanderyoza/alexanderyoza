@@ -360,9 +360,11 @@
 
   .aboutContainer { margin-bottom: 110px; }
 
+  /* the orange spine is a desktop-only flourish — it crowds the measure
+     once the column goes full width */
   .aboutBody {
-    padding-left: 18px;
-    border-left-width: 3px;
+    padding-left: 0;
+    border-left: none;
   }
 
   .schoolContainer { margin-bottom: 110px; }
