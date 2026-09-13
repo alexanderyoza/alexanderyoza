@@ -1,46 +1,48 @@
 /* ===========================================================================
-   Home / About — sharp system: light ground, primary blue, orange counterpoint,
-   square edges, hard offset shadows. Large quiet display type against small
-   tracked mono meta.
+   Home — the original landing-page skeleton: a two-column intro with a square
+   blue-framed portrait, a full-width skills strip, then education blocks with
+   the course ticker. Only the intro copy is new.
    =========================================================================== */
 
 @keyframes maskRise {
   from { transform: translateY(115%); }
   to { transform: translateY(0); }
 }
-@keyframes riseIn {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: none; }
-}
-@keyframes portraitReveal {
-  from { opacity: 0; clip-path: inset(0 0 100% 0); }
-  to { opacity: 1; clip-path: inset(0 0 0 0); }
-}
 
-/* ---------- hero ---------- */
-.masthead {
-  display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.85fr);
-  gap: clamp(40px, 6vw, 88px);
-  align-items: center;
-  padding: clamp(16px, 4vw, 48px) 0 clamp(24px, 4vw, 56px);
-}
-
-.mastheadText {
-  min-width: 0;
+/* ---------- intro ---------- */
+.introductionContainer {
+  width: 100%;
   display: flex;
+  align-items: center;
   flex-direction: column;
-  align-items: flex-start;
+  margin-top: clamp(40px, 8vw, 130px);
+  margin-bottom: clamp(120px, 16vw, 260px);
+}
+
+.sectionContent {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: clamp(60px, 8vw, 100px);
+}
+
+.introText {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .name {
-  font-size: var(--fs-display);
+  font-size: clamp(2rem, 3.4vw, 2.9rem);
   font-weight: 400;
-  letter-spacing: -0.045em;
-  line-height: 0.92;
-  margin: 0 0 28px;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin-bottom: 22px;
   overflow: hidden;
-  padding-bottom: 0.1em;
+  padding-bottom: 0.08em;
 }
 
 .nameInner {
@@ -49,29 +51,61 @@
 }
 
 .lede {
-  font-size: clamp(1.15rem, 1.9vw, 1.5rem);
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
   font-weight: 400;
-  line-height: 1.45;
-  letter-spacing: -0.015em;
-  color: var(--text);
-  max-width: 30ch;
-  text-wrap: balance;
-  animation: riseIn 0.75s var(--ease-out) 0.5s both;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--text-dim);
+  margin-bottom: 30px;
 }
 
 .lede .italic { color: var(--secondary); }
 
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-bottom: 32px;
+  border-top: 2px solid var(--secondary);
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 26px 0 0;
+  margin-right: 26px;
+  border-right: 1px solid var(--border);
+}
+
+.facts > .fact:last-child {
+  border-right: none;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.factLabel {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--secondary);
+}
+
+.factValue {
+  font-size: var(--fs-small);
+  color: var(--text);
+}
+
 .ctaRow {
   display: flex;
   gap: 14px;
-  margin-top: 36px;
   flex-wrap: wrap;
-  animation: riseIn 0.75s var(--ease-out) 0.7s both;
 }
 
 .cta {
   font-size: var(--fs-small);
-  padding: 14px 26px;
+  padding: 13px 24px;
   border: 2px solid var(--secondary);
   color: var(--text);
   background-color: transparent;
@@ -98,137 +132,262 @@
   box-shadow: var(--shadow-hard-sm);
 }
 
-/* meta row sits with the hero rather than stranded on its own band */
-.facts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  margin-top: 52px;
-  border-top: 2px solid var(--secondary);
-  animation: riseIn 0.75s var(--ease-out) 0.86s both;
-}
-
-.metaBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  padding: 20px 30px 0 0;
-  margin-right: 30px;
-  border-right: 1px solid var(--border);
-}
-
-.facts > .metaBlock:last-child {
-  border-right: none;
-  margin-right: 0;
-  padding-right: 0;
-}
-
-.metaLabel {
-  font-family: var(--font-mono);
-  font-size: var(--fs-micro);
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--secondary);
-}
-
-.metaValue {
-  font-size: var(--fs-h3);
-  color: var(--text);
-  letter-spacing: -0.015em;
-}
-
 /* square, thick blue frame, hard offset shadow — the signature treatment */
-.portrait {
+.introImage {
   position: relative;
-  width: 100%;
-  max-width: 400px;
+  flex: 0 0 auto;
+  height: clamp(250px, 40vh, 420px);
   aspect-ratio: 1;
-  justify-self: end;
-  border: 5px solid var(--secondary);
+  border: 4px solid var(--secondary);
   box-shadow: var(--shadow-hard);
   overflow: hidden;
   background: var(--surface);
-  animation: portraitReveal 1.05s var(--ease-out) 0.45s both;
 }
 
-.portrait img { object-fit: cover; }
+.introImage img { object-fit: cover; }
+
+/* school marks are logos, not photographs — contain them on a light plate */
+.logoPlate {
+  background-color: #fff;
+  padding: 34px;
+}
+
+.logoPlate img { object-fit: contain; }
+
+/* ---------- skills strip ---------- */
+.skills {
+  margin-top: 2vh;
+  width: 90%;
+  min-height: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.popupContainer {
+  width: 5%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.skillImageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.skillImage {
+  object-fit: contain;
+}
+
+/* the Next.js mark is pure black ink — flip it on the dark ground */
+:global(:root[data-theme='dark']) .skillImageInvert { filter: invert(1); }
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme='light'])) .skillImageInvert { filter: invert(1); }
+}
+
+.popup { display: none; }
+
+@media (min-width: 1001px) {
+  .popupContainer:hover .popup {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--fs-micro);
+    margin-bottom: 12px;
+    padding: 5px 9px;
+    white-space: nowrap;
+    background-color: var(--secondary);
+    color: var(--on-accent);
+    box-shadow: var(--shadow-hard-xs);
+  }
+}
 
 /* ---------- about ---------- */
-.about {
-  display: grid;
-  grid-template-columns: minmax(0, 200px) minmax(0, 1fr);
-  gap: clamp(24px, 5vw, 72px);
-  align-items: start;
+.aboutContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(120px, 16vw, 260px);
 }
 
+/* sits on the same 90% gutter as every other block on the page */
 .aboutBody {
+  width: 90%;
   display: flex;
   flex-direction: column;
   gap: 1.25em;
-  max-width: 68ch;
+  padding-left: 30px;
+  border-left: 4px solid var(--tertiary);
 }
 
 .aboutBody p {
-  font-size: clamp(1rem, 1.15vw, 1.1rem);
+  font-size: var(--fs-body);
   line-height: 1.75;
   color: var(--text-dim);
+  max-width: 74ch;
 }
 
 .aboutBody p:first-child {
   color: var(--text);
-  font-size: clamp(1.1rem, 1.35vw, 1.25rem);
-  line-height: 1.6;
+  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+  line-height: 1.65;
+  max-width: 66ch;
 }
 
-@media (max-width: 900px) {
-  .masthead {
-    grid-template-columns: 1fr;
-    gap: 36px;
-    padding-top: 4px;
+/* ---------- education ---------- */
+.schoolContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: clamp(120px, 16vw, 240px);
+}
+
+.schoolContainer:last-of-type { margin-bottom: 40px; }
+
+.schoolText h2 {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.schoolText h3 {
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 400;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+
+.schoolText h4 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-top: 18px;
+}
+
+/* course ticker */
+.relevantCourses {
+  width: 90%;
+  overflow: hidden;
+  display: flex;
+  padding: 18px 0;
+  border-top: 2px solid var(--secondary);
+  border-bottom: 2px solid var(--secondary);
+}
+
+.relevantCourses span {
+  font-size: clamp(1rem, 1.6vw, 1.45rem);
+  flex: 0 0 auto;
+  margin-right: 50px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.tickerContainer1 {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker1 26s linear infinite;
+  animation-delay: -26s;
+}
+
+.tickerContainer2 {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker2 26s linear infinite;
+  animation-delay: -13s;
+}
+
+@keyframes ticker1 {
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes ticker2 {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-200%); }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1000px) {
+  .introductionContainer {
+    margin-top: 10px;
+    margin-bottom: 110px;
   }
 
-  .portrait {
-    max-width: 260px;
-    justify-self: start;
-    order: -1;
-    border-width: 3px;
+  .sectionContent {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 50px;
+  }
+
+  .introText {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .facts { justify-content: center; }
+  .ctaRow { justify-content: center; }
+
+  .introImage {
+    height: auto;
+    width: min(230px, 62vw);
+    margin-bottom: 34px;
+    border-width: 2px;
     box-shadow: var(--shadow-hard-sm);
   }
 
-  .lede { max-width: 100%; }
+  .logoPlate { padding: 20px; }
 
-  .facts { margin-top: 40px; }
-
-  .metaBlock {
-    padding: 18px 22px 0 0;
-    margin-right: 22px;
+  .skills {
+    flex-wrap: wrap;
+    min-height: 0;
+    padding: 14px 0;
+    border-top: 2px solid var(--secondary);
+    border-bottom: 2px solid var(--secondary);
   }
 
-  .about {
-    grid-template-columns: 1fr;
-    gap: 4px;
+  .popupContainer {
+    width: 11%;
+    margin: 6px 2%;
   }
+
+  .aboutContainer { margin-bottom: 110px; }
+
+  .aboutBody {
+    padding-left: 18px;
+    border-left-width: 3px;
+  }
+
+  .schoolContainer { margin-bottom: 110px; }
+
+  .schoolText { text-align: center; }
+
+  .relevantCourses span { margin-right: 28px; }
 }
 
 @media (max-width: 560px) {
-  .metaBlock {
+  .fact {
     flex: 1 1 100%;
     border-right: none;
     margin-right: 0;
-    padding: 16px 0 0;
+    padding: 14px 0 0;
+    align-items: center;
   }
 
-  .facts > .metaBlock + .metaBlock {
+  .facts > .fact + .fact {
     border-top: 1px solid var(--border);
-    margin-top: 14px;
+    margin-top: 12px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nameInner, .lede, .ctaRow, .facts, .portrait {
-    animation: none;
-    opacity: 1;
-    transform: none;
-    clip-path: none;
-  }
+  .nameInner { animation: none; }
+  .tickerContainer1, .tickerContainer2 { animation: none; }
 }

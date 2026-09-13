@@ -4,19 +4,6 @@ import Link from 'next/link';
 import styles from '../../styles/workOverview.module.css';
 import Reveal from '../../components/Reveal';
 
-const EDUCATION = [
-  {
-    from: 'Sep 2021', to: 'Dec 2024', title: 'University of California, San Diego',
-    desc: 'B.S. Computer Science · La Jolla, California',
-    logo: '/ucsd.png', logoLift: true,
-  },
-  {
-    from: 'Aug 2024', to: 'Nov 2024', title: 'International Christian University',
-    desc: 'Exchange program · Mitaka, Tokyo, Japan',
-    logo: '/icu.png', logoLift: true,
-  },
-];
-
 // One combined index — roles, projects, and studio work.
 const WORK = [
   {
@@ -138,19 +125,6 @@ export default function Experience() {
       <header className={styles.head}>
         <h1 className={styles.title}><span className={styles.titleInner}>My experience</span></h1>
       </header>
-
-      <section className={styles.group}>
-        <Reveal>
-          <h2 className={styles.groupLabel}><span className="sectionLabel">Education</span></h2>
-        </Reveal>
-        <div className={styles.grid}>
-          {EDUCATION.map((item, i) => (
-            <Reveal className={styles.cell} key={item.title} delay={i * 60}>
-              <Card item={item} />
-            </Reveal>
-          ))}
-        </div>
-      </section>
 
       <section className={styles.group}>
         <Reveal>
