@@ -120,6 +120,10 @@ html {
   width: 100%;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  /* the page colour lives here, not on body, so the fixed background-video
+     layer at z-index -1 can paint above the canvas and below all content */
+  background-color: var(--bg);
+  transition: background-color var(--dur) ease;
 }
 
 body {
@@ -127,7 +131,7 @@ body {
   min-width: var(--min-width);
   margin: 0 auto;
   color: var(--text);
-  background-color: var(--bg);
+  background-color: transparent;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;

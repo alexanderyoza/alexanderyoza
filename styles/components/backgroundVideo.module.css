@@ -1,0 +1,85 @@
+/* Fixed full-page background video layer (see BackgroundScrubVideo.js).
+   Sits behind all content at z-index -1; the page background lives on <html>
+   so this layer paints above the canvas but below every element. */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bgVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* softened so it reads as moving texture, never as a competing photograph */
+  filter: saturate(0.72) contrast(1.02) blur(1.5px);
+  transform: scale(1.04); /* hides the blur's soft edge */
+}
+
+/* heavy tint in the page colour — enough to keep body text fully legible,
+   light enough that the motion still reads */
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  opacity: 0.86;
+}
+
+/* edge vignette: denser at the margins, clearest behind the centre column */
+.bgVeil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(118% 88% at 50% 32%, transparent 0%, var(--bg) 100%);
+  opacity: 0.6;
+}
+
+/* ---------- animated fallback (no video / error / reduced-motion) ---------- */
+.fallback {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.mesh {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(40% 40% at 30% 30%, rgba(0, 123, 255, 0.30), transparent 60%),
+    radial-gradient(35% 35% at 75% 35%, rgba(255, 167, 51, 0.22), transparent 60%),
+    radial-gradient(45% 45% at 55% 80%, rgba(0, 123, 255, 0.20), transparent 60%);
+  filter: blur(60px) saturate(120%);
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(51, 51, 51, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(51, 51, 51, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(70% 70% at 50% 45%, #000 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(70% 70% at 50% 45%, #000 30%, transparent 80%);
+  animation: gridShift 24s linear infinite;
+}
+
+.scan { display: none; }
+
+@keyframes drift {
+  0% { transform: translate3d(-3%, -2%, 0) scale(1.05); }
+  100% { transform: translate3d(4%, 3%, 0) scale(1.15); }
+}
+
+@keyframes gridShift {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 64px 64px, 64px 64px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh, .grid { animation: none; }
+}
