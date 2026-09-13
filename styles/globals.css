@@ -58,6 +58,8 @@
   --shadow-hard: 10px 10px 5px rgba(0, 0, 0, 0.25);
   --shadow-hard-sm: 5px 5px 3px rgba(0, 0, 0, 0.25);
   --shadow-hard-xs: 3px 3px 2px rgba(0, 0, 0, 0.25);
+
+  --wave: #0A6FD8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -83,6 +85,8 @@
     --shadow-hard: 10px 10px 5px rgba(0, 0, 0, 0.55);
     --shadow-hard-sm: 5px 5px 3px rgba(0, 0, 0, 0.55);
     --shadow-hard-xs: 3px 3px 2px rgba(0, 0, 0, 0.55);
+
+    --wave: #4FA8FF;
   }
 }
 
@@ -108,6 +112,8 @@
   --shadow-hard: 10px 10px 5px rgba(0, 0, 0, 0.55);
   --shadow-hard-sm: 5px 5px 3px rgba(0, 0, 0, 0.55);
   --shadow-hard-xs: 3px 3px 2px rgba(0, 0, 0, 0.55);
+
+  --wave: #4FA8FF;
 }
 
 * {

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/page.module.css';
 import Reveal from '../components/Reveal';
-import BackgroundScrubVideo from '../components/BackgroundScrubVideo';
+import BackgroundWaves from '../components/BackgroundWaves';
 
 /* order and labels as they were on the original landing page */
 const SKILLS = [
@@ -21,8 +21,8 @@ const COURSES = [
 export default function Home() {
   return (
     <main className="container">
-      {/* fixed background video, scrubbed across the whole page scroll */}
-      <BackgroundScrubVideo src="/hero/hero.mp4" />
+      {/* fixed wave field, scrubbed across the whole page scroll */}
+      <BackgroundWaves />
 
       {/* ---- intro: text left, square framed portrait right, skills strip below ---- */}
       <section className={styles.introductionContainer}>
