@@ -18,7 +18,7 @@ export default function Freelance() {
         <span className="eyebrow">Experience</span>
         <div className={styles.top}>
           <span className={styles.logoMark}>
-            <Logo size={44} />
+            <Logo size={52} />
           </span>
           <span className={styles.date}>June 2023 – Present</span>
         </div>
@@ -26,7 +26,7 @@ export default function Freelance() {
 
       <Reveal className={styles.heroWrap} delay={60}>
         <div className={styles.hero}>
-          <Image src="/work/freelance-work.png" alt="SitesByAlex client work sample" fill sizes="(max-width: 1200px) 100vw, 1152px" />
+          <Image src="/work/freelance-work.png" alt="SitesByAlex client work sample" fill sizes="(max-width: 800px) 100vw, 1400px" />
         </div>
       </Reveal>
 

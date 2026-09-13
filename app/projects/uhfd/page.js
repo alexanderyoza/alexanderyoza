@@ -28,7 +28,7 @@ export default function Uhfd() {
           <div className={styles.skills}>
             {STACK.map(([src, label, light]) => (
               <span className={`${styles.skillIcon} ${light ? styles.skillIconLight : ''}`} key={src}>
-                <Image src={src} alt={label} fill sizes="28px" />
+                <Image src={src} alt={label} fill sizes="38px" />
               </span>
             ))}
           </div>
@@ -42,9 +42,9 @@ export default function Uhfd() {
         </Reveal>
         <div className={styles.galleryGrid}>
           {SHOTS.map(([src, alt], i) => (
-            <Reveal className={styles.shotReveal} key={src} delay={(i % 2) * 80}>
+            <Reveal key={src} delay={(i % 2) * 80}>
               <div className={styles.shot}>
-                <Image src={src} alt={alt} fill sizes="(max-width: 800px) 100vw, 620px" />
+                <Image src={src} alt={alt} fill sizes="(max-width: 800px) 100vw, 700px" />
               </div>
             </Reveal>
           ))}

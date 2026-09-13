@@ -27,6 +27,7 @@ const PROJECTS = [
     preview: '/projects/uhfd/preview.png',
     href: 'https://unionhillsfamilydentistry.com/',
     external: true,
+    detail: '/projects/uhfd',
   },
   {
     title: 'GSF LLC',
@@ -35,34 +36,45 @@ const PROJECTS = [
     preview: '/projects/gsfhi/preview.png',
     href: 'https://gsfhi.com/',
     external: true,
+    detail: '/projects/gsfhi',
   },
 ];
 
 function CardInner({ p }) {
   return (
     <>
-      <div className={`${styles.thumb} ${p.preview ? styles.thumbCover : styles.thumbMark}`}>
-        {p.preview ? (
-          <Image src={p.preview} alt={p.title} fill sizes="(max-width: 800px) 100vw, 560px" />
-        ) : (
-          <span className={styles.markImg}>
-            <Image src={p.logo} alt={p.title} fill sizes="120px" />
-          </span>
-        )}
-        {p.soon && <span className={styles.badge}>Coming soon</span>}
-        {p.external && <span className={styles.live}>Live ↗</span>}
+      <div className={styles.projectBackground}>
+        <Image
+          src={p.preview}
+          alt={p.title}
+          fill
+          sizes="(max-width: 800px) 100vw, 1200px"
+          className={styles.projectImage}
+        />
       </div>
-      <div className={styles.body}>
-        <h3>{p.title}</h3>
-        <p className={styles.blurb}>{p.blurb}</p>
-        <div className={styles.tech}>
-          {p.tech.map((t) => (
-            <span className={`${styles.techIcon} ${t === 'next' ? styles.techIconLight : ''}`} key={t}>
-              <Image src={`/skills/${t}.png`} alt="" fill sizes="22px" />
-            </span>
-          ))}
+      <div className={styles.projectContent}>
+        <div className={styles.projectInfo}>
+          <h2>{p.title}</h2>
+          <div className={styles.projectLine} />
+          <p className={styles.blurb}>{p.blurb}</p>
+          <div className={styles.projectSkills}>
+            {p.tech.map((t) => (
+              <span className={styles.imageContainer} key={t}>
+                <Image
+                  src={`/skills/${t}.png`}
+                  alt={t}
+                  fill
+                  sizes="34px"
+                  className={`${styles.skillImage} ${t === 'next' ? styles.skillImageLight : ''}`}
+                />
+              </span>
+            ))}
+          </div>
         </div>
+        {p.external && <span className={styles.learnMore}>Visit site ↗</span>}
       </div>
+      {p.soon && <span className={styles.badge}>Coming soon</span>}
+      {p.external && <span className={styles.live}>Live ↗</span>}
     </>
   );
 }
@@ -78,17 +90,22 @@ export default function Projects() {
         </p>
       </header>
 
-      <div className={styles.grid}>
+      <div className={styles.list}>
         {PROJECTS.map((p, i) => (
-          <Reveal key={p.title} delay={(i % 2) * 80}>
+          <Reveal className={styles.item} key={p.title} delay={(i % 2) * 80}>
             {p.href ? (
-              <a className={styles.card} href={p.href} target="_blank" rel="noopener noreferrer">
+              <a className={styles.project} href={p.href} target="_blank" rel="noopener noreferrer">
                 <CardInner p={p} />
               </a>
             ) : (
-              <div className={`${styles.card} ${styles.static}`}>
+              <div className={`${styles.project} ${styles.static}`}>
                 <CardInner p={p} />
               </div>
+            )}
+            {p.detail && (
+              <Link href={p.detail} className={styles.detail}>
+                Gallery →
+              </Link>
             )}
           </Reveal>
         ))}

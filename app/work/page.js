@@ -12,7 +12,6 @@ const WORK = [
     date: 'Feb 2026 – Present',
     logo: '/work/capitalone/logo.png',
     wordmark: true,
-    whiten: true,
   },
   {
     title: 'Ponzu',
@@ -44,7 +43,7 @@ const WORK = [
     role: 'SDSC Developer Intern',
     meta: 'React · Node · Firebase',
     date: 'Jun 2024 – Aug 2024',
-    preview: '/work/sdsc.jpeg',
+    logo: '/work/sdsc.jpeg',
     href: '/work/sdsc',
   },
   {
@@ -52,7 +51,7 @@ const WORK = [
     role: 'eSolutions Development Intern',
     meta: 'Power Automate · Python automation',
     date: 'Jun 2022 – Aug 2022',
-    preview: '/work/boh.png',
+    logo: '/work/boh.png',
     href: '/work/boh',
   },
 ];
@@ -62,13 +61,11 @@ function CardInner({ item }) {
     <>
       <div className={`${styles.thumb} ${item.preview ? styles.thumbCover : styles.thumbMark}`}>
         {item.preview ? (
-          <Image src={item.preview} alt={item.title} fill sizes="(max-width: 800px) 100vw, 380px" />
-        ) : item.logo ? (
-          <span className={`${styles.markImg} ${item.wordmark ? styles.markWide : ''} ${item.whiten ? styles.markWhite : ''}`}>
-            <Image src={item.logo} alt={item.title} fill sizes="200px" />
-          </span>
+          <Image src={item.preview} alt={item.title} fill sizes="(max-width: 800px) 100vw, 420px" />
         ) : (
-          <span className={styles.markText}>{item.mark?.text}</span>
+          <span className={`${styles.markImg} ${item.wordmark ? styles.markWide : ''}`}>
+            <Image src={item.logo} alt={item.title} fill sizes="240px" />
+          </span>
         )}
         {item.soon && <span className={styles.badge}>Coming soon</span>}
         {item.external && <span className={styles.live}>Live ↗</span>}
@@ -78,6 +75,7 @@ function CardInner({ item }) {
         <p className={styles.role}>{item.role}</p>
         <p className={styles.meta}>{item.meta}</p>
         <span className={styles.date}>{item.date}</span>
+        {item.href && !item.external && <span className={styles.learnMore}>Learn more →</span>}
       </div>
     </>
   );
@@ -95,27 +93,29 @@ export default function Work() {
         </p>
       </header>
 
-      <div className={styles.grid}>
-        {WORK.map((item, i) => (
-          <Reveal key={item.title} delay={(i % 3) * 70}>
-            {item.href ? (
-              item.external ? (
-                <a className={styles.card} href={item.href} target="_blank" rel="noopener noreferrer">
-                  <CardInner item={item} />
-                </a>
+      <section className={styles.workContainer} id="work">
+        <div className={styles.jobs}>
+          {WORK.map((item, i) => (
+            <Reveal key={item.title} delay={(i % 3) * 70}>
+              {item.href ? (
+                item.external ? (
+                  <a className={styles.workCard} href={item.href} target="_blank" rel="noopener noreferrer">
+                    <CardInner item={item} />
+                  </a>
+                ) : (
+                  <Link className={styles.workCard} href={item.href}>
+                    <CardInner item={item} />
+                  </Link>
+                )
               ) : (
-                <Link className={styles.card} href={item.href}>
+                <div className={`${styles.workCard} ${styles.static}`}>
                   <CardInner item={item} />
-                </Link>
-              )
-            ) : (
-              <div className={`${styles.card} ${styles.static}`}>
-                <CardInner item={item} />
-              </div>
-            )}
-          </Reveal>
-        ))}
-      </div>
+                </div>
+              )}
+            </Reveal>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }

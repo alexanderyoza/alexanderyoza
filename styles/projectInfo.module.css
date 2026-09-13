@@ -1,136 +1,156 @@
-/* ===========================================================================
-   Project detail — editorial layout.
-   Mirrors the overview pages: eyebrow spine, h1 title, Reveal cadence,
-   clamp() section rhythm, tokens throughout. No !important / position:unset.
-   =========================================================================== */
+/* ============================================================================
+   Project detail — ruled title block, blue-framed gallery plates.
+   ========================================================================== */
 
 .header {
-  width: 100%;
-  padding-bottom: 28px;
-  margin-bottom: clamp(56px, 9vw, 120px);
-  border-bottom: 1px solid var(--border);
+  width: 90%;
+  margin-bottom: 10vh;
 }
 
 .title {
-  margin: 14px 0 24px;
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  letter-spacing: -0.03em;
-  color: var(--text);
+  font-size: var(--fs-h1);
+  margin-top: 20px;
+  margin-bottom: 24px;
+  max-width: 34ch;
 }
+
 .title a {
-  color: var(--accent-2);
-  border-bottom: 1px solid rgba(86, 225, 233, 0.4);
-  transition: border-color var(--dur) ease;
+  color: var(--secondary);
+  text-decoration: underline var(--secondary);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  transition: var(--dur);
 }
+
 .title a:hover {
-  border-color: var(--accent-2);
+  color: var(--tertiary);
+  text-decoration-color: var(--tertiary);
 }
 
 .meta {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 30px;
+  padding-top: 24px;
+  border-top: 4px solid var(--tertiary);
 }
+
 .skills {
   display: flex;
-  align-items: center;
-  gap: 18px;
+  gap: 20px;
 }
+
 .skillIcon {
   position: relative;
-  width: 28px;
-  height: 28px;
-  opacity: 0.9;
+  width: 38px;
+  height: 38px;
 }
+
 .skillIcon img {
   object-fit: contain;
 }
-/* logos that are dark on transparent (Next.js "N") need a light backing */
+
+/* white marks need a plate to stay visible on the light ground */
 .skillIconLight {
-  background: #fff;
-  border-radius: 50%;
-  padding: 3px;
-  opacity: 1;
+  background-color: var(--primary);
+  padding: 4px;
 }
+
 .date {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: var(--fs-small);
   letter-spacing: 0.06em;
-  color: var(--text-faint);
+  color: var(--muted);
   white-space: nowrap;
 }
 
-/* ---------- gallery ---------- */
 .gallery {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 32px;
-  margin-bottom: clamp(48px, 8vw, 96px);
-}
-.galleryGrid {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 28px;
+  margin-bottom: 8vh;
 }
 
-.shotReveal {
+.galleryGrid {
   width: 100%;
-  max-width: 620px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 40px;
 }
 
 .shot {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
+  aspect-ratio: 16 / 10;
+  border: 2px solid var(--secondary);
+  box-shadow: var(--shadow-hard);
   overflow: hidden;
-  background: var(--bg-elev);
-  box-shadow: var(--shadow);
-  transition: border-color var(--dur) ease, transform var(--dur) var(--ease-out);
-}
-.shot:hover {
-  border-color: var(--border-strong);
-  transform: translateY(-2px);
-}
-.shot img {
-  object-fit: cover;
-  object-position: top center;
+  transition: var(--dur);
 }
 
-/* ---------- back link ---------- */
+.shot img {
+  object-fit: cover;
+  object-position: top;
+}
+
+.shot:hover {
+  border-color: var(--tertiary);
+}
+
 .back {
-  border-radius: var(--r-full);
-  width: fit-content;
-  padding: 12px 26px;
-  font-size: 0.9rem;
-  border: 1px solid var(--border-strong);
-  background: rgba(255, 255, 255, 0.02);
-  color: var(--text);
-  transition: border-color var(--dur) ease, color var(--dur) ease,
-    transform var(--dur-micro) var(--ease-out);
   display: inline-flex;
+  justify-content: center;
   align-items: center;
-  gap: 8px;
+  padding: 14px 28px;
+  font-size: var(--fs-small);
+  margin-bottom: 60px;
+  border: 2px solid var(--secondary);
+  background-color: var(--background);
+  transition: var(--dur);
 }
-.back:hover {
-  border-color: var(--accent);
-  color: #fff;
-}
-.back:active {
-  transform: scale(0.98);
+
+@media (min-width: 800px) {
+  .back:hover {
+    border-color: var(--tertiary);
+    box-shadow: var(--shadow-hard-xs);
+  }
 }
 
 @media (max-width: 800px) {
+  .header {
+    margin-bottom: 6vh;
+  }
+
+  .title {
+    max-width: 100%;
+  }
+
   .meta {
     flex-direction: column;
     align-items: flex-start;
     gap: 18px;
+    border-top-width: 2px;
+  }
+
+  .skillIcon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    margin-top: 26px;
+  }
+
+  .shot {
+    box-shadow: var(--shadow-hard-sm);
+  }
+
+  .back {
+    padding: 12px 20px;
   }
 }

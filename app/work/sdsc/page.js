@@ -17,7 +17,7 @@ export default function SDSC() {
         <span className="eyebrow">Experience</span>
         <div className={styles.top}>
           <span className={styles.logoMark}>
-            <Image src="/work/sdsc.jpeg" alt="San Diego Supercomputer Center" width={44} height={44} className={styles.logoImg} />
+            <Image src="/work/sdsc.jpeg" alt="San Diego Supercomputer Center" fill sizes="76px" className={styles.logoImg} />
           </span>
           <span className={styles.date}>June 2024 – August 2024</span>
         </div>
@@ -25,7 +25,7 @@ export default function SDSC() {
 
       <Reveal className={styles.heroWrap} delay={60}>
         <div className={styles.hero}>
-          <Image src="/work/sdsc-work.png" alt="San Diego Supercomputer Center project sample" fill sizes="(max-width: 1200px) 100vw, 1152px" />
+          <Image src="/work/sdsc-work.png" alt="San Diego Supercomputer Center project sample" fill sizes="(max-width: 800px) 100vw, 1400px" />
         </div>
       </Reveal>
 

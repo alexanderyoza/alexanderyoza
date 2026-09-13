@@ -4,8 +4,8 @@ import Reveal from '../../components/Reveal';
 
 const ICONS = {
   email: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="3" y="5" width="18" height="14" rx="2.5" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square" strokeLinejoin="miter" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="14" />
       <path d="m3.5 7 8.5 6 8.5-6" />
     </svg>
   ),
@@ -29,8 +29,8 @@ const LINKS = [
 
 export default function Contact() {
   return (
-    <main className="container">
-      <div className={styles.wrap}>
+    <main className={styles.container}>
+      <div className={styles.contact}>
         <Reveal>
           <span className="eyebrow">Contact</span>
           <h1 className={styles.title}>Let&apos;s build something.</h1>

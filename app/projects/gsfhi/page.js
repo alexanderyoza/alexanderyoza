@@ -21,7 +21,7 @@ export default function Gsfhi() {
         <div className={styles.meta}>
           <div className={styles.skills}>
             <span className={styles.skillIcon}>
-              <Image src="/skills/svelte.png" alt="Svelte" fill sizes="28px" />
+              <Image src="/skills/svelte.png" alt="Svelte" fill sizes="38px" />
             </span>
           </div>
           <span className={styles.date}>December 2024</span>
@@ -34,9 +34,9 @@ export default function Gsfhi() {
         </Reveal>
         <div className={styles.galleryGrid}>
           {SHOTS.map(([src, alt], i) => (
-            <Reveal className={styles.shotReveal} key={src} delay={(i % 2) * 80}>
+            <Reveal key={src} delay={(i % 2) * 80}>
               <div className={styles.shot}>
-                <Image src={src} alt={alt} fill sizes="(max-width: 800px) 100vw, 620px" />
+                <Image src={src} alt={alt} fill sizes="(max-width: 800px) 100vw, 700px" />
               </div>
             </Reveal>
           ))}

@@ -14,7 +14,7 @@ function Navigate() {
         <header className={styles.navigation}>
             <div className={styles.container} >
                 <Link href='/' className={styles.logo} aria-label="Home">
-                    <Logo size={30} />
+                    <Logo size={46} />
                 </Link>
                 <nav className={styles.navOptions}>
                     <Link href='/' className={styles.link}><div className={pathname === '/' ? styles.active : styles.inactive}>About</div></Link>

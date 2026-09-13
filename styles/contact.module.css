@@ -1,88 +1,159 @@
-.wrap {
-  width: 100%;
-  max-width: 760px;
-  margin: 0 auto;
-  padding: clamp(40px, 8vw, 100px) 0;
+/* ============================================================================
+   Contact — one square blue-framed block, hard shadow, ruled rows.
+   ========================================================================== */
+
+.container {
+  padding-top: calc(var(--nav-h) + 56px);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.contact {
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 50px 50px;
+  border: 2px solid var(--secondary);
+  box-shadow: var(--shadow-hard);
+  background-color: var(--background);
 }
 
 .title {
-  font-size: clamp(2.2rem, 6vw, 4rem);
-  letter-spacing: -0.03em;
-  margin: 14px 0 18px;
+  font-size: var(--fs-h1);
+  margin-top: 20px;
+  margin-bottom: 24px;
 }
 
 .lede {
-  font-size: 1.1rem;
-  color: var(--text-dim);
-  max-width: 50ch;
-  margin-bottom: 48px;
+  font-size: var(--fs-body);
+  color: var(--muted);
+  max-width: 48ch;
+  padding-bottom: 40px;
 }
 
 .links {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  padding-top: 10px;
+  border-top: 4px solid var(--tertiary);
 }
 
 .row {
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 22px 24px;
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  background: var(--bg-elev);
-  transition: border-color var(--dur) ease, transform var(--dur) var(--ease-out),
-    background-color var(--dur) ease;
+  padding: 22px 4px;
+  border-bottom: 1px solid var(--line);
+  transition: var(--dur);
 }
+
 .row:hover {
-  border-color: var(--border-strong);
-  transform: scale(1.008);
-  background: var(--bg-elev-2);
-  box-shadow: 0 12px 36px -22px rgba(0, 0, 0, 0.7);
+  padding-left: 12px;
+  background-color: rgba(0, 123, 255, 0.05);
 }
 
 .rowIcon {
-  width: 22px;
-  height: 22px;
-  flex: none;
-  color: var(--text-dim);
-  transition: color var(--dur) ease;
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--invert);
+  background-color: var(--secondary);
+  transition: var(--dur);
 }
-.rowIcon svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
+
 .row:hover .rowIcon {
-  color: var(--accent-2);
+  background-color: var(--tertiary);
+  color: var(--primary);
+}
+
+.rowIcon svg {
+  width: 20px;
+  height: 20px;
 }
 
 .rowLabel {
+  flex: 0 0 auto;
+  width: 9ch;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--fs-micro);
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--text-faint);
-  width: 90px;
-  flex: none;
+  color: var(--faint);
 }
+
 .rowValue {
-  font-size: 1.05rem;
-  color: var(--text);
   flex: 1;
+  font-size: var(--fs-small);
+  text-decoration: underline var(--secondary);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  transition: var(--dur);
 }
+
+.row:hover .rowValue {
+  text-decoration-color: var(--tertiary);
+}
+
 .rowArrow {
-  color: var(--text-faint);
-  transition: transform var(--dur) var(--ease-out), color var(--dur) ease;
+  flex: 0 0 auto;
+  font-size: var(--fs-small);
+  color: var(--secondary);
+  transition: var(--dur);
 }
+
 .row:hover .rowArrow {
-  color: var(--accent-2);
+  color: var(--tertiary);
   transform: translateX(4px);
 }
 
-@media (max-width: 560px) {
-  .row { padding: 18px 18px; gap: 14px; }
-  .rowLabel { width: 70px; font-size: 0.65rem; }
-  .rowValue { font-size: 0.95rem; }
+@media (max-width: 800px) {
+  .container {
+    margin-bottom: 60px;
+    padding-top: calc(var(--nav-h) + 36px);
+  }
+
+  .contact {
+    width: 90%;
+    padding: 36px 22px 28px;
+    box-shadow: var(--shadow-hard-sm);
+  }
+
+  .lede {
+    max-width: 100%;
+    padding-bottom: 28px;
+  }
+
+  .links {
+    border-top-width: 2px;
+  }
+
+  .row {
+    gap: 14px;
+    padding: 18px 2px;
+  }
+
+  .row:hover {
+    padding-left: 2px;
+  }
+
+  .rowIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .rowIcon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .rowLabel {
+    display: none;
+  }
 }

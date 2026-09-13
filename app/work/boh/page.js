@@ -18,7 +18,7 @@ export default function Boh() {
         <span className="eyebrow">Experience</span>
         <div className={styles.top}>
           <span className={styles.logoMark}>
-            <Image src="/work/boh.png" alt="Bank of Hawaii" width={44} height={44} className={styles.logoImg} />
+            <Image src="/work/boh.png" alt="Bank of Hawaii" fill sizes="76px" className={styles.logoImg} />
           </span>
           <span className={styles.date}>June 2022 – August 2022</span>
         </div>
@@ -26,7 +26,7 @@ export default function Boh() {
 
       <Reveal className={styles.heroWrap} delay={60}>
         <div className={styles.hero}>
-          <Image src="/work/boh-work.jpg" alt="Bank of Hawaii project sample" fill sizes="(max-width: 1200px) 100vw, 1152px" />
+          <Image src="/work/boh-work.jpg" alt="Bank of Hawaii project sample" fill sizes="(max-width: 800px) 100vw, 1400px" />
         </div>
       </Reveal>
 
