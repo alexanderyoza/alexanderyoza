@@ -5,12 +5,13 @@ import styles from '../styles/page.module.css';
 import Reveal from '../components/Reveal';
 import BackgroundWaves from '../components/BackgroundWaves';
 
-/* current stack — file name carries its own extension so PNG and SVG can mix */
+/* current stack, grouped: languages, front end, back end, data, infra.
+   File name carries its own extension so PNG and SVG can mix. */
 const SKILLS = [
   ['typescript.svg', 'TypeScript'], ['python.png', 'Python'], ['go.svg', 'Go'],
-  ['java.png', 'Java'], ['next.png', 'Next.js'], ['react.png', 'React'],
-  ['node.png', 'Node.js'], ['fastapi.svg', 'FastAPI'], ['postgresql.svg', 'PostgreSQL'],
-  ['firebase.png', 'Firebase'], ['git.png', 'Git'],
+  ['next.png', 'Next.js'], ['react.png', 'React'], ['tailwind.svg', 'Tailwind CSS'],
+  ['node.png', 'Node.js'], ['fastapi.svg', 'FastAPI'],
+  ['postgresql.svg', 'PostgreSQL'], ['docker.svg', 'Docker'],
 ];
 
 const COURSES = [
