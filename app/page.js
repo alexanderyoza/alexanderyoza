@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styles from '../styles/page.module.css';
 import Reveal from '../components/Reveal';
 import BackgroundWaves from '../components/BackgroundWaves';
+import IntroCurtain from '../components/IntroCurtain';
 
 /* current stack, grouped: languages, front end, back end, data, infra.
    File name carries its own extension so PNG and SVG can mix. */
@@ -23,7 +24,8 @@ const COURSES = [
 export default function Home() {
   return (
     <main className="container">
-      {/* fixed wave field, scrubbed across the whole page scroll */}
+      {/* opening curtain, then the fixed wave field scrubbed across the scroll */}
+      <IntroCurtain />
       <BackgroundWaves />
 
       {/* ---- intro: text left, square framed portrait right, skills strip below ---- */}

@@ -1,0 +1,50 @@
+/* Opening curtain (see IntroCurtain.js). Sits above the nav so the header is
+   revealed by the curtain clearing rather than animating on its own.
+   Everything that removes the curtain is CSS, so it cannot strand the page. */
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  overflow: hidden;
+  pointer-events: none;
+  /* solid blue on the very first paint, before the canvas has drawn anything */
+  background: var(--wave);
+  animation: curtainOut 0.42s var(--ease-out) 1.18s both;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+/* monogram sits in the page colour on the blue ground, and washes off as the
+   crest line passes the centre of the screen */
+.mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  color: var(--bg);
+  animation: markOut 0.5s var(--ease-out) 0.62s both;
+}
+
+@keyframes curtainOut {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes markOut {
+  from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  to { opacity: 0; transform: translate(-50%, -58%) scale(0.97); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .curtain {
+    animation: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .mark { animation: none; opacity: 0; }
+}

@@ -12,11 +12,10 @@ import styles from '../styles/components/backgroundWaves.module.css';
  * Honours prefers-reduced-motion by drawing one static frame and stopping.
  */
 
-/* the opening swell holds the screen briefly, then eases down to rest.
-   Ambient drift keeps running through the hold, so it breathes rather than
-   freezing. */
-const HOLD_MS = 420;
-const INTRO_MS = 1700;
+/* the field waits for the intro curtain to clear, then rises from below the
+   fold to its resting height */
+const HOLD_MS = 1250;
+const INTRO_MS = 1200;
 
 /* band: amplitude px, wavelength px, drift speed, resting height, opacity */
 const LAYERS = [
@@ -86,14 +85,14 @@ export default function BackgroundWaves() {
       const p = current.current;
       ctx.clearRect(0, 0, w, h);
 
-      // on first load the whole viewport is water; it sinks to rest as the
-      // page comes in, swelling a little higher on the way down
-      const lift = (1 - intro) * 0.66;
-      const swell = 1 + (1 - intro) * 0.35;
+      // the curtain leaves a bare page; the field then rises into it from
+      // below the fold, swelling a little on the way up
+      const drop = (1 - intro) * 0.55;
+      const swell = 1 + (1 - intro) * 0.3;
 
       LAYERS.forEach((L, i) => {
         // scroll lifts the swell and carries the crests sideways
-        const base = h * (L.rest - lift - p * 0.24);
+        const base = h * (L.rest + drop - p * 0.24);
         // Crests travel sideways as you scroll and as the opening swell settles.
         // The intro term is a fixed fraction of a wavelength per band rather
         // than a distance divided by it — dividing made the short-wavelength
@@ -153,8 +152,8 @@ export default function BackgroundWaves() {
       current.current = target.current;
       draw(0, 1);
     } else {
-      // paint the opening frame up front — a full screen of water — so the
-      // field is never blank while waiting on the first animation frame
+      // nothing to paint before the curtain clears; the first frame is the
+      // bare page the field will rise into
       current.current = target.current;
       draw(0, 0);
       window.addEventListener('scroll', onScroll, { passive: true });
