@@ -29,6 +29,11 @@ export default function Home() {
       <section className={styles.introductionContainer}>
         <div className={styles.sectionContent}>
           <div className={styles.introText}>
+            <ul className={styles.meta}>
+              <li>Associate SWE</li>
+              <li>Capital One</li>
+              <li>Richmond, Virginia</li>
+            </ul>
             <h1 className={styles.name}>
               <span className={styles.nameInner}>Alex Yoza</span>
             </h1>
@@ -36,16 +41,6 @@ export default function Home() {
               I&rsquo;m a software engineer building <span className="serif italic">AI workflows</span>,
               scalable systems, and applications people can actually use.
             </h2>
-            <div className={styles.facts}>
-              <span className={styles.fact}>
-                <span className={styles.factLabel}>Associate SWE</span>
-                <span className={styles.factValue}>Capital One</span>
-              </span>
-              <span className={styles.fact}>
-                <span className={styles.factLabel}>Currently based</span>
-                <span className={styles.factValue}>Richmond, Virginia</span>
-              </span>
-            </div>
             <div className={styles.ctaRow}>
               <Link href="/work" className={`${styles.cta} ${styles.ctaPrimary}`}>View experience →</Link>
               <Link href="/contact" className={styles.cta}>Get in touch →</Link>

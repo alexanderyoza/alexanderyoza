@@ -61,40 +61,28 @@
 
 .lede .italic { color: var(--secondary); }
 
-.facts {
+/* role and location as one tracked mono line, set above the name: metadata
+   register, so it frames the masthead instead of competing with the lede */
+.meta {
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 0;
-  margin-bottom: 32px;
-  border-top: 2px solid var(--secondary);
-}
-
-.fact {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 16px 26px 0 0;
-  margin-right: 26px;
-  border-right: 1px solid var(--border);
-}
-
-.facts > .fact:last-child {
-  border-right: none;
-  margin-right: 0;
-  padding-right: 0;
-}
-
-.factLabel {
+  align-items: baseline;
+  margin-bottom: 22px;
   font-family: var(--font-mono);
   font-size: var(--fs-micro);
-  text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--secondary);
+  text-transform: uppercase;
+  color: var(--text-dim);
+  animation: riseIn 0.7s var(--ease-out) 0.15s both;
 }
 
-.factValue {
-  font-size: var(--fs-small);
-  color: var(--text);
+.meta li:first-child { color: var(--text); }
+
+.meta li + li::before {
+  content: '/';
+  color: var(--secondary);
+  padding: 0 11px;
 }
 
 .ctaRow {
@@ -331,7 +319,7 @@
     text-align: center;
   }
 
-  .facts { justify-content: center; }
+  .meta { justify-content: center; }
   .ctaRow { justify-content: center; }
 
   .introImage {
@@ -364,21 +352,6 @@
   .schoolText { text-align: center; }
 
   .relevantCourses span { margin-right: 28px; }
-}
-
-@media (max-width: 560px) {
-  .fact {
-    flex: 1 1 100%;
-    border-right: none;
-    margin-right: 0;
-    padding: 14px 0 0;
-    align-items: center;
-  }
-
-  .facts > .fact + .fact {
-    border-top: 1px solid var(--border);
-    margin-top: 12px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
