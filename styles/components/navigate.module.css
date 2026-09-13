@@ -31,6 +31,8 @@
 
 .logo:hover { color: var(--secondary); }
 
+.logo svg { display: block; }
+
 .navOptions {
   display: flex;
   align-items: center;
@@ -70,6 +72,11 @@
 
 @media (max-width: 800px) {
   .container { padding: 0 16px; }
+
+  .logo svg {
+    width: 34px;
+    height: 34px;
+  }
 
   .navOptions { gap: 0; }
 

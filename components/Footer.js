@@ -11,7 +11,7 @@ function Footer() {
             <div className={styles.footer}>
                 <div className={styles.logo}>
                     <span className={styles.logoImage}>
-                        <Logo size={34} />
+                        <Logo size={44} />
                     </span>
                     <div className={styles.logoText}>
                         Alex Yoza
