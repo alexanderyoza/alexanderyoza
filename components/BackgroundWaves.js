@@ -91,12 +91,14 @@ export default function BackgroundWaves() {
       LAYERS.forEach((L, i) => {
         // scroll lifts the swell and carries the crests sideways
         const base = h * (L.rest - lift - p * 0.24);
-        // crests travel sideways both as you scroll and as the opening swell
-        // settles, so the intro moves horizontally the way the scroll does
+        // Crests travel sideways as you scroll and as the opening swell settles.
+        // The intro term is a fixed fraction of a wavelength per band rather
+        // than a distance divided by it — dividing made the short-wavelength
+        // bands sweep ~9 wavelengths in 1.8s, which read as thrashing.
         const phase =
           t * L.speed +
           p * ((760 + i * 280) / L.len) * Math.PI * 2 +
-          (1 - intro) * ((1020 + i * 360) / L.len) * Math.PI * 2;
+          (1 - intro) * (0.55 + i * 0.12) * Math.PI * 2;
 
         ctx.beginPath();
         ctx.moveTo(0, h);
