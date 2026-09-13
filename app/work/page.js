@@ -95,8 +95,8 @@ function Card({ item }) {
           <span className={styles.cardLogoFallback}>{item.title[0]}</span>
         )}
       </span>
-      <h3 className={styles.cardTitle}>{item.title}</h3>
-      {item.role && <h4 className={styles.cardRole}>{item.role}</h4>}
+      <h2 className={styles.cardTitle}>{item.title}</h2>
+      {item.role && <p className={styles.cardRole}>{item.role}</p>}
       <p className={styles.cardDesc}>{item.desc}</p>
       <span className={styles.cardDate}>
         {item.from}{item.to ? ` \u2013 ${item.to}` : ''}
@@ -123,13 +123,10 @@ export default function Experience() {
   return (
     <main className="container">
       <header className={styles.head}>
-        <h1 className={styles.title}><span className={styles.titleInner}>My experience</span></h1>
+        <h1 className={styles.title}><span className={styles.titleInner}>Work</span></h1>
       </header>
 
-      <section className={styles.group}>
-        <Reveal>
-          <h2 className={styles.groupLabel}><span className="sectionLabel">Work</span></h2>
-        </Reveal>
+      <section>
         <div className={styles.grid}>
           {orderedWork.map((item, i) => (
             <Reveal className={styles.cell} key={item.title} delay={Math.min(i, 5) * 45}>

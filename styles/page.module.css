@@ -340,9 +340,10 @@
     border-bottom: 2px solid var(--secondary);
   }
 
+  /* five per row, so ten marks land as two even rows */
   .popupContainer {
-    width: 11%;
-    margin: 6px 2%;
+    width: 14%;
+    margin: 7px 3%;
   }
 
   .aboutContainer { margin-bottom: 110px; }
