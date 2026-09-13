@@ -91,52 +91,45 @@ const orderedWork = [...WORK].sort((a, b) => {
   return startKey(b) - startKey(a);
 });
 
-function Row({ item }) {
-  const arrow = item.external ? '↗\uFE0E' : item.href ? '→' : '';
+function Card({ item }) {
+  const arrow = item.external ? '\u2197\uFE0E' : item.href ? '\u2192' : '';
   const inner = (
     <>
-      <span className={styles.rowYear}>
-        <span className={styles.rowDate}>{item.from}</span>
-        {item.to && (
-          <>
-            <span className={styles.rowDateSep}>to</span>
-            <span className={styles.rowDate}>{item.to}</span>
-          </>
+      <span className={styles.cardLogo} aria-hidden="true">
+        {item.logo ? (
+          <Image
+            src={item.logo}
+            alt=""
+            width={72}
+            height={72}
+            className={item.logoFull ? styles.cardLogoImgFull : styles.cardLogoImg}
+          />
+        ) : (
+          <span className={styles.cardLogoFallback}>{item.title[0]}</span>
         )}
       </span>
-      <span className={styles.rowMain}>
-        <span className={styles.rowLogo} aria-hidden="true">
-          {item.logo ? (
-            <Image
-              src={item.logo}
-              alt=""
-              width={44}
-              height={44}
-              className={`${item.logoFull ? styles.rowLogoImgFull : styles.rowLogoImg}${item.logoInvert ? ` ${styles.rowLogoInvert}` : ''}${item.logoLift ? ` ${styles.rowLogoLift}` : ''}`}
-            />
-          ) : (
-            <span className={styles.rowLogoFallback}>{item.title[0]}</span>
+      <h3 className={styles.cardTitle}>{item.title}</h3>
+      {item.role && <h4 className={styles.cardRole}>{item.role}</h4>}
+      <p className={styles.cardDesc}>{item.desc}</p>
+      <span className={styles.cardDate}>
+        {item.from}{item.to ? ` \u2013 ${item.to}` : ''}
+      </span>
+      {item.soon
+        ? <span className={styles.cardBadge}>Coming soon</span>
+        : arrow && (
+            <span className={styles.cardMore}>
+              {item.external ? 'Visit site' : 'Learn more'} {arrow}
+            </span>
           )}
-        </span>
-        <span className={styles.rowText}>
-          <span className={styles.rowTitle}>{item.title}</span>
-          {item.role && <span className={styles.rowRole}>{item.role}</span>}
-          <span className={styles.rowDesc}>{item.desc}</span>
-        </span>
-      </span>
-      <span className={styles.rowMeta}>
-        {item.soon && <span className={styles.rowBadge}>Coming soon</span>}
-        {arrow && <span className={styles.rowArrow}>{arrow}</span>}
-      </span>
     </>
   );
   if (item.href && item.external) {
-    return <a className={styles.row} href={item.href} target="_blank" rel="noopener noreferrer">{inner}</a>;
+    return <a className={styles.card} href={item.href} target="_blank" rel="noopener noreferrer">{inner}</a>;
   }
   if (item.href) {
-    return <Link className={styles.row} href={item.href}>{inner}</Link>;
+    return <Link className={styles.card} href={item.href}>{inner}</Link>;
   }
-  return <div className={`${styles.row} ${styles.rowStatic}`}>{inner}</div>;
+  return <div className={`${styles.card} ${styles.cardStatic}`}>{inner}</div>;
 }
 
 export default function Experience() {
@@ -150,10 +143,10 @@ export default function Experience() {
         <Reveal>
           <h2 className={styles.groupLabel}>Education</h2>
         </Reveal>
-        <div className={styles.index}>
-          {EDUCATION.map((item) => (
-            <Reveal key={item.title}>
-              <Row item={item} />
+        <div className={styles.grid}>
+          {EDUCATION.map((item, i) => (
+            <Reveal className={styles.cell} key={item.title} delay={i * 60}>
+              <Card item={item} />
             </Reveal>
           ))}
         </div>
@@ -163,10 +156,10 @@ export default function Experience() {
         <Reveal>
           <h2 className={styles.groupLabel}>Work</h2>
         </Reveal>
-        <div className={styles.index}>
+        <div className={styles.grid}>
           {orderedWork.map((item, i) => (
-            <Reveal key={item.title} delay={Math.min(i, 5) * 45}>
-              <Row item={item} />
+            <Reveal className={styles.cell} key={item.title} delay={Math.min(i, 5) * 45}>
+              <Card item={item} />
             </Reveal>
           ))}
         </div>

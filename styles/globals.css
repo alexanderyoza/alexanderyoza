@@ -206,12 +206,13 @@ a {
   min-height: 100vh;
 }
 
-/* ---- rule primitive — a solid orange bar, not a hairline ---- */
+/* ---- rule primitive — a solid orange bar, not a hairline.
+   Spans the same 90% gutter the page sections use. ---- */
 .rule {
   border: 0;
   border-top: 4px solid var(--tertiary);
-  width: 100%;
-  margin: clamp(56px, 8vw, 96px) 0;
+  width: 90%;
+  margin: clamp(56px, 8vw, 96px) auto;
 }
 
 /* ---- scroll-reveal primitive (JS adds .isVisible) ---- */

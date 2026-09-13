@@ -1,30 +1,34 @@
 /* ===========================================================================
-   Contact — sharp-edged block, blue icon plates, orange hover.
+   Contact — the pre-redesign skeleton: one centered blue-bordered box with
+   stacked, generously spaced underlined links.
    =========================================================================== */
-
-.wrap {
-  width: 100%;
-  max-width: 860px;
-  margin: 0 auto;
-  padding: clamp(32px, 6vw, 64px) clamp(22px, 4vw, 52px) clamp(26px, 4vw, 44px);
-  border: 2px solid var(--secondary);
-  box-shadow: var(--shadow-hard);
-  background-color: var(--surface);
-}
 
 @keyframes maskRise {
   from { transform: translateY(115%); }
   to { transform: translateY(0); }
 }
 
+.wrap {
+  min-width: 40%;
+  max-width: 820px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: clamp(40px, 6vw, 72px) clamp(24px, 5vw, 60px) clamp(34px, 5vw, 56px);
+  border: 2px solid var(--secondary);
+  box-shadow: var(--shadow-hard);
+  background-color: var(--surface);
+}
+
 .title {
-  font-size: clamp(2.2rem, 7vw, 4rem);
+  font-size: var(--fs-h1);
   font-weight: 400;
-  letter-spacing: -0.035em;
-  margin: 0 0 22px;
-  text-wrap: balance;
+  letter-spacing: -0.025em;
+  margin: 0 0 20px;
   overflow: hidden;
-  padding-bottom: 0.1em;
+  padding-bottom: 0.08em;
 }
 
 .titleInner {
@@ -37,38 +41,36 @@
 }
 
 .lede {
-  font-size: var(--fs-body);
+  font-size: var(--fs-small);
   color: var(--text-dim);
-  max-width: 48ch;
-  padding-bottom: clamp(32px, 5vw, 48px);
+  max-width: 46ch;
+  margin: 0 auto;
+  padding-bottom: 40px;
 }
 
 .links {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: 8px;
+  align-items: center;
+  padding-top: 34px;
   border-top: 4px solid var(--tertiary);
 }
 
 .row {
-  display: grid;
-  grid-template-columns: 40px 9ch 1fr auto;
-  gap: 20px;
+  display: inline-flex;
   align-items: center;
-  padding: 22px 4px;
-  border-bottom: 1px solid var(--border);
-  transition: background-color var(--dur) ease, padding var(--dur) var(--ease-out);
+  gap: 16px;
+  margin-bottom: 38px;
+  padding: 4px 8px;
+  transition: var(--dur);
 }
 
-.row:hover {
-  background: var(--surface-2);
-  padding-left: 14px;
-  padding-right: 14px;
-}
+.links > :last-child .row { margin-bottom: 10px; }
 
 .rowIcon {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -77,27 +79,22 @@
   transition: background-color var(--dur) ease, color var(--dur) ease;
 }
 
-.rowIcon svg { width: 20px; height: 20px; display: block; }
+.rowIcon svg { width: 19px; height: 19px; display: block; }
 
 .row:hover .rowIcon {
   background-color: var(--tertiary);
   color: var(--on-warm);
 }
 
-.rowLabel {
-  font-family: var(--font-mono);
-  font-size: var(--fs-micro);
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--text-faint);
-}
+/* the label is redundant next to the value in this centered layout */
+.rowLabel { display: none; }
 
 .rowValue {
   font-size: var(--fs-small);
   color: var(--text);
   text-decoration: underline var(--secondary);
   text-decoration-thickness: 2px;
-  text-underline-offset: 5px;
+  text-underline-offset: 6px;
   transition: text-decoration-color var(--dur) ease;
 }
 
@@ -114,15 +111,18 @@
   transform: translateX(4px);
 }
 
-@media (max-width: 560px) {
-  .wrap { box-shadow: var(--shadow-hard-sm); }
-
-  .row {
-    grid-template-columns: 34px 1fr auto;
-    gap: 14px;
+@media (max-width: 800px) {
+  .wrap {
+    min-width: 0;
+    width: 100%;
+    box-shadow: var(--shadow-hard-sm);
   }
 
-  .rowIcon { width: 34px; height: 34px; }
-  .rowIcon svg { width: 17px; height: 17px; }
-  .rowLabel { display: none; }
+  .row {
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  .rowIcon { width: 32px; height: 32px; }
+  .rowIcon svg { width: 16px; height: 16px; }
 }
