@@ -31,11 +31,11 @@
     radial-gradient(120% 70% at 50% 8%, var(--bg) 0%, transparent 58%);
   opacity: 0.92;
   /* held off while the opening swell fills the viewport, faded in as it sinks */
-  animation: veilIn 1.9s var(--ease-out) both;
+  animation: veilIn 2.2s var(--ease-out) both;
 }
 
 @keyframes veilIn {
-  0%, 30% { opacity: 0; }
+  0%, 38% { opacity: 0; }
   100% { opacity: 0.92; }
 }
 

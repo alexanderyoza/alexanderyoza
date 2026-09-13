@@ -12,8 +12,11 @@ import styles from '../styles/components/backgroundWaves.module.css';
  * Honours prefers-reduced-motion by drawing one static frame and stopping.
  */
 
-/* how long the opening swell takes to settle to its resting position */
-const INTRO_MS = 1800;
+/* the opening swell holds the screen briefly, then eases down to rest.
+   Ambient drift keeps running through the hold, so it breathes rather than
+   freezing. */
+const HOLD_MS = 420;
+const INTRO_MS = 1700;
 
 /* band: amplitude px, wavelength px, drift speed, resting height, opacity */
 const LAYERS = [
@@ -159,8 +162,11 @@ export default function BackgroundWaves() {
       let start = 0;
       const tick = (ts) => {
         if (!start) start = ts;
-        const raw = Math.min(1, (ts - start) / INTRO_MS);
-        const intro = 1 - Math.pow(1 - raw, 3); // easeOutCubic
+        const raw = Math.min(1, Math.max(0, (ts - start - HOLD_MS) / INTRO_MS));
+        // easeInOutCubic: leaves the hold gently instead of lunging, and
+        // decelerates into the resting position
+        const intro =
+          raw < 0.5 ? 4 * raw * raw * raw : 1 - Math.pow(-2 * raw + 2, 3) / 2;
         current.current += (target.current - current.current) * 0.08;
         draw(ts / 1000, intro);
         rafRef.current = requestAnimationFrame(tick);
