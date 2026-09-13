@@ -5,11 +5,12 @@ import styles from '../styles/page.module.css';
 import Reveal from '../components/Reveal';
 import BackgroundWaves from '../components/BackgroundWaves';
 
-/* order and labels as they were on the original landing page */
+/* current stack — file name carries its own extension so PNG and SVG can mix */
 const SKILLS = [
-  ['java', 'Java'], ['cpp', 'C++'], ['c', 'C'], ['python', 'Python'],
-  ['svelte', 'Svelte'], ['react', 'React.js'], ['next', 'Next.js'], ['firebase', 'Firebase'],
-  ['angular', 'Angular'], ['node', 'Node.js'], ['mongo', 'MongoDB'], ['git', 'git'],
+  ['typescript.svg', 'TypeScript'], ['python.png', 'Python'], ['go.svg', 'Go'],
+  ['java.png', 'Java'], ['next.png', 'Next.js'], ['react.png', 'React'],
+  ['node.png', 'Node.js'], ['fastapi.svg', 'FastAPI'], ['postgresql.svg', 'PostgreSQL'],
+  ['firebase.png', 'Firebase'], ['git.png', 'Git'],
 ];
 
 const COURSES = [
@@ -62,11 +63,11 @@ export default function Home() {
               <div className={styles.popup}>{label}</div>
               <div className={styles.skillImageContainer}>
                 <Image
-                  src={`/skills/${file}.png`}
+                  src={`/skills/${file}`}
                   alt={label}
                   fill
                   sizes="100px"
-                  className={`${styles.skillImage} ${file === 'next' ? styles.skillImageInvert : ''}`}
+                  className={`${styles.skillImage} ${file === 'next.png' ? styles.skillImageInvert : ''}`}
                 />
               </div>
             </div>
