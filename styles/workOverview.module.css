@@ -1,6 +1,7 @@
 /* ===========================================================================
-   Experience — the pre-redesign skeleton: a wrapping grid of big, square-ish
-   blue-bordered cards with hard offset shadows, centered content.
+   Experience — education + combined roles/projects.
+   A dense grid of square-edged cards: blue border, hard offset shadow,
+   free-standing logo mark, left-aligned text, mono meta footer.
    =========================================================================== */
 
 @keyframes maskRise {
@@ -9,17 +10,17 @@
 }
 
 .head {
-  width: 90%;
-  margin: 0 auto clamp(44px, 7vw, 80px);
+  margin-bottom: clamp(48px, 6vw, 76px);
 }
 
 .title {
   font-size: var(--fs-h1);
   font-weight: 400;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.04em;
+  line-height: 1;
   margin: 0;
   overflow: hidden;
-  padding-bottom: 0.08em;
+  padding-bottom: 0.1em;
 }
 
 .titleInner {
@@ -32,81 +33,84 @@
 }
 
 .group {
-  width: 90%;
-  margin: clamp(56px, 7vw, 96px) auto 0;
+  margin-top: clamp(56px, 6vw, 88px);
 }
 
 .group:first-of-type { margin-top: 0; }
 
+/* the label element itself carries the shared .sectionLabel treatment */
 .groupLabel {
-  font-size: var(--fs-h2);
+  font-size: inherit;
   font-weight: 400;
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
-  padding-bottom: 14px;
-  border-bottom: 4px solid var(--tertiary);
+  margin: 0;
 }
 
-/* two big cards per row, generously spaced — the old proportions, but
-   flush with the section rule rather than inset from it */
 .grid {
-  width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(40px, 5vw, 72px);
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 28px;
   align-items: stretch;
-  margin-top: 44px;
 }
 
 .cell { display: flex; }
 
 .card {
+  position: relative;
   width: 100%;
-  min-height: 26vw;
-  padding: 34px 28px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  text-align: center;
+  align-items: flex-start;
+  padding: 30px 28px 26px;
   background-color: var(--surface);
   border: 2px solid var(--secondary);
-  box-shadow: var(--shadow-hard);
-  transition: var(--dur);
+  box-shadow: var(--shadow-hard-sm);
+  transition: transform var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out), border-color var(--dur) ease;
 }
 
 .card:not(.cardStatic):hover {
   border-color: var(--tertiary);
-  transform: translate(-3px, -3px);
-  box-shadow: 13px 13px 5px rgba(0, 0, 0, 0.25);
+  transform: translate(-4px, -4px);
+  box-shadow: var(--shadow-hard);
 }
 
 .cardStatic { cursor: default; }
 
-/* logo on a light plate inside a blue frame */
+/* free-standing mark — no plate, no frame */
 .cardLogo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 84px;
-  height: 84px;
-  padding: 9px;
-  margin-bottom: 34px;
-  background-color: #fff;
-  border: 2px solid var(--secondary);
-  box-shadow: var(--shadow-hard-xs);
+  width: 48px;
+  height: 48px;
+  margin-bottom: 22px;
 }
 
-.cardLogoImg {
+.cardLogoImg,
+.cardLogoImgFull {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-.cardLogoImgFull {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* Pure-black ink marks (AGY, SitesByAlex) flip to paper in dark. */
+:global(:root[data-theme='dark']) .cardLogoInvert {
+  filter: invert(1) hue-rotate(180deg);
+}
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme='light'])) .cardLogoInvert {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+
+/* Navy marks (UCSD, ICU) get a lift so they don't sink into the dark ground. */
+:global(:root[data-theme='dark']) .cardLogoLift {
+  filter: brightness(1.9);
+}
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme='light'])) .cardLogoLift {
+    filter: brightness(1.9);
+  }
 }
 
 .cardLogoFallback {
@@ -117,15 +121,20 @@
 .cardTitle {
   font-size: var(--fs-h3);
   font-weight: 400;
-  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 6px;
   transition: color var(--dur) ease;
 }
 
 .card:not(.cardStatic):hover .cardTitle { color: var(--secondary); }
 
 .cardRole {
-  font-size: var(--fs-small);
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
   font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
   color: var(--secondary);
   margin-bottom: 16px;
 }
@@ -134,69 +143,60 @@
   font-size: var(--fs-small);
   line-height: 1.6;
   color: var(--text-dim);
-  margin-bottom: 22px;
-  max-width: 34ch;
+  margin-bottom: 26px;
 }
 
+/* meta footer: date left, status/affordance right */
 .cardDate {
   font-family: var(--font-mono);
   font-size: var(--fs-micro);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   color: var(--text-faint);
   margin-top: auto;
   padding-top: 18px;
+  width: 100%;
+  border-top: 1px solid var(--border);
 }
 
 .cardMore {
+  position: absolute;
+  right: 28px;
+  bottom: 26px;
   font-family: var(--font-mono);
   font-size: var(--fs-micro);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--secondary);
-  margin-top: 16px;
+  transition: color var(--dur) ease, transform var(--dur) var(--ease-out);
+}
+
+.card:hover .cardMore {
+  color: var(--tertiary);
+  transform: translateX(3px);
 }
 
 /* solid orange plate with dark ink — orange as text on the light ground
-   would not clear contrast, so the badge carries the colour instead */
+   would not clear contrast, so the plate carries the colour instead */
 .cardBadge {
+  position: absolute;
+  top: -1px;
+  right: -1px;
   font-family: var(--font-mono);
   font-size: var(--fs-micro);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--on-warm);
   background-color: var(--tertiary);
-  padding: 5px 10px;
-  margin-top: 16px;
-  box-shadow: var(--shadow-hard-xs);
+  padding: 6px 11px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 620px) {
   .grid {
     grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 30px;
-    margin-top: 30px;
+    gap: 22px;
   }
 
-  .cell {
-    width: 100%;
-    max-width: 430px;
-  }
+  .card { padding: 26px 22px 24px; }
 
-  .card {
-    min-height: 0;
-    padding: 30px 24px;
-    box-shadow: var(--shadow-hard-sm);
-  }
-
-  .card:not(.cardStatic):hover {
-    transform: none;
-    box-shadow: var(--shadow-hard-sm);
-  }
-
-  .cardLogo {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 26px;
-  }
+  .cardMore { right: 22px; bottom: 24px; }
 }

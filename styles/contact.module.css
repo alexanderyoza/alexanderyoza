@@ -1,6 +1,6 @@
 /* ===========================================================================
-   Contact — the pre-redesign skeleton: one centered blue-bordered box with
-   stacked, generously spaced underlined links.
+   Contact — a split block: heading and lede on the left, ruled link rows on
+   the right. Square edges, blue frame, hard offset shadow.
    =========================================================================== */
 
 @keyframes maskRise {
@@ -9,14 +9,12 @@
 }
 
 .wrap {
-  min-width: 40%;
-  max-width: 820px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(36px, 5vw, 72px);
   align-items: center;
-  text-align: center;
-  padding: clamp(40px, 6vw, 72px) clamp(24px, 5vw, 60px) clamp(34px, 5vw, 56px);
+  padding: clamp(40px, 5vw, 68px) clamp(28px, 4vw, 56px);
   border: 2px solid var(--secondary);
   box-shadow: var(--shadow-hard);
   background-color: var(--surface);
@@ -25,10 +23,12 @@
 .title {
   font-size: var(--fs-h1);
   font-weight: 400;
-  letter-spacing: -0.025em;
-  margin: 0 0 20px;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0 0 22px;
+  text-wrap: balance;
   overflow: hidden;
-  padding-bottom: 0.08em;
+  padding-bottom: 0.1em;
 }
 
 .titleInner {
@@ -41,36 +41,40 @@
 }
 
 .lede {
-  font-size: var(--fs-small);
+  font-size: var(--fs-body);
+  line-height: 1.7;
   color: var(--text-dim);
-  max-width: 46ch;
-  margin: 0 auto;
-  padding-bottom: 40px;
-}
-
-.links {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 34px;
+  max-width: 40ch;
+  padding-top: 20px;
   border-top: 4px solid var(--tertiary);
 }
 
-.row {
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 38px;
-  padding: 4px 8px;
-  transition: var(--dur);
+.links {
+  display: flex;
+  flex-direction: column;
 }
 
-.links > :last-child .row { margin-bottom: 10px; }
+.row {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 20px 4px;
+  border-bottom: 1px solid var(--border);
+  transition: background-color var(--dur) ease, padding var(--dur) var(--ease-out);
+}
+
+.links > :first-child .row { border-top: 1px solid var(--border); }
+
+.row:hover {
+  background: var(--surface-2);
+  padding-left: 14px;
+  padding-right: 14px;
+}
 
 .rowIcon {
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -79,19 +83,20 @@
   transition: background-color var(--dur) ease, color var(--dur) ease;
 }
 
-.rowIcon svg { width: 19px; height: 19px; display: block; }
+.rowIcon svg { width: 21px; height: 21px; display: block; }
 
 .row:hover .rowIcon {
   background-color: var(--tertiary);
   color: var(--on-warm);
 }
 
-/* the label is redundant next to the value in this centered layout */
+/* the icon already names the channel; the label would just repeat it */
 .rowLabel { display: none; }
 
 .rowValue {
-  font-size: var(--fs-small);
+  font-size: var(--fs-body);
   color: var(--text);
+  overflow-wrap: anywhere;
   text-decoration: underline var(--secondary);
   text-decoration-thickness: 2px;
   text-underline-offset: 6px;
@@ -111,18 +116,24 @@
   transform: translateX(4px);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .wrap {
-    min-width: 0;
-    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 36px;
+    align-items: start;
     box-shadow: var(--shadow-hard-sm);
   }
 
+  .lede { max-width: 100%; }
+}
+
+@media (max-width: 520px) {
   .row {
-    gap: 12px;
-    margin-bottom: 30px;
+    grid-template-columns: 36px minmax(0, 1fr) auto;
+    gap: 14px;
   }
 
-  .rowIcon { width: 32px; height: 32px; }
-  .rowIcon svg { width: 16px; height: 16px; }
+  .rowIcon { width: 36px; height: 36px; }
+  .rowIcon svg { width: 17px; height: 17px; }
+  .rowValue { font-size: var(--fs-small); }
 }

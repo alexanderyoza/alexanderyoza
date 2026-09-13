@@ -19,6 +19,16 @@ export default function Home() {
             <Link href="/work" className={`${styles.cta} ${styles.ctaPrimary}`}>View experience →</Link>
             <Link href="/contact" className={styles.cta}>Get in touch →</Link>
           </div>
+          <div className={styles.facts}>
+            <div className={styles.metaBlock}>
+              <span className={styles.metaLabel}>Associate SWE</span>
+              <span className={styles.metaValue}>Capital One</span>
+            </div>
+            <div className={styles.metaBlock}>
+              <span className={styles.metaLabel}>Currently based</span>
+              <span className={styles.metaValue}>Richmond, Virginia</span>
+            </div>
+          </div>
         </div>
         <div className={styles.portrait}>
           <Image src="/portrait.png" alt="Alex Yoza" fill sizes="(max-width: 860px) 70vw, 380px" priority />
@@ -27,24 +37,11 @@ export default function Home() {
 
       <hr className="rule" />
 
-      {/* ---- facts ---- */}
-      <section>
-        <Reveal className={styles.facts}>
-          <div className={styles.metaBlock}>
-            <span className={styles.metaLabel}>Associate SWE</span>
-            <span className={styles.metaValue}>Capital One</span>
-          </div>
-          <div className={styles.metaBlock}>
-            <span className={styles.metaLabel}>Currently based</span>
-            <span className={styles.metaValue}>Richmond, Virginia</span>
-          </div>
-        </Reveal>
-      </section>
-
-      <hr className="rule" />
-
       {/* ---- intro blurb ---- */}
       <section className={styles.about}>
+        <Reveal>
+          <span className="sectionLabel">About</span>
+        </Reveal>
         <Reveal className={styles.aboutBody}>
           <p>
             Hello, I’m a UC San Diego computer science graduate working at Capital One

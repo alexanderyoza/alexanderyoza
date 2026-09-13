@@ -4,11 +4,10 @@
   width: 100%;
   background: var(--secondary);
   color: var(--on-accent);
-  padding: 80px 24px 20px;
+  padding: clamp(56px, 7vw, 84px) 40px 22px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .footer {
@@ -16,8 +15,8 @@
   max-width: var(--max-width);
   display: flex;
   justify-content: space-between;
-  gap: 40px;
-  padding: 0 16px 48px;
+  gap: 48px;
+  padding-bottom: 48px;
 }
 
 .logo {
@@ -26,30 +25,25 @@
   height: fit-content;
 }
 
-/* the monogram sits on a light plate so it reads on the blue ground */
 .logoImage {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 8px;
-  background-color: var(--bg);
-  color: var(--secondary);
-  box-shadow: var(--shadow-hard-xs);
+  color: var(--on-accent);
 }
 
 .logoText {
   font-size: var(--fs-h3);
   font-weight: 400;
   color: var(--on-accent);
-  margin-left: 18px;
+  margin-left: 16px;
   letter-spacing: -0.02em;
 }
 
 /* headings use the shared global .eyebrow class; recoloured for the blue ground */
 .footer h2 {
-  margin-bottom: 22px;
+  margin-bottom: 20px;
   color: var(--on-accent);
-  opacity: 0.78;
+  opacity: 0.8;
 }
 
 .footer h2::before { background: var(--on-accent); }
@@ -58,7 +52,7 @@
 .contacts {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 13px;
 }
 
 .link,
@@ -80,18 +74,20 @@
 .copyright {
   width: 100%;
   max-width: var(--max-width);
-  padding: 20px 16px 0;
-  border-top: 1px solid color-mix(in srgb, var(--on-accent) 30%, transparent);
+  padding-top: 20px;
+  border-top: 1px solid color-mix(in srgb, var(--on-accent) 32%, transparent);
+  font-family: var(--font-mono);
   font-size: var(--fs-micro);
+  letter-spacing: 0.06em;
   color: var(--on-accent);
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
 @media (max-width: 800px) {
-  .container { padding-top: 60px; }
+  .container { padding-left: 20px; padding-right: 20px; }
 
   .footer {
     flex-direction: column;
-    gap: 36px;
+    gap: 34px;
   }
 }

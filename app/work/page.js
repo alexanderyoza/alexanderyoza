@@ -102,7 +102,7 @@ function Card({ item }) {
             alt=""
             width={72}
             height={72}
-            className={item.logoFull ? styles.cardLogoImgFull : styles.cardLogoImg}
+            className={`${item.logoFull ? styles.cardLogoImgFull : styles.cardLogoImg}${item.logoInvert ? ` ${styles.cardLogoInvert}` : ''}${item.logoLift ? ` ${styles.cardLogoLift}` : ''}`}
           />
         ) : (
           <span className={styles.cardLogoFallback}>{item.title[0]}</span>
@@ -141,7 +141,7 @@ export default function Experience() {
 
       <section className={styles.group}>
         <Reveal>
-          <h2 className={styles.groupLabel}>Education</h2>
+          <h2 className={styles.groupLabel}><span className="sectionLabel">Education</span></h2>
         </Reveal>
         <div className={styles.grid}>
           {EDUCATION.map((item, i) => (
@@ -154,7 +154,7 @@ export default function Experience() {
 
       <section className={styles.group}>
         <Reveal>
-          <h2 className={styles.groupLabel}>Work</h2>
+          <h2 className={styles.groupLabel}><span className="sectionLabel">Work</span></h2>
         </Reveal>
         <div className={styles.grid}>
           {orderedWork.map((item, i) => (
