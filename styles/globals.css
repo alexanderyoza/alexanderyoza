@@ -7,8 +7,12 @@
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Roboto Mono', monospace;
 
   /* ---- non-color tokens ----
-     Sharp edges are the point of this system: no radius token exists on
-     purpose, so nothing can quietly round itself. */
+     A restrained radius scale, softened to sit with the wave field behind the
+     page. Everything rounds off this scale; no one-off values. */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 14px;
+
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --dur-micro: 120ms;
   --dur: 200ms;
@@ -173,6 +177,7 @@ a {
 :focus-visible {
   outline: 2px solid var(--secondary);
   outline-offset: 2px;
+  border-radius: var(--r-sm);
 }
 
 ::selection {
@@ -231,7 +236,9 @@ a {
 /* ---- rule primitive — a solid orange bar, not a hairline ---- */
 .rule {
   border: 0;
-  border-top: 4px solid var(--tertiary);
+  height: 4px;
+  background: var(--tertiary);
+  border-radius: 999px;
   width: 100%;
   margin: clamp(64px, 8vw, 104px) 0;
 }
@@ -259,7 +266,7 @@ a {
   }
 
   .rule {
-    border-top-width: 2px;
+    height: 2px;
   }
 }
 

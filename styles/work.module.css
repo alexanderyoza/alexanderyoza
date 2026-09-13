@@ -49,6 +49,7 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   border: 5px solid var(--secondary);
+  border-radius: var(--r-lg);
   box-shadow: var(--shadow-hard);
   background: var(--surface);
   overflow: hidden;
@@ -122,6 +123,7 @@
   top: 0.6em;
   width: 9px;
   height: 9px;
+  border-radius: 2px;
   background: var(--secondary);
 }
 
@@ -136,6 +138,7 @@
   color: var(--text);
   background-color: transparent;
   border: 2px solid var(--secondary);
+  border-radius: var(--r-md);
   transition: var(--dur);
 }
 

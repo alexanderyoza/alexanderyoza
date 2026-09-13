@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * ALEX monogram, recreated as vector so it inherits `currentColor`.
- * Crisp at any size; square frame to match the sharp-edged design system.
+ * Crisp at any size; the frame picks up the same curve as the rest of the system.
  */
 export default function Logo({ size = 30, className }) {
   return (
@@ -15,7 +15,7 @@ export default function Logo({ size = 30, className }) {
       role="img"
       aria-label="Alex Yoza"
     >
-      <rect x="3" y="3" width="94" height="94" stroke="currentColor" strokeWidth="4" />
+      <rect x="3" y="3" width="94" height="94" rx="10" stroke="currentColor" strokeWidth="4" />
       <g
         fill="currentColor"
         fontFamily="Arial, Helvetica, sans-serif"

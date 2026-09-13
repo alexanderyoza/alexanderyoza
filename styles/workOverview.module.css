@@ -63,6 +63,8 @@
   padding: 30px 28px 26px;
   background-color: var(--surface);
   border: 2px solid var(--secondary);
+  border-radius: var(--r-lg);
+  overflow: hidden; /* lets the corner tab follow the rounded edge */
   box-shadow: var(--shadow-hard-sm);
   transition: transform var(--dur) var(--ease-out),
     box-shadow var(--dur) var(--ease-out), border-color var(--dur) ease;
@@ -179,8 +181,9 @@
    would not clear contrast, so the plate carries the colour instead */
 .cardBadge {
   position: absolute;
-  top: -1px;
-  right: -1px;
+  top: 0;
+  right: 0;
+  border-bottom-left-radius: var(--r-md);
   font-family: var(--font-mono);
   font-size: var(--fs-micro);
   text-transform: uppercase;

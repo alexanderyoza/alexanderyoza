@@ -16,6 +16,7 @@
   align-items: center;
   padding: clamp(40px, 5vw, 68px) clamp(28px, 4vw, 56px);
   border: 2px solid var(--secondary);
+  border-radius: var(--r-lg);
   box-shadow: var(--shadow-hard);
   background-color: var(--surface);
 }
@@ -68,6 +69,7 @@
 
 .row:hover {
   background: var(--surface-2);
+  border-radius: var(--r-md);
   padding-left: 7px;
   padding-right: 7px;
 }
@@ -80,6 +82,7 @@
   justify-content: center;
   color: var(--on-accent);
   background-color: var(--secondary);
+  border-radius: var(--r-md);
   transition: background-color var(--dur) ease, color var(--dur) ease;
 }
 

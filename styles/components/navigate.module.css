@@ -55,6 +55,7 @@
   right: 14px;
   bottom: 2px;
   height: 3px;
+  border-radius: 999px;
   background: transparent;
   transition: background-color var(--dur) ease;
 }
