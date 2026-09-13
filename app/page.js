@@ -47,7 +47,7 @@ export default function Home() {
               <Link href="/contact" className={styles.cta}>Get in touch →</Link>
             </div>
           </div>
-          <div className={styles.introImage}>
+          <div className={`${styles.introImage} ${styles.portraitIntro}`}>
             <Image src="/portrait.png" alt="Alex Yoza" fill sizes="(max-width: 1000px) 62vw, 40vh" priority />
           </div>
         </div>

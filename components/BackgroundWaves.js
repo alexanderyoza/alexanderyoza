@@ -12,6 +12,9 @@ import styles from '../styles/components/backgroundWaves.module.css';
  * Honours prefers-reduced-motion by drawing one static frame and stopping.
  */
 
+/* how long the opening swell takes to settle to its resting position */
+const INTRO_MS = 1800;
+
 /* band: amplitude px, wavelength px, drift speed, resting height, opacity */
 const LAYERS = [
   { amp: 26, len: 1180, speed: 0.016, rest: 0.63, alpha: 0.055 },
@@ -76,24 +79,35 @@ export default function BackgroundWaves() {
       target.current = Math.min(1, Math.max(0, window.scrollY / max));
     };
 
-    const draw = (t) => {
+    const draw = (t, intro = 1) => {
       const p = current.current;
       ctx.clearRect(0, 0, w, h);
 
+      // on first load the whole viewport is water; it sinks to rest as the
+      // page comes in, swelling a little higher on the way down
+      const lift = (1 - intro) * 0.66;
+      const swell = 1 + (1 - intro) * 0.35;
+
       LAYERS.forEach((L, i) => {
         // scroll lifts the swell and carries the crests sideways
-        const base = h * (L.rest - p * 0.24);
-        const phase = t * L.speed + p * ((760 + i * 280) / L.len) * Math.PI * 2;
+        const base = h * (L.rest - lift - p * 0.24);
+        // crests travel sideways both as you scroll and as the opening swell
+        // settles, so the intro moves horizontally the way the scroll does
+        const phase =
+          t * L.speed +
+          p * ((760 + i * 280) / L.len) * Math.PI * 2 +
+          (1 - intro) * ((1020 + i * 360) / L.len) * Math.PI * 2;
 
         ctx.beginPath();
         ctx.moveTo(0, h);
         ctx.lineTo(0, base);
         for (let x = 0; x <= w; x += 8) {
           const k = (x / L.len) * Math.PI * 2;
+          const amp = L.amp * swell;
           const y =
             base +
-            Math.sin(k + phase) * L.amp +
-            Math.sin(k * 0.5 + phase * 1.7) * L.amp * 0.45;
+            Math.sin(k + phase) * amp +
+            Math.sin(k * 0.5 + phase * 1.7) * amp * 0.45;
           ctx.lineTo(x, y);
         }
         ctx.lineTo(w, h);
@@ -110,7 +124,7 @@ export default function BackgroundWaves() {
     // repaint on theme change (toggle sets data-theme; system pref may flip too)
     const themeObserver = new MutationObserver(() => {
       readTheme();
-      if (reduced) draw(0);
+      if (reduced) draw(0, 1);
     });
     themeObserver.observe(document.documentElement, {
       attributes: true,
@@ -119,29 +133,34 @@ export default function BackgroundWaves() {
     const scheme = window.matchMedia('(prefers-color-scheme: dark)');
     const onScheme = () => {
       readTheme();
-      if (reduced) draw(0);
+      if (reduced) draw(0, 1);
     };
     scheme.addEventListener('change', onScheme);
 
     const onResize = () => {
       resize();
       onScroll();
-      if (reduced) draw(0);
+      if (reduced) draw(0, 1);
     };
     window.addEventListener('resize', onResize);
 
     if (reduced) {
       current.current = target.current;
-      draw(0);
+      draw(0, 1);
     } else {
-      // paint one frame up front so the field is never blank while waiting on
-      // the first animation frame
+      // paint the opening frame up front — a full screen of water — so the
+      // field is never blank while waiting on the first animation frame
       current.current = target.current;
-      draw(0);
+      draw(0, 0);
       window.addEventListener('scroll', onScroll, { passive: true });
+
+      let start = 0;
       const tick = (ts) => {
+        if (!start) start = ts;
+        const raw = Math.min(1, (ts - start) / INTRO_MS);
+        const intro = 1 - Math.pow(1 - raw, 3); // easeOutCubic
         current.current += (target.current - current.current) * 0.08;
-        draw(ts / 1000);
+        draw(ts / 1000, intro);
         rafRef.current = requestAnimationFrame(tick);
       };
       rafRef.current = requestAnimationFrame(tick);
