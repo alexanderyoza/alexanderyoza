@@ -210,28 +210,25 @@
   margin-bottom: clamp(120px, 16vw, 260px);
 }
 
-/* sits on the same 90% gutter as every other block on the page */
+/* a centred measure — no rule, the column itself carries the block */
 .aboutBody {
   width: 90%;
+  max-width: 74ch;
   display: flex;
   flex-direction: column;
   gap: 1.25em;
-  padding-left: 30px;
-  border-left: 4px solid var(--tertiary);
 }
 
 .aboutBody p {
   font-size: var(--fs-body);
   line-height: 1.75;
   color: var(--text-dim);
-  max-width: 74ch;
 }
 
 .aboutBody p:first-child {
   color: var(--text);
   font-size: clamp(1.05rem, 1.3vw, 1.2rem);
   line-height: 1.65;
-  max-width: 66ch;
 }
 
 /* ---------- education ---------- */
@@ -358,13 +355,6 @@
   }
 
   .aboutContainer { margin-bottom: 110px; }
-
-  /* the orange spine is a desktop-only flourish — it crowds the measure
-     once the column goes full width */
-  .aboutBody {
-    padding-left: 0;
-    border-left: none;
-  }
 
   .schoolContainer { margin-bottom: 110px; }
 
