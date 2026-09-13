@@ -142,7 +142,6 @@
 .back:hover {
   border-color: var(--tertiary);
   box-shadow: var(--shadow-hard-xs);
-  transform: translate(-2px, -2px);
 }
 
 @media (max-width: 800px) {

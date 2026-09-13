@@ -68,8 +68,8 @@
 
 .row:hover {
   background: var(--surface-2);
-  padding-left: 14px;
-  padding-right: 14px;
+  padding-left: 7px;
+  padding-right: 7px;
 }
 
 .rowIcon {
@@ -113,7 +113,7 @@
 
 .row:hover .rowArrow {
   color: var(--tertiary);
-  transform: translateX(4px);
+  transform: translateX(2px);
 }
 
 @media (max-width: 860px) {

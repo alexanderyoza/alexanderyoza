@@ -70,8 +70,8 @@
 
 .card:not(.cardStatic):hover {
   border-color: var(--tertiary);
-  transform: translate(-4px, -4px);
-  box-shadow: var(--shadow-hard);
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.22);
 }
 
 .cardStatic { cursor: default; }
@@ -172,7 +172,7 @@
 
 .card:hover .cardMore {
   color: var(--tertiary);
-  transform: translateX(3px);
+  transform: translateX(2px);
 }
 
 /* solid orange plate with dark ink — orange as text on the light ground

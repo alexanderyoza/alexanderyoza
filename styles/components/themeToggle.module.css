@@ -5,7 +5,7 @@
   width: 36px;
   height: 36px;
   margin-left: 12px;
-  border: 2px solid var(--secondary);
+  border: 1px solid var(--secondary);
   background: transparent;
   color: var(--secondary);
   cursor: pointer;
@@ -16,11 +16,9 @@
 .toggle:hover {
   color: var(--tertiary);
   border-color: var(--tertiary);
-  box-shadow: var(--shadow-hard-xs);
-  transform: translate(-1px, -1px);
 }
 
-.toggle:active { transform: translate(1px, 1px); box-shadow: none; }
+.toggle:active { transform: translate(1px, 1px); }
 
 .icon {
   display: inline-flex;

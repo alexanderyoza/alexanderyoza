@@ -116,7 +116,6 @@
 .cta:hover {
   border-color: var(--tertiary);
   box-shadow: var(--shadow-hard-xs);
-  transform: translate(-2px, -2px);
 }
 
 .ctaPrimary {
@@ -129,7 +128,7 @@
   background-color: var(--tertiary);
   border-color: var(--tertiary);
   color: var(--on-warm);
-  box-shadow: var(--shadow-hard-sm);
+  box-shadow: var(--shadow-hard-xs);
 }
 
 /* square, thick blue frame, hard offset shadow — the signature treatment */
