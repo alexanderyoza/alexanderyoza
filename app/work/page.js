@@ -92,9 +92,7 @@ const orderedWork = [...WORK].sort((a, b) => {
 });
 
 function Row({ item }) {
-  const arrow = item.soon
-    ? (item.href ? 'Coming soon ↗\uFE0E' : 'Coming soon')
-    : item.external ? '↗\uFE0E' : item.href ? '→' : '';
+  const arrow = item.external ? '↗\uFE0E' : item.href ? '→' : '';
   const inner = (
     <>
       <span className={styles.rowYear}>
@@ -126,7 +124,10 @@ function Row({ item }) {
           <span className={styles.rowDesc}>{item.desc}</span>
         </span>
       </span>
-      <span className={styles.rowArrow}>{arrow}</span>
+      <span className={styles.rowMeta}>
+        {item.soon && <span className={styles.rowBadge}>Coming soon</span>}
+        {arrow && <span className={styles.rowArrow}>{arrow}</span>}
+      </span>
     </>
   );
   if (item.href && item.external) {

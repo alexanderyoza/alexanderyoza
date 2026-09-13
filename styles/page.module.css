@@ -1,6 +1,6 @@
 /* ===========================================================================
-   Home / About — minimalist × editorial (see docs/DESIGN.md).
-   Masthead + about; experience (incl. education) and contact are their own pages.
+   Home / About — sharp edges, blue framing, hard offset shadows.
+   Masthead + facts + about; experience and contact are their own pages.
    =========================================================================== */
 
 /* ---------- first-load entrance sequence ---------- */
@@ -13,96 +13,99 @@
   to { opacity: 1; transform: none; }
 }
 @keyframes portraitReveal {
-  from { opacity: 0; clip-path: inset(0 0 100% 0); transform: scale(1.03); }
-  to { opacity: 1; clip-path: inset(0 0 0 0); transform: none; }
+  from { opacity: 0; clip-path: inset(0 0 100% 0); }
+  to { opacity: 1; clip-path: inset(0 0 0 0); }
 }
 
 .masthead {
   display: grid;
-  grid-template-columns: 1.35fr 0.85fr;
+  grid-template-columns: 1.3fr 0.9fr;
   gap: clamp(32px, 6vw, 80px);
   align-items: center;
-  padding: clamp(40px, 8vw, 96px) 0 clamp(52px, 8vw, 88px);
+  padding: clamp(40px, 7vw, 88px) 0 clamp(52px, 8vw, 88px);
 }
-.mastheadText { max-width: 620px; }
+
+.mastheadText { max-width: 680px; }
+
+/* blue-framed portrait with a hard offset shadow — the signature treatment */
 .portrait {
   position: relative;
   width: 100%;
   max-width: 380px;
   aspect-ratio: 4 / 5;
   justify-self: end;
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
+  border: 4px solid var(--secondary);
+  box-shadow: var(--shadow-hard);
   overflow: hidden;
   background: var(--surface);
   animation: portraitReveal 1.05s var(--ease-out) 0.45s both;
 }
+
 .portrait img { object-fit: cover; }
 
 .name {
-  font-size: clamp(3.4rem, 11vw, 7rem);
-  font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 0.94;
+  font-size: clamp(3.2rem, 10.5vw, 6.4rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
   margin: 0 0 30px;
   overflow: hidden;
   padding-bottom: 0.12em;
 }
+
 .nameInner {
   display: inline-block;
   animation: maskRise 0.95s var(--ease-out) 0.1s both;
 }
+
 .lede {
-  font-family: var(--font-serif);
-  font-size: clamp(1.4rem, 2.9vw, 2.2rem);
+  font-size: clamp(1.25rem, 2.6vw, 1.95rem);
   font-weight: 400;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
+  line-height: 1.34;
+  letter-spacing: -0.015em;
   color: var(--text);
   max-width: 26ch;
   text-wrap: balance;
   animation: riseIn 0.75s var(--ease-out) 0.5s both;
 }
-.lede .italic { color: var(--accent); }
+
+.lede .italic { color: var(--secondary); }
 
 .ctaRow {
   display: flex;
-  gap: 28px;
-  margin-top: 40px;
+  gap: 18px;
+  margin-top: 42px;
   flex-wrap: wrap;
   animation: riseIn 0.75s var(--ease-out) 0.72s both;
 }
+
 .cta {
-  font-size: 1.02rem;
-  color: var(--text-dim);
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 3px;
-  transition: color var(--dur) ease, border-color var(--dur) ease;
-}
-.cta:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-/* the single primary action on the page */
-.ctaPrimary {
-  color: var(--accent);
-  font-weight: 500;
-  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  font-size: var(--fs-small);
+  padding: 13px 26px;
+  border: 2px solid var(--secondary);
+  color: var(--text);
+  background-color: transparent;
+  transition: var(--dur);
+  white-space: nowrap;
 }
 
-/* ---------- intro blurb (block centered, text left-aligned) ---------- */
-.aboutBody {
-  display: flex;
-  flex-direction: column;
-  gap: 1.1em;
-  max-width: 62ch;
-  margin: 0 auto;
+.cta:hover {
+  border-color: var(--tertiary);
+  box-shadow: var(--shadow-hard-xs);
 }
-.aboutBody p {
-  font-size: 1.18rem;
-  line-height: 1.72;
-  color: var(--text);
-  text-align: left;
+
+/* the single primary action on the page */
+.ctaPrimary {
+  background-color: var(--secondary);
+  color: var(--on-accent);
+  box-shadow: var(--shadow-hard-xs);
+}
+
+.ctaPrimary:hover {
+  background-color: var(--tertiary);
+  border-color: var(--tertiary);
+  color: var(--on-warm);
+  box-shadow: var(--shadow-hard-sm);
 }
 
 /* ---------- facts ---------- */
@@ -110,26 +113,55 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: clamp(36px, 8vw, 120px);
-  text-align: center;
+  gap: 0;
+  border: 2px solid var(--secondary);
+  box-shadow: var(--shadow-hard);
 }
+
 .metaBlock {
+  flex: 1 1 260px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 34px 32px;
+  border-right: 2px solid var(--secondary);
 }
+
+.facts > .metaBlock:last-child { border-right: none; }
+
 .metaLabel {
-  font-size: 0.78rem;
-  font-weight: 500;
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--text-faint);
+  letter-spacing: 0.16em;
+  color: var(--secondary);
 }
+
 .metaValue {
-  font-size: 1.2rem;
+  font-size: var(--fs-h3);
   color: var(--text);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+}
+
+/* ---------- intro blurb ---------- */
+.about { display: flex; }
+
+.aboutBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15em;
+  max-width: 64ch;
+  margin: 0 auto;
+  padding-left: 30px;
+  border-left: 4px solid var(--tertiary);
+}
+
+.aboutBody p {
+  font-size: var(--fs-body);
+  line-height: 1.75;
+  color: var(--text);
+  text-align: left;
 }
 
 @media (max-width: 860px) {
@@ -137,10 +169,31 @@
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
   .portrait {
-    max-width: 300px;
+    max-width: 260px;
     justify-self: start;
     order: -1;
+    border-width: 2px;
+    box-shadow: var(--shadow-hard-sm);
+  }
+
+  .facts {
+    box-shadow: var(--shadow-hard-sm);
+  }
+
+  .metaBlock {
+    flex: 1 1 100%;
+    padding: 26px 22px;
+    border-right: none;
+    border-bottom: 2px solid var(--secondary);
+  }
+
+  .facts > .metaBlock:last-child { border-bottom: none; }
+
+  .aboutBody {
+    padding-left: 18px;
+    border-left-width: 3px;
   }
 }
 

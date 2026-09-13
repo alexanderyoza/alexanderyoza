@@ -1,6 +1,5 @@
 /* ===========================================================================
-   Work / experience detail — minimalist × editorial.
-   Serif h1 (global), hairline rules, thin-framed figures, one accent.
+   Work / experience detail — sharp edges, blue-framed figures, orange rules.
    =========================================================================== */
 
 .header {
@@ -16,22 +15,31 @@
   gap: 16px;
 }
 
+/* logo on a light plate inside a blue frame */
 .logoMark {
   display: inline-flex;
   align-items: center;
-  color: var(--text);
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  padding: 9px;
+  background-color: #fff;
+  border: 2px solid var(--secondary);
+  box-shadow: var(--shadow-hard-xs);
+  color: var(--secondary);
 }
+
 .logoImg {
-  height: 42px;
-  width: auto;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  border-radius: var(--r-sm);
 }
 
 .date {
-  font-size: 0.82rem;
-  letter-spacing: 0.02em;
-  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -41,93 +49,101 @@
   width: 100%;
   margin-bottom: clamp(36px, 5vw, 64px);
 }
+
 .hero {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
+  border: 4px solid var(--secondary);
+  box-shadow: var(--shadow-hard);
   background: var(--surface);
   overflow: hidden;
 }
+
 .hero img {
   object-fit: cover;
   object-position: top center;
 }
 
 /* ---------- body ---------- */
-.content {
-  width: 100%;
-}
+.content { width: 100%; }
+
 .titleRow {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 16px;
-  margin-bottom: 28px;
+  margin-bottom: 34px;
   padding-bottom: 24px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 4px solid var(--tertiary);
 }
+
 .company {
-  font-family: var(--font-serif);
-  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  letter-spacing: -0.025em;
   color: var(--text);
 }
+
 .position {
-  margin-top: 10px;
-  font-size: 1rem;
-  color: var(--text-dim);
+  margin-top: 12px;
+  font-size: var(--fs-small);
+  color: var(--secondary);
 }
+
 .location {
-  font-size: 0.9rem;
-  color: var(--text-faint);
+  font-size: var(--fs-small);
+  color: var(--text-dim);
   white-space: nowrap;
 }
 
 .description {
   list-style: none;
   width: 100%;
-  max-width: 68ch;
+  max-width: 72ch;
   margin-bottom: clamp(44px, 6vw, 72px);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
+
 .description li {
   position: relative;
-  padding-left: 26px;
-  font-size: 1.04rem;
+  padding-left: 28px;
+  font-size: var(--fs-body);
   line-height: 1.65;
   color: var(--text-dim);
 }
+
+/* square blue bullet — no round dots in this system */
 .description li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 0.68em;
-  width: 7px;
-  height: 1px;
-  background: var(--accent);
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  background: var(--secondary);
 }
 
 /* ---------- back link ---------- */
 .back {
   width: fit-content;
-  font-size: 0.95rem;
-  color: var(--text);
-  border-bottom: 1px solid var(--border-strong);
-  padding-bottom: 2px;
-  transition: color var(--dur) ease, border-color var(--dur) ease;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  padding: 13px 26px;
+  font-size: var(--fs-small);
+  color: var(--text);
+  background-color: transparent;
+  border: 2px solid var(--secondary);
+  transition: var(--dur);
 }
+
 .back:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+  border-color: var(--tertiary);
+  box-shadow: var(--shadow-hard-xs);
 }
 
 @media (max-width: 800px) {
@@ -136,7 +152,31 @@
     align-items: flex-start;
     gap: 14px;
   }
+
+  .logoMark {
+    width: 58px;
+    height: 58px;
+    padding: 7px;
+  }
+
+  .hero {
+    border-width: 2px;
+    box-shadow: var(--shadow-hard-sm);
+  }
+
   .titleRow {
     flex-direction: column;
+    align-items: flex-start;
+    border-bottom-width: 2px;
+  }
+
+  .description li {
+    font-size: var(--fs-small);
+    padding-left: 22px;
+  }
+
+  .description li::before {
+    width: 7px;
+    height: 7px;
   }
 }

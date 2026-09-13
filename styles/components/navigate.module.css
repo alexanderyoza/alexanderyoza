@@ -5,10 +5,8 @@
   width: 100%;
   height: var(--nav-h);
   z-index: 100;
-  border-bottom: 1px solid var(--border);
-  background: color-mix(in srgb, var(--bg) 86%, transparent);
-  backdrop-filter: blur(10px) saturate(140%);
-  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  background: var(--bg);
+  box-shadow: 0 0.1px 3px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
 }
@@ -18,7 +16,7 @@
   max-width: var(--max-width);
   margin: 0 auto;
   height: 100%;
-  padding: 0 32px;
+  padding: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,9 +28,8 @@
   color: var(--text);
   transition: color var(--dur) ease;
 }
-.logo:hover {
-  color: var(--accent);
-}
+
+.logo:hover { color: var(--secondary); }
 
 .navOptions {
   display: flex;
@@ -40,53 +37,54 @@
   gap: 6px;
 }
 
-.link {
-  font-size: 0.9rem;
-}
+.link { font-size: var(--fs-small); }
 
+/* underline-driven states: blue when active, orange on hover */
 .active,
 .inactive {
   position: relative;
-  padding: 8px 12px;
+  padding: 8px 14px;
   transition: color var(--dur) ease;
 }
-.active::after {
+
+.active::after,
+.inactive::after {
   content: '';
   position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 2px;
-  height: 1.5px;
-  background: var(--accent);
+  left: 14px;
+  right: 14px;
+  bottom: 0;
+  height: 3px;
+  background: transparent;
+  transition: background-color var(--dur) ease;
 }
 
-.active {
-  color: var(--text);
-}
-.inactive {
-  color: var(--text-dim);
-}
-.inactive:hover {
-  color: var(--text);
-}
+.active { color: var(--text); }
+.active::after { background: var(--secondary); }
 
+.inactive { color: var(--text-dim); }
+.inactive:hover { color: var(--text); }
+.inactive:hover::after { background: var(--tertiary); }
+.active:hover::after { background: var(--tertiary); }
+
+/* full-width edge-to-edge bar on mobile */
 @media (max-width: 800px) {
-  .container {
-    padding: 0 16px;
-  }
-  .navOptions {
-    gap: 0;
-  }
+  .container { padding: 0 14px; }
+
+  .navOptions { gap: 0; }
+
   .active,
   .inactive {
     padding: 8px 9px;
-    font-size: 0.82rem;
+    font-size: var(--fs-micro);
   }
-  .active::after {
+
+  .active::after,
+  .inactive::after {
     left: 9px;
     right: 9px;
+    height: 2px;
   }
-  .link {
-    font-size: 0.82rem;
-  }
+
+  .link { font-size: var(--fs-micro); }
 }

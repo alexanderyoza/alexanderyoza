@@ -4,28 +4,29 @@
   justify-content: center;
   width: 38px;
   height: 38px;
-  margin-left: 4px;
-  border-radius: var(--r-full);
-  border: 1px solid var(--border);
-  background: var(--surface-2);
+  margin-left: 10px;
+  border: 2px solid var(--secondary);
+  background: transparent;
   color: var(--text-dim);
   cursor: pointer;
   transition: color var(--dur) ease, border-color var(--dur) ease,
-    background-color var(--dur) ease, transform var(--dur-micro) var(--ease-out);
+    box-shadow var(--dur) ease, transform var(--dur-micro) var(--ease-out);
 }
+
 .toggle:hover {
-  color: var(--accent);
-  border-color: var(--border-strong);
+  color: var(--text);
+  border-color: var(--tertiary);
+  box-shadow: var(--shadow-hard-xs);
 }
-.toggle:active {
-  transform: scale(0.94);
-}
+
+.toggle:active { transform: translate(1px, 1px); }
 
 .icon {
   display: inline-flex;
   width: 18px;
   height: 18px;
 }
+
 .icon svg {
   width: 100%;
   height: 100%;
@@ -34,7 +35,10 @@
 
 @media (max-width: 800px) {
   .toggle {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
+    margin-left: 6px;
   }
+
+  .icon { width: 15px; height: 15px; }
 }

@@ -1,6 +1,6 @@
 /* ===========================================================================
-   Experience — education + combined roles/projects index (minimalist × editorial).
-   Typographic contents list; hairline rules, serif titles, one accent.
+   Experience — education + combined roles/projects index.
+   Sharp-edged blocks, blue rules, orange accents, hard offset shadows.
    =========================================================================== */
 
 @keyframes maskRise {
@@ -9,60 +9,71 @@
 }
 
 .head {
-  max-width: 760px;
+  max-width: 860px;
   margin-bottom: clamp(44px, 7vw, 80px);
 }
+
 .title {
-  font-size: clamp(2.4rem, 6.5vw, 4.2rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
   margin: 0;
   text-wrap: balance;
   overflow: hidden;
   padding-bottom: 0.1em;
 }
+
 .titleInner {
   display: inline-block;
   animation: maskRise 0.9s var(--ease-out) 0.08s both;
 }
+
 @media (prefers-reduced-motion: reduce) {
   .titleInner { animation: none; }
 }
 
 .group {
-  margin-top: clamp(40px, 6vw, 72px);
+  margin-top: clamp(48px, 6vw, 80px);
 }
-.group:first-of-type {
-  margin-top: 0;
-}
+
+.group:first-of-type { margin-top: 0; }
+
 .groupLabel {
-  font-family: var(--font-serif);
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  font-weight: 500;
+  font-size: var(--fs-h2);
+  font-weight: 400;
   letter-spacing: -0.02em;
-  margin-bottom: 6px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 4px solid var(--tertiary);
 }
 
 .index {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid var(--border);
+  border: 2px solid var(--secondary);
+  box-shadow: var(--shadow-hard);
+  background-color: var(--surface);
 }
 
 .row {
   display: grid;
-  grid-template-columns: 116px 1fr auto;
+  grid-template-columns: 132px 1fr auto;
   gap: 28px;
   align-items: start;
-  padding: 30px 4px;
-  border-top: 1px solid var(--border);
+  padding: 30px 26px;
+  border-top: 2px solid var(--secondary);
   transition: background-color var(--dur) ease, padding var(--dur) var(--ease-out);
 }
+
+/* the index border already draws the top edge of the first row */
+.index > :first-child .row { border-top: none; }
+
 .row:hover:not(.rowStatic) {
   background: var(--surface-2);
-  padding-left: 14px;
-  padding-right: 14px;
+  padding-left: 36px;
+  padding-right: 16px;
 }
+
 .rowStatic { cursor: default; }
 
 .rowYear {
@@ -70,24 +81,29 @@
   flex-direction: column;
   gap: 1px;
   padding-top: 6px;
+  font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.03em;
 }
+
 .rowDate {
-  font-size: 0.84rem;
+  font-size: var(--fs-micro);
   color: var(--text-dim);
   white-space: nowrap;
 }
+
 .rowDateSep {
-  font-size: 0.72rem;
+  font-size: var(--fs-micro);
   color: var(--text-faint);
-  line-height: 1.5;
+  line-height: 1.6;
 }
+
 .rowMain {
   display: flex;
   gap: 18px;
   min-width: 0;
 }
+
 .rowText {
   display: flex;
   flex-direction: column;
@@ -95,96 +111,114 @@
   min-width: 0;
 }
 
-/* Free-standing logo marks: fixed 44px box keeps titles aligned. */
+/* Logo marks sit on a light plate with a blue frame — square, like everything. */
 .rowLogo {
   flex: 0 0 auto;
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-top: 2px;
+  padding: 5px;
+  background-color: #fff;
+  border: 2px solid var(--secondary);
+  box-shadow: var(--shadow-hard-xs);
 }
+
 .rowLogoImg {
-  width: 40px;
-  height: 40px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  border-radius: 2px;
 }
+
 /* Full-bleed variant for marks designed as square app icons (e.g. Capital One). */
 .rowLogoImgFull {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--r-sm);
 }
-/* Pure-black ink marks (AGY, SitesByAlex) flip to paper in dark. */
-:global(:root[data-theme='dark']) .rowLogoInvert {
-  filter: invert(1) hue-rotate(180deg);
-}
-@media (prefers-color-scheme: dark) {
-  :global(:root:not([data-theme='light'])) .rowLogoInvert {
-    filter: invert(1) hue-rotate(180deg);
-  }
-}
-/* Navy marks (UCSD, ICU) get a lift so they don't sink into the dark ground. */
-:global(:root[data-theme='dark']) .rowLogoLift {
-  filter: brightness(1.9);
-}
-@media (prefers-color-scheme: dark) {
-  :global(:root:not([data-theme='light'])) .rowLogoLift {
-    filter: brightness(1.9);
-  }
-}
+
+/* Pure-black ink marks (AGY, SitesByAlex) stay legible on their white plate,
+   so no dark-mode inversion is needed here. */
+.rowLogoInvert { filter: none; }
+.rowLogoLift { filter: none; }
+
 .rowLogoFallback {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: var(--text-dim);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  color: var(--secondary);
 }
+
 .rowTitle {
-  font-family: var(--font-serif);
-  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
-  font-weight: 500;
-  letter-spacing: -0.015em;
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  letter-spacing: -0.02em;
   color: var(--text);
   transition: color var(--dur) ease;
 }
-.row:hover:not(.rowStatic) .rowTitle { color: var(--accent); }
+
+.row:hover:not(.rowStatic) .rowTitle { color: var(--secondary); }
+
 .rowRole {
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: var(--fs-small);
   color: var(--text);
   margin-top: -1px;
 }
+
 .rowDesc {
-  font-size: 0.98rem;
+  font-size: var(--fs-small);
   color: var(--text-dim);
-  max-width: 60ch;
+  max-width: 62ch;
   line-height: 1.6;
 }
-.rowArrow {
-  font-size: 1rem;
-  color: var(--text-faint);
-  min-width: 40px;
-  text-align: right;
+
+/* right rail: optional status badge + the affordance arrow */
+.rowMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 4px;
   white-space: nowrap;
-  padding-top: 6px;
+}
+
+/* solid orange plate with dark ink — orange as text on the light ground
+   would not clear contrast, so the badge carries the colour instead */
+.rowBadge {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--on-warm);
+  background-color: var(--tertiary);
+  padding: 5px 10px;
+  box-shadow: var(--shadow-hard-xs);
+}
+
+.rowArrow {
+  font-size: var(--fs-small);
+  color: var(--secondary);
+  min-width: 22px;
+  text-align: right;
   transition: color var(--dur) ease, transform var(--dur) var(--ease-out);
 }
+
 .row:hover:not(.rowStatic) .rowArrow {
-  color: var(--accent);
   transform: translateX(3px);
 }
 
 @media (max-width: 760px) {
+  .index { box-shadow: var(--shadow-hard-sm); }
+
   .row {
     grid-template-columns: 1fr auto;
     gap: 6px 16px;
+    padding: 24px 18px;
     grid-template-areas:
       'year arrow'
       'main main';
   }
+
   /* Dates read as one line above the entry on small screens. */
   .rowYear {
     grid-area: year;
@@ -193,7 +227,17 @@
     gap: 5px;
     padding-top: 0;
   }
-  .rowArrow { grid-area: arrow; padding-top: 0; }
-  .rowMain { grid-area: main; margin-top: 6px; }
-  .row:hover:not(.rowStatic) { padding-left: 4px; padding-right: 4px; }
+
+  .rowMeta { grid-area: arrow; padding-top: 0; gap: 8px; }
+  .rowMain { grid-area: main; margin-top: 8px; gap: 14px; }
+
+  .rowLogo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .row:hover:not(.rowStatic) {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
 }
