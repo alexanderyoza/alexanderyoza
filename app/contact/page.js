@@ -24,7 +24,7 @@ const ICONS = {
 const LINKS = [
   { label: 'Email', value: 'alex.yoza@gmail.com', href: 'mailto:alex.yoza@gmail.com', icon: 'email' },
   { label: 'LinkedIn', value: '/in/alex-yoza', href: 'https://www.linkedin.com/in/alex-yoza/', external: true, icon: 'linkedin' },
-  { label: 'GitHub', value: '@alexanderyoza', href: 'https://github.com/alexanderyoza?tab=repositories', external: true, icon: 'github' },
+  { label: 'GitHub', value: '@alexanderyoza', href: 'https://github.com/alexanderyoza', external: true, icon: 'github' },
 ];
 
 export default function Contact() {

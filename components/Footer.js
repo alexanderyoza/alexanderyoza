@@ -31,7 +31,7 @@ function Footer() {
                     </h2>
                     <a href="mailto:alex.yoza@gmail.com">alex.yoza@gmail.com</a>
                     <a href="https://www.linkedin.com/in/alex-yoza/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="https://github.com/alexanderyoza?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://github.com/alexanderyoza" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
             </div>
             <div className={styles.copyright}>
